@@ -2,21 +2,18 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --color-bg: #1a1a2e;
-  --color-bg-alt: #16213e;
-  --color-surface: #0f3460;
-  --color-accent: #e94560;
-  --color-accent-hover: #ff6b81;
-  --color-text: #eaeaea;
-  --color-text-muted: #a0a0b8;
+  --color-bg: #111111;
+  --color-bg-alt: #1a1a1a;
+  --color-surface: #232323;
+  --color-accent: #e87a1e;
+  --color-accent-hover: #f5981f;
+  --color-text: #e8e8e8;
+  --color-text-muted: #a0a09a;
   --color-heading: #ffffff;
-  --color-link: #e94560;
-  --color-link-hover: #ff6b81;
-  --color-border: rgba(233, 69, 96, 0.25);
-  --font-heading: 'DM Serif Display', Georgia, serif;
-  --font-body: 'Outfit', 'Segoe UI', sans-serif;
-  --max-width: 960px;
-  --nav-height: 64px;
+  --color-link: #e87a1e;
+  --color-link-hover: #f5981f;
+  --color-border: rgba(232, 122, 30, 0.25);
+  --color-green: #2d8c3c;
 }
 
 html { scroll-behavior: smooth; }
@@ -57,7 +54,7 @@ hr {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(26, 26, 46, 0.92);
+  background: rgba(17, 17, 17, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
@@ -367,7 +364,7 @@ hr {
   background: var(--color-surface);
   color: var(--color-heading);
   font-weight: 600;
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-green);
 }
 .schedule-table td {
   padding: 0.45rem 0.75rem;
