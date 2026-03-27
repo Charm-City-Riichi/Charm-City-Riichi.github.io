@@ -244,7 +244,7 @@ hr {
 }
 
 /* ===== HOME: FEATURES GRID ===== */
-/* KEY CHANGE: Now uses explicit 3-column grid with max-width constraint */
+/* CHANGED: Now explicitly 3 columns instead of auto-fit */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
