@@ -38,11 +38,92 @@
   <main class="page-content">
     <h1 class="page-title">Scoring</h1>
 
+    <!-- ==================== CALCULATOR ==================== -->
+
+    <div class="ccr-calculator-wrapper">
+      <div class="ccr-calculator-container">
+        <div class="ccr-card">
+          <div class="ccr-header">
+            <h2 id="calculator">Score Calculator</h2>
+          </div>
+
+          <div class="ccr-form-group">
+            <label>Dealer?</label>
+            <div class="ccr-radio-group">
+              <label><input type="radio" name="dealer" value="yes"> Dealer</label>
+              <label><input type="radio" name="dealer" value="no" checked> Non-dealer</label>
+            </div>
+          </div>
+
+          <div class="ccr-form-group">
+            <label>Win type?</label>
+            <div class="ccr-radio-group">
+              <label><input type="radio" name="tsumo" value="yes"> Tsumo</label>
+              <label><input type="radio" name="tsumo" value="no" checked> Ron</label>
+            </div>
+          </div>
+
+          <div class="ccr-form-group">
+            <label for="honba">Honba on the table</label>
+            <input type="number" id="honba" min="0" max="19" value="0">
+            <div class="ccr-error" id="honba-error"></div>
+          </div>
+
+          <div class="ccr-form-group">
+            <label for="han">Han</label>
+            <input type="number" id="han" min="1" max="59" value="1">
+            <div class="ccr-error" id="han-error"></div>
+          </div>
+
+          <div class="ccr-form-group" id="fu-group">
+            <label for="fu">Fu</label>
+            <select id="fu">
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30" selected>30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+              <option value="90">90</option>
+              <option value="100">100</option>
+              <option value="120">120</option>
+              <option value="130">130</option>
+              <option value="140">140</option>
+            </select>
+            <div class="ccr-error" id="fu-error"></div>
+          </div>
+
+          <div class="ccr-form-group ccr-hidden" id="yakuman-group">
+            <label for="yakuman">Yakuman type</label>
+            <select id="yakuman">
+              <option value="counted yakuman">Counted yakuman</option>
+              <option value="single yakuman">Single yakuman</option>
+              <option value="double yakuman">Double yakuman</option>
+            </select>
+          </div>
+
+          <button class="ccr-button" onclick="ccr_calculateScore()">Calculate Score</button>
+        </div>
+      </div>
+
+      <div id="ccr-results" class="ccr-result-card">
+        <div class="ccr-result-title">Your win</div>
+        <div class="ccr-result-value" id="ccr-win-type"></div>
+        <div class="ccr-result-details">
+          <div id="ccr-hand-info"></div>
+          <div style="margin-top: 1rem;"><strong>Payment:</strong></div>
+          <div id="ccr-payment-info"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== INTRODUCTION ==================== -->
+
     <p>Every winning hand in riichi mahjong is scored using two values: <strong>han</strong> and <strong>fu</strong>. Han come from the yaku (scoring patterns) in your hand and any dora. Fu come from the specific shape of your hand and how you won. Together, they determine how many points you win.</p>
 
     <p>If your hand has <strong>5 or more han</strong>, fu don't matter — the score is determined by han alone. Fu only matter for hands with 1–4 han.</p>
-
-    <p style="margin-top:1rem">Use the <a href="#calculator">calculator</a> at the bottom of this page to look up your score once you know your han and fu.</p>
 
     <!-- ==================== HAN ==================== -->
 
@@ -262,89 +343,7 @@
       </tbody>
     </table>
 
-    <p style="margin-top:0.8rem">Hands also reach mangan if they hit <strong>4 han 30+ fu</strong> or <strong>3 han 60+ fu</strong>. Use the calculator below to look up the exact point values.</p>
-
-    <!-- ==================== CALCULATOR ==================== -->
-
-    <hr>
-
-    <h2 id="calculator" style="font-size:1.6rem; margin-bottom:0.5rem;">Score Calculator</h2>
-
-    <p>Enter your han and fu to look up the score.</p>
-
-    <div class="ccr-calculator-container" style="margin-top:1.5rem;">
-      <div class="ccr-card">
-
-        <div class="ccr-form-group">
-          <label>Were you the dealer?</label>
-          <div class="ccr-radio-group">
-            <label><input type="radio" name="dealer" value="yes" checked> Yes</label>
-            <label><input type="radio" name="dealer" value="no"> No</label>
-          </div>
-        </div>
-
-        <div class="ccr-form-group">
-          <label>Did you win by tsumo (self-draw)?</label>
-          <div class="ccr-radio-group">
-            <label><input type="radio" name="tsumo" value="yes" checked> Yes</label>
-            <label><input type="radio" name="tsumo" value="no"> No</label>
-          </div>
-        </div>
-
-        <div class="ccr-form-group">
-          <label for="honba">Honba on the table</label>
-          <input type="number" id="honba" min="0" max="19" value="0">
-          <div class="ccr-error" id="honba-error"></div>
-        </div>
-
-        <div class="ccr-form-group">
-          <label for="han">Han</label>
-          <input type="number" id="han" min="1" max="59" value="1">
-          <div class="ccr-error" id="han-error"></div>
-        </div>
-
-        <div class="ccr-form-group" id="fu-group">
-          <label for="fu">Fu</label>
-          <select id="fu">
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
-            <option value="60">60</option>
-            <option value="70">70</option>
-            <option value="80">80</option>
-            <option value="90">90</option>
-            <option value="100">100</option>
-            <option value="120">120</option>
-            <option value="130">130</option>
-            <option value="140">140</option>
-          </select>
-          <div class="ccr-error" id="fu-error"></div>
-        </div>
-
-        <div class="ccr-form-group ccr-hidden" id="yakuman-group">
-          <label for="yakuman">Yakuman type</label>
-          <select id="yakuman">
-            <option value="counted yakuman">Counted yakuman</option>
-            <option value="single yakuman">Single yakuman</option>
-            <option value="double yakuman">Double yakuman</option>
-          </select>
-        </div>
-
-        <button class="ccr-button" onclick="ccr_calculateScore()">Calculate Score</button>
-      </div>
-
-      <div id="ccr-results" class="ccr-result-card">
-        <div class="ccr-result-title">Your win</div>
-        <div class="ccr-result-value" id="ccr-win-type"></div>
-        <div class="ccr-result-details">
-          <div id="ccr-hand-info"></div>
-          <div style="margin-top: 1rem;"><strong>Payment:</strong></div>
-          <div id="ccr-payment-info"></div>
-        </div>
-      </div>
-    </div>
+    <p style="margin-top:0.8rem">Hands also reach mangan if they hit <strong>4 han 30+ fu</strong> or <strong>3 han 60+ fu</strong>. Use the calculator above to look up the exact point values.</p>
 
     <script>
       const ccr_validHanAmounts = Array.from({length: 59}, (_, i) => i + 1);
@@ -418,8 +417,4 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
-  </footer>
-
-</body>
-</html>
+    <p>&copy; 2026 Charm City Riichi &middot; <a href="/cdn-cgi/l/email-protection#197a71786b747a706d606b70707a7170597e74787075377a7674"><span class="__cf_email__" data-cfemail="2c4f444d5e414f4558555e45454f44456c4b414d4540024f4341">[email&#160;
