@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scoring - Charm City Riichi</title>
-  <meta name="description" content="Riichi mahjong scoring reference.">
+  <meta name="description" content="Riichi mahjong scoring reference — how to count han and fu, full yaku list, and score calculator.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,11 +38,242 @@
   <main class="page-content">
     <h1 class="page-title">Scoring</h1>
 
-    <div class="ccr-calculator-container">
+    <p>Every winning hand in riichi mahjong is scored using two values: <strong>han</strong> and <strong>fu</strong>. Han come from the yaku (scoring patterns) in your hand and any dora. Fu come from the specific shape of your hand and how you won. Together, they determine how many points you win.</p>
+
+    <p>If your hand has <strong>5 or more han</strong>, fu don't matter — the score is determined by han alone. Fu only matter for hands with 1–4 han.</p>
+
+    <p style="margin-top:1rem">Use the <a href="#calculator">calculator</a> at the bottom of this page to look up your score once you know your han and fu.</p>
+
+    <!-- ==================== HAN ==================== -->
+
+    <hr>
+
+    <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Han</h2>
+
+    <p>Han are the primary unit of hand value. Each yaku is worth a set number of han, and a hand can combine multiple yaku. <strong>Dora</strong> tiles also add han, but they are not yaku on their own — your hand must have at least one yaku to win.</p>
+
+    <p>Some yaku are worth fewer han (or are unavailable entirely) when your hand is open — that is, when you've called chi, pon, or kan. A <strong>×</strong> in the "Open" column means the yaku cannot be used with an open hand.</p>
+
+    <div class="content-section" style="margin-top:1.5rem;">
+      <h3>1-Han Yaku</h3>
+      <table class="scoring-table">
+        <thead>
+          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Riichi</strong><br><span class="yaku-en">Ready Hand Declaration</span></td><td>1</td><td>×</td><td>Declare riichi when tenpai with a closed hand.</td></tr>
+          <tr><td><strong>Ippatsu</strong><br><span class="yaku-en">One-Shot Win</span></td><td>1</td><td>×</td><td>Win within one turn of declaring riichi, before any calls interrupt.</td></tr>
+          <tr><td><strong>Menzen Tsumo</strong><br><span class="yaku-en">Concealed Self-Draw</span></td><td>1</td><td>×</td><td>Win by tsumo with a fully closed hand.</td></tr>
+          <tr><td><strong>Pinfu</strong><br><span class="yaku-en">All Sequences</span></td><td>1</td><td>×</td><td>Closed hand of four sequences and a non-value pair, with a two-sided wait.</td></tr>
+          <tr><td><strong>Iipeikou</strong><br><span class="yaku-en">Pure Double Sequence</span></td><td>1</td><td>×</td><td>Two identical sequences of the same suit in a closed hand.</td></tr>
+          <tr><td><strong>Yakuhai</strong><br><span class="yaku-en">Value Tiles</span></td><td>1</td><td>1</td><td>A triplet of dragons, your seat wind, or the round wind. Scores 1 han per qualifying triplet.</td></tr>
+          <tr><td><strong>Tanyao</strong><br><span class="yaku-en">All Simples</span></td><td>1</td><td>1</td><td>Hand contains only tiles numbered 2–8 (no terminals or honors).</td></tr>
+          <tr><td><strong>Haitei</strong><br><span class="yaku-en">Last Tile Draw</span></td><td>1</td><td>1</td><td>Win by drawing the very last tile from the wall.</td></tr>
+          <tr><td><strong>Houtei</strong><br><span class="yaku-en">Last Tile Discard</span></td><td>1</td><td>1</td><td>Win by ron on the very last discard of the round.</td></tr>
+          <tr><td><strong>Rinshan Kaihou</strong><br><span class="yaku-en">After Kan Win</span></td><td>1</td><td>1</td><td>Win on the replacement tile drawn after declaring a kan.</td></tr>
+          <tr><td><strong>Chankan</strong><br><span class="yaku-en">Robbing a Kan</span></td><td>1</td><td>1</td><td>Win by ron on the tile another player uses to upgrade a pon to a kan.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>2-Han Yaku</h3>
+      <table class="scoring-table">
+        <thead>
+          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Double Riichi</strong><br><span class="yaku-en">Double Ready</span></td><td>2</td><td>×</td><td>Declare riichi on your very first discard, before any calls have been made.</td></tr>
+          <tr><td><strong>Chiitoitsu</strong><br><span class="yaku-en">Seven Pairs</span></td><td>2</td><td>×</td><td>Hand consists of seven unique pairs. Fixed at 25 fu.</td></tr>
+          <tr><td><strong>Sanshoku Doujun</strong><br><span class="yaku-en">Mixed Triple Sequence</span></td><td>2</td><td>1</td><td>The same sequence (e.g. 4-5-6) in all three suits.</td></tr>
+          <tr><td><strong>Ittsu</strong><br><span class="yaku-en">Pure Straight</span></td><td>2</td><td>1</td><td>Three sequences forming 1-2-3, 4-5-6, 7-8-9 in the same suit.</td></tr>
+          <tr><td><strong>Chanta</strong><br><span class="yaku-en">Mixed Outside Hand</span></td><td>2</td><td>1</td><td>Every set and the pair includes a terminal (1 or 9) or honor tile.</td></tr>
+          <tr><td><strong>Sanshoku Doukou</strong><br><span class="yaku-en">Triple Triplet</span></td><td>2</td><td>2</td><td>The same triplet (e.g. 5-5-5) in all three suits.</td></tr>
+          <tr><td><strong>San Ankou</strong><br><span class="yaku-en">Three Concealed Triplets</span></td><td>2</td><td>2</td><td>Three of your four sets are closed triplets.</td></tr>
+          <tr><td><strong>Toitoi</strong><br><span class="yaku-en">All Triplets</span></td><td>2</td><td>2</td><td>All four sets are triplets (no sequences).</td></tr>
+          <tr><td><strong>San Kantsu</strong><br><span class="yaku-en">Three Kans</span></td><td>2</td><td>2</td><td>Three of your four sets are kans.</td></tr>
+          <tr><td><strong>Shousangen</strong><br><span class="yaku-en">Little Three Dragons</span></td><td>2</td><td>2</td><td>Two dragon triplets and a dragon pair.</td></tr>
+          <tr><td><strong>Honroutou</strong><br><span class="yaku-en">All Terminals &amp; Honors</span></td><td>2</td><td>2</td><td>Hand consists only of terminal tiles (1s and 9s) and honor tiles.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>3-Han Yaku</h3>
+      <table class="scoring-table">
+        <thead>
+          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ryanpeikou</strong><br><span class="yaku-en">Twice Pure Double Sequence</span></td><td>3</td><td>×</td><td>Two different pairs of identical sequences in a closed hand.</td></tr>
+          <tr><td><strong>Junchan</strong><br><span class="yaku-en">Pure Outside Hand</span></td><td>3</td><td>2</td><td>Every set and the pair includes a terminal (1 or 9). No honors.</td></tr>
+          <tr><td><strong>Honitsu</strong><br><span class="yaku-en">Half Flush</span></td><td>3</td><td>2</td><td>Hand uses only one suit plus honor tiles.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>6-Han Yaku</h3>
+      <table class="scoring-table">
+        <thead>
+          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Chinitsu</strong><br><span class="yaku-en">Full Flush</span></td><td>6</td><td>5</td><td>Entire hand is composed of a single suit. No honors.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>Yakuman</h3>
+      <p>Yakuman are the rarest and highest-scoring hands. They have a fixed score regardless of fu.</p>
+      <table class="scoring-table">
+        <thead>
+          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Suu Ankou</strong><br><span class="yaku-en">Four Concealed Triplets</span></td><td>Yakuman</td><td>×</td><td>Four closed triplets.</td></tr>
+          <tr><td><strong>Kokushi Musou</strong><br><span class="yaku-en">Thirteen Orphans</span></td><td>Yakuman</td><td>×</td><td>One of each terminal and honor tile, plus one duplicate.</td></tr>
+          <tr><td><strong>Chuuren Poutou</strong><br><span class="yaku-en">Nine Gates</span></td><td>Yakuman</td><td>×</td><td>1-1-1-2-3-4-5-6-7-8-9-9-9 of one suit, plus any tile of that suit.</td></tr>
+          <tr><td><strong>Tenhou</strong><br><span class="yaku-en">Heavenly Hand</span></td><td>Yakuman</td><td>×</td><td>Dealer wins on their initial 14-tile draw.</td></tr>
+          <tr><td><strong>Chiihou</strong><br><span class="yaku-en">Earthly Hand</span></td><td>Yakuman</td><td>×</td><td>Non-dealer wins on their first tsumo, before any calls.</td></tr>
+          <tr><td><strong>Daisangen</strong><br><span class="yaku-en">Big Three Dragons</span></td><td>Yakuman</td><td>Yakuman</td><td>Triplets of all three dragons.</td></tr>
+          <tr><td><strong>Shousuushii</strong><br><span class="yaku-en">Little Four Winds</span></td><td>Yakuman</td><td>Yakuman</td><td>Three wind triplets and a wind pair.</td></tr>
+          <tr><td><strong>Daisuushii</strong><br><span class="yaku-en">Big Four Winds</span></td><td>Yakuman</td><td>Yakuman</td><td>Triplets of all four winds.</td></tr>
+          <tr><td><strong>Tsuiisou</strong><br><span class="yaku-en">All Honors</span></td><td>Yakuman</td><td>Yakuman</td><td>Every tile in the hand is an honor tile.</td></tr>
+          <tr><td><strong>Chinroutou</strong><br><span class="yaku-en">All Terminals</span></td><td>Yakuman</td><td>Yakuman</td><td>Every tile is a 1 or 9.</td></tr>
+          <tr><td><strong>Ryuuiisou</strong><br><span class="yaku-en">All Green</span></td><td>Yakuman</td><td>Yakuman</td><td>Hand uses only 2, 3, 4, 6, 8 of souzu and/or green dragon.</td></tr>
+          <tr><td><strong>Suu Kantsu</strong><br><span class="yaku-en">Four Kans</span></td><td>Yakuman</td><td>Yakuman</td><td>All four sets are kans.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ==================== FU ==================== -->
+
+    <hr>
+
+    <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Fu</h2>
+
+    <p>Fu are base points determined by the shape of your hand and how you won. To calculate fu, add up the values from the five categories below, then <strong>round the total up to the nearest 10</strong> (e.g. 32 fu becomes 40 fu).</p>
+
+    <div class="content-section" style="margin-top:1.5rem;">
+      <h3>① Base Fu</h3>
+      <p>Every hand starts with <strong>20 fu</strong>.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>② Winning Method</h3>
+      <table class="scoring-table fu-table">
+        <thead>
+          <tr><th>Method</th><th>Fu</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Tsumo (self-draw)</td><td>2</td></tr>
+          <tr><td>Ron with a closed hand</td><td>10</td></tr>
+          <tr><td>Ron with an open hand</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>③ Melds (Sets)</h3>
+      <p>Each set in your hand contributes fu based on whether it's open or closed, and whether it uses simple tiles (2–8) or terminal/honor tiles (1, 9, winds, dragons).</p>
+      <table class="scoring-table fu-table">
+        <thead>
+          <tr><th>Meld Type</th><th>Simples (2–8)</th><th>Terminals &amp; Honors</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sequence</td><td>0</td><td>0</td></tr>
+          <tr><td>Open triplet</td><td>2</td><td>4</td></tr>
+          <tr><td>Closed triplet</td><td>4</td><td>8</td></tr>
+          <tr><td>Open kan (quad)</td><td>8</td><td>16</td></tr>
+          <tr><td>Closed kan (quad)</td><td>16</td><td>32</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>④ Pair</h3>
+      <table class="scoring-table fu-table">
+        <thead>
+          <tr><th>Pair Type</th><th>Fu</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dragons, seat wind, or round wind</td><td>2</td></tr>
+          <tr><td>Anything else</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>⑤ Waiting Shape</h3>
+      <table class="scoring-table fu-table">
+        <thead>
+          <tr><th>Wait Type</th><th>Fu</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Two-sided wait (<em>ryanmen</em>)</td><td>0</td><td>Holding 4-5, waiting on 3 or 6</td></tr>
+          <tr><td>Edge wait (<em>penchan</em>)</td><td>2</td><td>Holding 1-2, waiting on 3</td></tr>
+          <tr><td>Closed wait (<em>kanchan</em>)</td><td>2</td><td>Holding 4-6, waiting on 5</td></tr>
+          <tr><td>Single tile wait (<em>tanki</em>)</td><td>2</td><td>Waiting on the pair tile</td></tr>
+          <tr><td>Pair wait (<em>shanpon</em>)</td><td>0</td><td>Two incomplete triplets, waiting on either</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="content-section">
+      <h3>Putting It Together</h3>
+      <p><strong>① Base (20) + ② Winning Method + ③ Melds + ④ Pair + ⑤ Wait = Total Fu</strong></p>
+      <p>Round the total up to the nearest 10. For example, if your fu add up to 32, your hand is scored as 40 fu.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Exceptions</h3>
+      <table class="scoring-table fu-table">
+        <thead>
+          <tr><th>Situation</th><th>Fu</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Pinfu + tsumo</strong> — closed hand, all sequences, non-value pair, two-sided wait, won by self-draw</td><td>Fixed 20 fu</td></tr>
+          <tr><td><strong>Chiitoitsu</strong> — seven pairs</td><td>Fixed 25 fu</td></tr>
+          <tr><td><strong>Open hand with no fu</strong> (sometimes called <em>kuipinfu</em>) — an open hand that would otherwise be 20 fu (e.g. all sequences, ron)</td><td>Counted as 30 fu</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ==================== MANGAN+ ==================== -->
+
+    <hr>
+
+    <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Limit Hands</h2>
+
+    <p>When a hand reaches 5 or more han, fu no longer matter. The score jumps to a fixed amount based on the han count:</p>
+
+    <table class="scoring-table fu-table">
+      <thead>
+        <tr><th>Han</th><th>Name</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>5 (or 3–4 han with enough fu)</td><td>Mangan</td></tr>
+        <tr><td>6–7</td><td>Haneman</td></tr>
+        <tr><td>8–10</td><td>Baiman</td></tr>
+        <tr><td>11–12</td><td>Sanbaiman</td></tr>
+        <tr><td>13+</td><td>Counted Yakuman</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:0.8rem">Hands also reach mangan if they hit <strong>4 han 30+ fu</strong> or <strong>3 han 60+ fu</strong>. Use the calculator below to look up the exact point values.</p>
+
+    <!-- ==================== CALCULATOR ==================== -->
+
+    <hr>
+
+    <h2 id="calculator" style="font-size:1.6rem; margin-bottom:0.5rem;">Score Calculator</h2>
+
+    <p>Enter your han and fu to look up the score.</p>
+
+    <div class="ccr-calculator-container" style="margin-top:1.5rem;">
       <div class="ccr-card">
-        <div class="ccr-header">
-          <h2>Payment Calculator</h2>
-        </div>
 
         <div class="ccr-form-group">
           <label>Were you the dealer?</label>
@@ -183,6 +414,7 @@
 
       document.addEventListener('keypress', function(e) { if (e.key === 'Enter') ccr_calculateScore(); });
     </script>
+
   </main>
 
   <footer class="site-footer">
