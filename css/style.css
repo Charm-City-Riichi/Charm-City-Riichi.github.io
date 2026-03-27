@@ -14,6 +14,10 @@
   --color-link-hover: #d06a12;
   --color-border: rgba(26, 26, 26, 0.12);
   --color-green: #2d8c3c;
+  --max-width: 1200px;
+  --nav-height: 60px;
+  --font-body: 'Outfit', sans-serif;
+  --font-heading: 'DM Serif Display', serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -240,9 +244,10 @@ hr {
 }
 
 /* ===== HOME: FEATURES GRID ===== */
+/* KEY CHANGE: Now uses explicit 3-column grid with max-width constraint */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   max-width: var(--max-width);
   margin: 2rem auto 3rem;
@@ -268,6 +273,21 @@ hr {
   color: var(--color-text-muted);
   font-size: 0.92rem;
   line-height: 1.6;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 640px) {
+  .features {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
 }
 
 /* ===== HOME: PHOTO GALLERY ===== */
