@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play - Charm City Riichi</title>
+  <meta name="description" content="Learn how to play riichi mahjong — overview, tiles, rounds, winning, and scoring.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">Charm City Riichi</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+        <span></span>
+      </button>
+      <ul class="main-nav">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="/events.html">Events</a>
+          <ul class="dropdown-menu">
+            <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
+            <li><a href="/events/one-day-events.html">One-Day Events</a></li>
+            <li><a href="/events/ccro.html">CCRO '26</a></li>
+          </ul>
+        </li>
+        <li><a href="/how-to-play.html" class="active">How to Play</a></li>
+        <li><a href="/scoring.html">Scoring</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <h1 class="page-title">How to Play</h1>
+
+    <div class="content-section">
+      <h2 style="font-size:1.6rem; margin-bottom:1rem;">Overview</h2>
+
+      <h3>The goal</h3>
+      <p>Mahjong is a four-player strategy game built on pattern recognition and timing. Each player draws and discards tiles to build a complete hand before anyone else does. A full game consists of several rounds.</p>
+      <p>There are many variants of mahjong, which are often named after the region that popularized them. Examples include Hong Kong Old Style and <a href="https://www.nationalmahjonggleague.org/" target="_blank" rel="noopener">American Mah Jongg</a>. Our club plays a Japanese mahjong variant called <em>riichi</em>, named for a particular move you can make during the game.</p>
+    </div>
+
+    <hr>
+
+    <div class="content-section">
+      <h3>The tiles</h3>
+      <p>A riichi mahjong set has 136 tiles:</p>
+      <ul>
+        <li><strong>Three suits</strong> (tiles are numbered 1-9)
+          <ul>
+            <li><em>manzu</em> — "characters"</li>
+            <li><em>pinzu</em> — "dots" or "circles"</li>
+            <li><em>souzu</em> — "bamboo"</li>
+          </ul>
+        </li>
+        <li><strong>Honors</strong> (tiles are not numbered)
+          <ul>
+            <li><em>kazehai</em> — "winds" (East, South, West, North)</li>
+            <li><em>sangenpai</em> — "dragons" (White, Green, Red)</li>
+          </ul>
+        </li>
+      </ul>
+      <p>Each tile type (i.e. the four of bamboo or the East wind) appears four times.</p>
+      <p>Numbered tiles of the same suit can form triplets (i.e. 4-4-4) and sequences (i.e. 1-2-3 or 6-7-8); honors can only be used in triplets (i.e. E-E-E).</p>
+    </div>
+
+    <hr>
+
+    <div class="content-section">
+      <h3>How a round works</h3>
+      <p>Players have hands of 13 tiles. On their turn, they draw a 14th tile, then discard a tile to return to 13 in-hand. The turn order goes counter-clockwise.</p>
+      <p>You can "call" certain discards to finish a set of three tiles:</p>
+      <ul>
+        <li><em>chi</em>: a sequence, only from the player to your left</li>
+        <li><em>pon</em>: a triplet, from anyone</li>
+        <li><em>kan</em>: a quad, which is essentially an extended triplet</li>
+      </ul>
+      <p>If you haven't made any calls, your hand is <em>closed</em>. A closed hand can declare <em>riichi</em> ("ready hand") when you're one tile away from winning.</p>
+    </div>
+
+    <hr>
+
+    <div class="content-section">
+      <h2 style="font-size:1.6rem; margin-bottom:1rem;">Winning</h2>
+      <p>You can finish your hand by calling <em>ron</em> (winning off someone's discard) or <em>tsumo</em> (drawing the winning tile yourself).</p>
+
+      <h3>Structure</h3>
+      <p>A standard winning hand has 14 tiles, with <strong>four sets and one pair</strong>:</p>
+      <ul>
+        <li>A <em>set</em> can be a <strong>sequence</strong> (for example, 4–5–6 of the same suit) or a <strong>triplet</strong> (three of the same tile).</li>
+        <li>The <em>pair</em> is two identical tiles.</li>
+      </ul>
+
+      <h3>To win</h3>
+      <p>You need both a complete hand and at least one <em>yaku</em>, which is a scoring pattern that makes the hand valid. Without a <em>yaku</em>, you cannot win!</p>
+
+      <h3>Beginner yaku to learn first</h3>
+      <ul>
+        <li><em>riichi</em> — declaring ready (closed hand only)</li>
+        <li><em>tanyao</em> — only tiles numbered 2-8 (no 1s, 9s, or honor tiles)</li>
+        <li><em>yakuhai</em> — contains a triplet of dragons, your seat wind, or the round wind</li>
+        <li><em>toitoi</em> — only triplets (no sequences) plus your pair</li>
+        <li><em>honitsu</em> — only tiles from a single suit, plus honor tiles</li>
+        <li><em>chiitoitsu</em> — non-standard hand composed of seven unique pairs</li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <div class="content-section">
+      <h2 style="font-size:1.6rem; margin-bottom:1rem;">Scoring</h2>
+      <p>Every hand's value comes from two parts: <strong>han</strong> and <strong>fu</strong>.</p>
+
+      <h3>Han</h3>
+      <p>Each <em>yaku</em> adds one or more <em>han</em>, and hands can stack multiple <em>yaku</em>. Bonus tiles called <em>dora</em> also add <em>han</em>, though they aren't <em>yaku</em> on their own.</p>
+
+      <h3>Fu</h3>
+      <p><em>Fu</em> are base points based on your hand's pattern and how you won. <em>Fu</em> are irrelevant if your hand scores 5 or more <em>han</em>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
+  </footer>
+
+</body>
+</html>
