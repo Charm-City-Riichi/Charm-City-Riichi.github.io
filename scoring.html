@@ -135,99 +135,142 @@
 
     <p>Some yaku are worth fewer han (or are unavailable entirely) when your hand is open — that is, when you've called chi, pon, or kan. A <strong>×</strong> in the "Open" column means the yaku cannot be used with an open hand.</p>
 
-    <div class="content-section" style="margin-top:1.5rem;">
-      <h3>1-Han Yaku</h3>
-      <table class="scoring-table">
-        <thead>
-          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Riichi</strong><br><span class="yaku-en">Ready Hand Declaration</span></td><td>1</td><td>×</td><td>Declare riichi when tenpai with a closed hand.</td></tr>
-          <tr><td><strong>Ippatsu</strong><br><span class="yaku-en">One-Shot Win</span></td><td>1</td><td>×</td><td>Win within one turn of declaring riichi, before any calls interrupt.</td></tr>
-          <tr><td><strong>Menzen Tsumo</strong><br><span class="yaku-en">Concealed Self-Draw</span></td><td>1</td><td>×</td><td>Win by tsumo with a fully closed hand.</td></tr>
-          <tr><td><strong>Pinfu</strong><br><span class="yaku-en">All Sequences</span></td><td>1</td><td>×</td><td>Closed hand of four sequences and a non-value pair, with a two-sided wait.</td></tr>
-          <tr><td><strong>Iipeikou</strong><br><span class="yaku-en">Pure Double Sequence</span></td><td>1</td><td>×</td><td>Two identical sequences of the same suit in a closed hand.</td></tr>
-          <tr><td><strong>Yakuhai</strong><br><span class="yaku-en">Value Tiles</span></td><td>1</td><td>1</td><td>A triplet of dragons, your seat wind, or the round wind. Scores 1 han per qualifying triplet.</td></tr>
-          <tr><td><strong>Tanyao</strong><br><span class="yaku-en">All Simples</span></td><td>1</td><td>1</td><td>Hand contains only tiles numbered 2–8 (no terminals or honors).</td></tr>
-          <tr><td><strong>Haitei</strong><br><span class="yaku-en">Last Tile Draw</span></td><td>1</td><td>1</td><td>Win by drawing the very last tile from the wall.</td></tr>
-          <tr><td><strong>Houtei</strong><br><span class="yaku-en">Last Tile Discard</span></td><td>1</td><td>1</td><td>Win by ron on the very last discard of the round.</td></tr>
-          <tr><td><strong>Rinshan Kaihou</strong><br><span class="yaku-en">After Kan Win</span></td><td>1</td><td>1</td><td>Win on the replacement tile drawn after declaring a kan.</td></tr>
-          <tr><td><strong>Chankan</strong><br><span class="yaku-en">Robbing a Kan</span></td><td>1</td><td>1</td><td>Win by ron on the tile another player uses to upgrade a pon to a kan.</td></tr>
-        </tbody>
-      </table>
+    <div class="yaku-interactive" style="margin-top:1.5rem;">
+      <div class="yaku-controls">
+        <input type="text" class="yaku-search" id="yakuSearch" placeholder="Search yaku…" autocomplete="off">
+        <div class="yaku-filters">
+          <button class="yaku-filter active" data-filter="all">All</button>
+          <button class="yaku-filter" data-filter="1">1 Han</button>
+          <button class="yaku-filter" data-filter="2">2 Han</button>
+          <button class="yaku-filter" data-filter="3">3 Han</button>
+          <button class="yaku-filter" data-filter="6">6 Han</button>
+          <button class="yaku-filter" data-filter="yakuman">Yakuman</button>
+          <button class="yaku-filter" data-filter="closed">Closed Only</button>
+        </div>
+      </div>
+      <div class="yaku-table-wrap">
+        <table class="scoring-table yaku-master-table" id="yakuTable">
+          <thead>
+            <tr>
+              <th data-col="jp" class="sortable">Japanese <span class="sort-arrow">▲</span></th>
+              <th data-col="en" class="sortable">English <span class="sort-arrow">▲</span></th>
+              <th data-col="han" class="sortable">Closed <span class="sort-arrow">▲</span></th>
+              <th data-col="open" class="sortable">Open <span class="sort-arrow">▲</span></th>
+              <th data-col="desc" class="sortable">Description <span class="sort-arrow">▲</span></th>
+            </tr>
+          </thead>
+          <tbody id="yakuBody"></tbody>
+        </table>
+      </div>
+      <div class="yaku-count" id="yakuCount"></div>
     </div>
 
-    <div class="content-section">
-      <h3>2-Han Yaku</h3>
-      <table class="scoring-table">
-        <thead>
-          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Double Riichi</strong><br><span class="yaku-en">Double Ready</span></td><td>2</td><td>×</td><td>Declare riichi on your very first discard, before any calls have been made.</td></tr>
-          <tr><td><strong>Chiitoitsu</strong><br><span class="yaku-en">Seven Pairs</span></td><td>2</td><td>×</td><td>Hand consists of seven unique pairs. Fixed at 25 fu.</td></tr>
-          <tr><td><strong>Sanshoku Doujun</strong><br><span class="yaku-en">Mixed Triple Sequence</span></td><td>2</td><td>1</td><td>The same sequence (e.g. 4-5-6) in all three suits.</td></tr>
-          <tr><td><strong>Ittsu</strong><br><span class="yaku-en">Pure Straight</span></td><td>2</td><td>1</td><td>Three sequences forming 1-2-3, 4-5-6, 7-8-9 in the same suit.</td></tr>
-          <tr><td><strong>Chanta</strong><br><span class="yaku-en">Mixed Outside Hand</span></td><td>2</td><td>1</td><td>Every set and the pair includes a terminal (1 or 9) or honor tile.</td></tr>
-          <tr><td><strong>Sanshoku Doukou</strong><br><span class="yaku-en">Triple Triplet</span></td><td>2</td><td>2</td><td>The same triplet (e.g. 5-5-5) in all three suits.</td></tr>
-          <tr><td><strong>San Ankou</strong><br><span class="yaku-en">Three Concealed Triplets</span></td><td>2</td><td>2</td><td>Three of your four sets are closed triplets.</td></tr>
-          <tr><td><strong>Toitoi</strong><br><span class="yaku-en">All Triplets</span></td><td>2</td><td>2</td><td>All four sets are triplets (no sequences).</td></tr>
-          <tr><td><strong>San Kantsu</strong><br><span class="yaku-en">Three Kans</span></td><td>2</td><td>2</td><td>Three of your four sets are kans.</td></tr>
-          <tr><td><strong>Shousangen</strong><br><span class="yaku-en">Little Three Dragons</span></td><td>2</td><td>2</td><td>Two dragon triplets and a dragon pair.</td></tr>
-          <tr><td><strong>Honroutou</strong><br><span class="yaku-en">All Terminals &amp; Honors</span></td><td>2</td><td>2</td><td>Hand consists only of terminal tiles (1s and 9s) and honor tiles.</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <script>
+    (function() {
+      const YAKU = [
+        {jp:"Riichi",en:"Ready Hand Declaration",closed:1,open:null,desc:"Declare riichi when tenpai with a closed hand."},
+        {jp:"Ippatsu",en:"One-Shot Win",closed:1,open:null,desc:"Win within one turn of declaring riichi, before any calls interrupt."},
+        {jp:"Menzen Tsumo",en:"Concealed Self-Draw",closed:1,open:null,desc:"Win by tsumo with a fully closed hand."},
+        {jp:"Pinfu",en:"All Sequences",closed:1,open:null,desc:"Closed hand of four sequences and a non-value pair, with a two-sided wait."},
+        {jp:"Iipeikou",en:"Pure Double Sequence",closed:1,open:null,desc:"Two identical sequences of the same suit in a closed hand."},
+        {jp:"Yakuhai",en:"Value Tiles",closed:1,open:1,desc:"A triplet of dragons, seat wind, or round wind. Scores 1 han per qualifying triplet."},
+        {jp:"Tanyao",en:"All Simples",closed:1,open:1,desc:"Hand contains only tiles numbered 2–8 (no terminals or honors)."},
+        {jp:"Haitei",en:"Last Tile Draw",closed:1,open:1,desc:"Win by drawing the very last tile from the wall."},
+        {jp:"Houtei",en:"Last Tile Discard",closed:1,open:1,desc:"Win by ron on the very last discard of the round."},
+        {jp:"Rinshan Kaihou",en:"After Kan Win",closed:1,open:1,desc:"Win on the replacement tile drawn after declaring a kan."},
+        {jp:"Chankan",en:"Robbing a Kan",closed:1,open:1,desc:"Win by ron on the tile another player uses to upgrade a pon to a kan."},
+        {jp:"Double Riichi",en:"Double Ready",closed:2,open:null,desc:"Declare riichi on your very first discard, before any calls have been made."},
+        {jp:"Chiitoitsu",en:"Seven Pairs",closed:2,open:null,desc:"Hand consists of seven unique pairs. Fixed at 25 fu."},
+        {jp:"Sanshoku Doujun",en:"Mixed Triple Sequence",closed:2,open:1,desc:"The same sequence (e.g. 4-5-6) in all three suits."},
+        {jp:"Ittsu",en:"Pure Straight",closed:2,open:1,desc:"Three sequences forming 1-2-3, 4-5-6, 7-8-9 in the same suit."},
+        {jp:"Chanta",en:"Mixed Outside Hand",closed:2,open:1,desc:"Every set and the pair includes a terminal (1 or 9) or honor tile."},
+        {jp:"Sanshoku Doukou",en:"Triple Triplet",closed:2,open:2,desc:"The same triplet (e.g. 5-5-5) in all three suits."},
+        {jp:"San Ankou",en:"Three Concealed Triplets",closed:2,open:2,desc:"Three of your four sets are closed triplets."},
+        {jp:"Toitoi",en:"All Triplets",closed:2,open:2,desc:"All four sets are triplets (no sequences)."},
+        {jp:"San Kantsu",en:"Three Kans",closed:2,open:2,desc:"Three of your four sets are kans."},
+        {jp:"Shousangen",en:"Little Three Dragons",closed:2,open:2,desc:"Two dragon triplets and a dragon pair."},
+        {jp:"Honroutou",en:"All Terminals & Honors",closed:2,open:2,desc:"Hand consists only of terminal tiles (1s and 9s) and honor tiles."},
+        {jp:"Ryanpeikou",en:"Twice Pure Double Sequence",closed:3,open:null,desc:"Two different pairs of identical sequences in a closed hand."},
+        {jp:"Junchan",en:"Pure Outside Hand",closed:3,open:2,desc:"Every set and the pair includes a terminal (1 or 9). No honors."},
+        {jp:"Honitsu",en:"Half Flush",closed:3,open:2,desc:"Hand uses only one suit plus honor tiles."},
+        {jp:"Chinitsu",en:"Full Flush",closed:6,open:5,desc:"Entire hand is composed of a single suit. No honors."},
+        {jp:"Suu Ankou",en:"Four Concealed Triplets",closed:"Yakuman",open:null,desc:"Four closed triplets."},
+        {jp:"Kokushi Musou",en:"Thirteen Orphans",closed:"Yakuman",open:null,desc:"One of each terminal and honor tile, plus one duplicate."},
+        {jp:"Chuuren Poutou",en:"Nine Gates",closed:"Yakuman",open:null,desc:"1-1-1-2-3-4-5-6-7-8-9-9-9 of one suit, plus any tile of that suit."},
+        {jp:"Tenhou",en:"Heavenly Hand",closed:"Yakuman",open:null,desc:"Dealer wins on their initial 14-tile draw."},
+        {jp:"Chiihou",en:"Earthly Hand",closed:"Yakuman",open:null,desc:"Non-dealer wins on their first tsumo, before any calls."},
+        {jp:"Daisangen",en:"Big Three Dragons",closed:"Yakuman",open:"Yakuman",desc:"Triplets of all three dragons."},
+        {jp:"Shousuushii",en:"Little Four Winds",closed:"Yakuman",open:"Yakuman",desc:"Three wind triplets and a wind pair."},
+        {jp:"Daisuushii",en:"Big Four Winds",closed:"Yakuman",open:"Yakuman",desc:"Triplets of all four winds."},
+        {jp:"Tsuiisou",en:"All Honors",closed:"Yakuman",open:"Yakuman",desc:"Every tile in the hand is an honor tile."},
+        {jp:"Chinroutou",en:"All Terminals",closed:"Yakuman",open:"Yakuman",desc:"Every tile is a 1 or 9."},
+        {jp:"Ryuuiisou",en:"All Green",closed:"Yakuman",open:"Yakuman",desc:"Hand uses only 2, 3, 4, 6, 8 of souzu and/or green dragon."},
+        {jp:"Suu Kantsu",en:"Four Kans",closed:"Yakuman",open:"Yakuman",desc:"All four sets are kans."},
+      ];
 
-    <div class="content-section">
-      <h3>3-Han Yaku</h3>
-      <table class="scoring-table">
-        <thead>
-          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Ryanpeikou</strong><br><span class="yaku-en">Twice Pure Double Sequence</span></td><td>3</td><td>×</td><td>Two different pairs of identical sequences in a closed hand.</td></tr>
-          <tr><td><strong>Junchan</strong><br><span class="yaku-en">Pure Outside Hand</span></td><td>3</td><td>2</td><td>Every set and the pair includes a terminal (1 or 9). No honors.</td></tr>
-          <tr><td><strong>Honitsu</strong><br><span class="yaku-en">Half Flush</span></td><td>3</td><td>2</td><td>Hand uses only one suit plus honor tiles.</td></tr>
-        </tbody>
-      </table>
-    </div>
+      function hanCat(y) { return y.closed === "Yakuman" ? "yakuman" : String(y.closed); }
+      function sortVal(v) { return v === "Yakuman" ? 100 : v === null ? -1 : v; }
+      function hanHTML(v) {
+        if (v === "Yakuman") return '<span class="yaku-han-tag yakuman">Yakuman</span>';
+        if (v === null) return '<span class="yaku-closed-x">×</span>';
+        return '<span class="yaku-han-tag han-' + v + '">' + v + '</span>';
+      }
 
-    <div class="content-section">
-      <h3>6-Han Yaku</h3>
-      <table class="scoring-table">
-        <thead>
-          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Chinitsu</strong><br><span class="yaku-en">Full Flush</span></td><td>6</td><td>5</td><td>Entire hand is composed of a single suit. No honors.</td></tr>
-        </tbody>
-      </table>
-    </div>
+      const tbody = document.getElementById("yakuBody");
+      const searchBox = document.getElementById("yakuSearch");
+      const countEl = document.getElementById("yakuCount");
+      const filterBtns = document.querySelectorAll(".yaku-filter");
+      let filter = "all", sortCol = null, sortAsc = true;
 
-    <div class="content-section">
-      <h3>Yakuman</h3>
-      <p>Yakuman are the rarest and highest-scoring hands. They have a fixed score regardless of fu.</p>
-      <table class="scoring-table">
-        <thead>
-          <tr><th>Yaku</th><th>Closed</th><th>Open</th><th>Description</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Suu Ankou</strong><br><span class="yaku-en">Four Concealed Triplets</span></td><td>Yakuman</td><td>×</td><td>Four closed triplets.</td></tr>
-          <tr><td><strong>Kokushi Musou</strong><br><span class="yaku-en">Thirteen Orphans</span></td><td>Yakuman</td><td>×</td><td>One of each terminal and honor tile, plus one duplicate.</td></tr>
-          <tr><td><strong>Chuuren Poutou</strong><br><span class="yaku-en">Nine Gates</span></td><td>Yakuman</td><td>×</td><td>1-1-1-2-3-4-5-6-7-8-9-9-9 of one suit, plus any tile of that suit.</td></tr>
-          <tr><td><strong>Tenhou</strong><br><span class="yaku-en">Heavenly Hand</span></td><td>Yakuman</td><td>×</td><td>Dealer wins on their initial 14-tile draw.</td></tr>
-          <tr><td><strong>Chiihou</strong><br><span class="yaku-en">Earthly Hand</span></td><td>Yakuman</td><td>×</td><td>Non-dealer wins on their first tsumo, before any calls.</td></tr>
-          <tr><td><strong>Daisangen</strong><br><span class="yaku-en">Big Three Dragons</span></td><td>Yakuman</td><td>Yakuman</td><td>Triplets of all three dragons.</td></tr>
-          <tr><td><strong>Shousuushii</strong><br><span class="yaku-en">Little Four Winds</span></td><td>Yakuman</td><td>Yakuman</td><td>Three wind triplets and a wind pair.</td></tr>
-          <tr><td><strong>Daisuushii</strong><br><span class="yaku-en">Big Four Winds</span></td><td>Yakuman</td><td>Yakuman</td><td>Triplets of all four winds.</td></tr>
-          <tr><td><strong>Tsuiisou</strong><br><span class="yaku-en">All Honors</span></td><td>Yakuman</td><td>Yakuman</td><td>Every tile in the hand is an honor tile.</td></tr>
-          <tr><td><strong>Chinroutou</strong><br><span class="yaku-en">All Terminals</span></td><td>Yakuman</td><td>Yakuman</td><td>Every tile is a 1 or 9.</td></tr>
-          <tr><td><strong>Ryuuiisou</strong><br><span class="yaku-en">All Green</span></td><td>Yakuman</td><td>Yakuman</td><td>Hand uses only 2, 3, 4, 6, 8 of souzu and/or green dragon.</td></tr>
-          <tr><td><strong>Suu Kantsu</strong><br><span class="yaku-en">Four Kans</span></td><td>Yakuman</td><td>Yakuman</td><td>All four sets are kans.</td></tr>
-        </tbody>
-      </table>
-    </div>
+      function getList() {
+        let list = YAKU;
+        const q = searchBox.value.toLowerCase().trim();
+        if (q) list = list.filter(y => y.jp.toLowerCase().includes(q) || y.en.toLowerCase().includes(q) || y.desc.toLowerCase().includes(q));
+        if (filter === "closed") list = list.filter(y => y.open === null);
+        else if (filter !== "all") list = list.filter(y => hanCat(y) === filter);
+        if (sortCol) {
+          list = [...list].sort((a, b) => {
+            let va, vb;
+            if (sortCol === "jp") { va = a.jp; vb = b.jp; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va); }
+            if (sortCol === "en") { va = a.en; vb = b.en; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va); }
+            if (sortCol === "desc") { va = a.desc; vb = b.desc; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va); }
+            if (sortCol === "han") { va = sortVal(a.closed); vb = sortVal(b.closed); }
+            else { va = sortVal(a.open); vb = sortVal(b.open); }
+            return sortAsc ? va - vb : vb - va;
+          });
+        }
+        return list;
+      }
+
+      function render() {
+        const list = getList();
+        tbody.innerHTML = list.map(y =>
+          '<tr><td><strong>' + y.jp + '</strong></td><td class="yaku-en-cell">' + y.en + '</td><td>' + hanHTML(y.closed) + '</td><td>' + hanHTML(y.open) + '</td><td>' + y.desc + '</td></tr>'
+        ).join("");
+        countEl.textContent = "Showing " + list.length + " of " + YAKU.length + " yaku";
+      }
+
+      filterBtns.forEach(btn => btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        filter = btn.dataset.filter;
+        render();
+      }));
+
+      searchBox.addEventListener("input", render);
+
+      document.querySelectorAll("#yakuTable thead th.sortable").forEach(th => th.addEventListener("click", () => {
+        const col = th.dataset.col;
+        if (sortCol === col) sortAsc = !sortAsc; else { sortCol = col; sortAsc = true; }
+        document.querySelectorAll("#yakuTable thead th.sortable").forEach(h => { h.classList.remove("sorted"); h.querySelector(".sort-arrow").textContent = "▲"; });
+        th.classList.add("sorted");
+        th.querySelector(".sort-arrow").textContent = sortAsc ? "▲" : "▼";
+        render();
+      }));
+
+      render();
+    })();
+    </script>
 
     <!-- ==================== FU ==================== -->
 
@@ -235,80 +278,86 @@
 
     <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Fu</h2>
 
-    <p>Fu are base points determined by the shape of your hand and how you won. To calculate fu, add up the values from the five categories below, then <strong>round the total up to the nearest 10</strong> (e.g. 32 fu becomes 40 fu).</p>
+    <p>Fu are base points determined by the shape of your hand and how you won. To calculate fu, add up the values from the categories below, then <strong>round the total up to the nearest 10</strong> (e.g. 32 fu → 40 fu).</p>
+
+    <div class="fu-grid">
+
+      <div class="fu-card">
+        <div class="fu-card-header">① Base Fu</div>
+        <div class="fu-card-body">
+          <p>Every hand starts with <strong>20 fu</strong>.</p>
+        </div>
+      </div>
+
+      <div class="fu-card">
+        <div class="fu-card-header">② Winning Method</div>
+        <div class="fu-card-body">
+          <table class="scoring-table fu-table">
+            <tbody>
+              <tr><td>Tsumo (self-draw)</td><td>2</td></tr>
+              <tr><td>Ron, closed hand</td><td>10</td></tr>
+              <tr><td>Ron, open hand</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="fu-card">
+        <div class="fu-card-header">③ Melds</div>
+        <div class="fu-card-body">
+          <table class="scoring-table fu-table">
+            <thead>
+              <tr><th>Meld Type</th><th>Simples</th><th>Term / Hon</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sequence</td><td>0</td><td>0</td></tr>
+              <tr><td>Open triplet</td><td>2</td><td>4</td></tr>
+              <tr><td>Closed triplet</td><td>4</td><td>8</td></tr>
+              <tr><td>Open kan</td><td>8</td><td>16</td></tr>
+              <tr><td>Closed kan</td><td>16</td><td>32</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="fu-card">
+        <div class="fu-card-header">④ Pair</div>
+        <div class="fu-card-body">
+          <table class="scoring-table fu-table">
+            <tbody>
+              <tr><td>Dragons / seat wind / round wind</td><td>2</td></tr>
+              <tr><td>Anything else</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="fu-card">
+        <div class="fu-card-header">⑤ Wait Shape</div>
+        <div class="fu-card-body">
+          <table class="scoring-table fu-table">
+            <tbody>
+              <tr><td>Two-sided (<em>ryanmen</em>)</td><td>0</td></tr>
+              <tr><td>Edge (<em>penchan</em>)</td><td>2</td></tr>
+              <tr><td>Closed (<em>kanchan</em>)</td><td>2</td></tr>
+              <tr><td>Single tile (<em>tanki</em>)</td><td>2</td></tr>
+              <tr><td>Pair (<em>shanpon</em>)</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="fu-card fu-card-formula">
+        <div class="fu-card-header">Formula</div>
+        <div class="fu-card-body">
+          <p><strong>① Base (20) + ② Win Method + ③ Melds + ④ Pair + ⑤ Wait</strong></p>
+          <p style="margin-top:0.4rem;">Round up to the nearest 10.</p>
+        </div>
+      </div>
+
+    </div>
 
     <div class="content-section" style="margin-top:1.5rem;">
-      <h3>① Base Fu</h3>
-      <p>Every hand starts with <strong>20 fu</strong>.</p>
-    </div>
-
-    <div class="content-section">
-      <h3>② Winning Method</h3>
-      <table class="scoring-table fu-table">
-        <thead>
-          <tr><th>Method</th><th>Fu</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Tsumo (self-draw)</td><td>2</td></tr>
-          <tr><td>Ron with a closed hand</td><td>10</td></tr>
-          <tr><td>Ron with an open hand</td><td>0</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-section">
-      <h3>③ Melds (Sets)</h3>
-      <p>Each set in your hand contributes fu based on whether it's open or closed, and whether it uses simple tiles (2–8) or terminal/honor tiles (1, 9, winds, dragons).</p>
-      <table class="scoring-table fu-table">
-        <thead>
-          <tr><th>Meld Type</th><th>Simples (2–8)</th><th>Terminals &amp; Honors</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Sequence</td><td>0</td><td>0</td></tr>
-          <tr><td>Open triplet</td><td>2</td><td>4</td></tr>
-          <tr><td>Closed triplet</td><td>4</td><td>8</td></tr>
-          <tr><td>Open kan (quad)</td><td>8</td><td>16</td></tr>
-          <tr><td>Closed kan (quad)</td><td>16</td><td>32</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-section">
-      <h3>④ Pair</h3>
-      <table class="scoring-table fu-table">
-        <thead>
-          <tr><th>Pair Type</th><th>Fu</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Dragons, seat wind, or round wind</td><td>2</td></tr>
-          <tr><td>Anything else</td><td>0</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-section">
-      <h3>⑤ Waiting Shape</h3>
-      <table class="scoring-table fu-table">
-        <thead>
-          <tr><th>Wait Type</th><th>Fu</th><th>Example</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Two-sided wait (<em>ryanmen</em>)</td><td>0</td><td>Holding 4-5, waiting on 3 or 6</td></tr>
-          <tr><td>Edge wait (<em>penchan</em>)</td><td>2</td><td>Holding 1-2, waiting on 3</td></tr>
-          <tr><td>Closed wait (<em>kanchan</em>)</td><td>2</td><td>Holding 4-6, waiting on 5</td></tr>
-          <tr><td>Single tile wait (<em>tanki</em>)</td><td>2</td><td>Waiting on the pair tile</td></tr>
-          <tr><td>Pair wait (<em>shanpon</em>)</td><td>0</td><td>Two incomplete triplets, waiting on either</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="content-section">
-      <h3>Putting It Together</h3>
-      <p><strong>① Base (20) + ② Winning Method + ③ Melds + ④ Pair + ⑤ Wait = Total Fu</strong></p>
-      <p>Round the total up to the nearest 10. For example, if your fu add up to 32, your hand is scored as 40 fu.</p>
-    </div>
-
-    <div class="content-section">
       <h3>Exceptions</h3>
       <table class="scoring-table fu-table">
         <thead>
