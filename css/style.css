@@ -16,8 +16,8 @@
   --color-green: #2d8c3c;
   --max-width: 1200px;
   --nav-height: 60px;
-  --font-body: 'Outfit', sans-serif;
-  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'DM Serif Display', Georgia, 'Times New Roman', serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -51,6 +51,11 @@ hr {
   height: 1px;
   background: var(--color-border);
   margin: 2.5rem 0;
+}
+
+/* ===== ANCHOR OFFSET FOR STICKY HEADER ===== */
+[id] {
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 /* ===== HEADER / NAV ===== */
@@ -194,6 +199,16 @@ hr {
   padding: 2.5rem 1.5rem 4rem;
 }
 
+/* Restore list indentation inside page content */
+.page-content ul,
+.page-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.page-content li {
+  margin-bottom: 0.3rem;
+}
+
 .page-title {
   font-size: 2.4rem;
   margin-bottom: 1.5rem;
@@ -244,7 +259,6 @@ hr {
 }
 
 /* ===== HOME: FEATURES GRID ===== */
-/* CHANGED: Now explicitly 3 columns instead of auto-fit */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -412,16 +426,14 @@ strong { font-weight: 600; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto 3rem;
-  padding: 0 1.5rem;
+  /* Removed max-width and padding so it uses the full page-content width */
+  margin: 1rem 0 3rem;
   align-items: start;
 }
 
 @media (max-width: 900px) {
   .ccr-calculator-wrapper {
     grid-template-columns: 1fr;
-    max-width: 600px;
   }
 }
 
@@ -572,6 +584,12 @@ strong { font-weight: 600; }
   font-size: 0.7rem;
 }
 .yaku-master-table th.sorted .sort-arrow { opacity: 1; color: var(--color-accent); }
+
+/* Description column min-width so it doesn't get squeezed */
+.yaku-master-table td:last-child,
+.yaku-master-table th:last-child {
+  min-width: 220px;
+}
 
 .yaku-en-cell {
   font-size: 0.88rem;
