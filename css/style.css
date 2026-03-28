@@ -506,3 +506,161 @@ strong { font-weight: 600; }
   color: var(--color-text-muted);
   font-style: italic;
 }
+
+/* ===== YAKU INTERACTIVE TABLE ===== */
+.yaku-interactive { margin-bottom: 2rem; }
+
+.yaku-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.yaku-search {
+  flex: 1 1 200px;
+  padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  background: var(--color-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' fill='%23666660' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") no-repeat 0.65rem center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.yaku-search:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(232, 122, 30, 0.15); }
+
+.yaku-filters { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.yaku-filter {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg);
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--color-text-muted);
+}
+.yaku-filter:hover { background: var(--color-bg-alt); border-color: var(--color-accent); color: var(--color-accent); }
+.yaku-filter.active {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.yaku-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.yaku-master-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.yaku-master-table th.sortable:hover { color: var(--color-accent); }
+.yaku-master-table th .sort-arrow {
+  display: inline-block;
+  margin-left: 3px;
+  opacity: 0.3;
+  font-size: 0.7rem;
+}
+.yaku-master-table th.sorted .sort-arrow { opacity: 1; color: var(--color-accent); }
+
+.yaku-en-cell {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.yaku-han-tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.yaku-han-tag.han-1 { background: #2d8c3c; }
+.yaku-han-tag.han-2 { background: #2b6cb0; }
+.yaku-han-tag.han-3 { background: #7b5ea7; }
+.yaku-han-tag.han-5 { background: #b8860b; }
+.yaku-han-tag.han-6 { background: #c05621; }
+.yaku-han-tag.yakuman { background: #c53030; }
+
+.yaku-closed-x {
+  color: #c53030;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.yaku-count {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: right;
+  padding: 0.5rem 0.25rem;
+}
+
+/* ===== FU GRID ===== */
+.fu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.fu-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.fu-card:hover { border-color: var(--color-accent); }
+
+.fu-card-header {
+  background: var(--color-surface);
+  padding: 0.55rem 0.85rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-heading);
+  border-bottom: 2px solid var(--color-green);
+}
+
+.fu-card-body {
+  padding: 0.75rem 0.85rem;
+}
+.fu-card-body p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.fu-card .scoring-table { margin: 0; font-size: 0.85rem; }
+.fu-card .scoring-table th { padding: 0.35rem 0.5rem; font-size: 0.78rem; }
+.fu-card .scoring-table td { padding: 0.3rem 0.5rem; }
+
+.fu-card-formula {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: var(--color-surface);
+  border-color: var(--color-green);
+}
+.fu-card-formula .fu-card-header {
+  background: var(--color-green);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .fu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .fu-grid { grid-template-columns: 1fr; }
+  .yaku-controls { flex-direction: column; }
+  .yaku-search { width: 100%; }
+}
