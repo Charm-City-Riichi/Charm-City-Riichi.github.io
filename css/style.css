@@ -336,9 +336,13 @@ hr {
   transform: scale(1.03);
   border-color: var(--color-accent);
 }
-.gallery img:nth-child(1)  { grid-column: span 2; grid-row: span 2; }
+/* Primary emphasis: images 10 and 8 */
+.gallery img:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+.gallery img:nth-child(8)  { grid-column: span 2; grid-row: span 2; }
+/* Secondary emphasis: images 3, 4, 6 */
+.gallery img:nth-child(3)  { grid-column: span 2; }
+.gallery img:nth-child(4)  { grid-column: span 2; }
 .gallery img:nth-child(6)  { grid-column: span 2; }
-.gallery img:nth-child(11) { grid-column: span 2; }
 
 @media (max-width: 700px) {
   .gallery {
