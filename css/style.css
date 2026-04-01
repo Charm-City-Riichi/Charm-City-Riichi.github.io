@@ -345,12 +345,12 @@ hr {
   transform: scale(1.03);
   border-color: var(--color-accent);
 }
-/* Primary emphasis: images 1 and 2 (highest resolution) */
-.gallery img:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.gallery img:nth-child(2) { grid-column: span 2; grid-row: span 2; }
-/* Secondary emphasis: images 3 and 4 (next largest) */
-.gallery img:nth-child(3) { grid-column: span 2; }
-.gallery img:nth-child(4) { grid-column: span 2; }
+/* Primary emphasis: images 4 and 10 */
+.gallery img:nth-child(4)  { grid-column: span 2; grid-row: span 2; }
+.gallery img:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+/* Secondary emphasis: images 6 and 8 */
+.gallery img:nth-child(6) { grid-column: span 2; }
+.gallery img:nth-child(8) { grid-column: span 2; }
 
 @media (max-width: 700px) {
   .gallery {
