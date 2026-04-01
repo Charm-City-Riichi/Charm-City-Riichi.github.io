@@ -345,9 +345,9 @@ hr {
   transform: scale(1.03);
   border-color: var(--color-accent);
 }
-/* Primary emphasis: images 4 and 10 */
+/* Primary emphasis: images 1 and 4 */
+.gallery img:nth-child(1)  { grid-column: span 2; grid-row: span 2; }
 .gallery img:nth-child(4)  { grid-column: span 2; grid-row: span 2; }
-.gallery img:nth-child(10) { grid-column: span 2; grid-row: span 2; }
 /* Secondary emphasis: images 6 and 8 */
 .gallery img:nth-child(6) { grid-column: span 2; }
 .gallery img:nth-child(8) { grid-column: span 2; }

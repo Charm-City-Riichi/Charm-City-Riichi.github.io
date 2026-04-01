@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="moved four images from index to weekly meetups" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update weekly meetups images" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
-      <workItem from="1774661896273" duration="20546000" />
+      <workItem from="1774661896273" duration="20847000" />
     </task>
     <task id="LOCAL-00001" summary="Update scoring.html">
       <option name="closed" value="true" />
@@ -361,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775060935088</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="update weekly meetups images">
+      <option name="closed" value="true" />
+      <created>1775061236137</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1775061236137</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,6 +411,7 @@
     <MESSAGE value="Update index" />
     <MESSAGE value="Update footer and spacing" />
     <MESSAGE value="moved four images from index to weekly meetups" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved four images from index to weekly meetups" />
+    <MESSAGE value="update weekly meetups images" />
+    <option name="LAST_COMMIT_MESSAGE" value="update weekly meetups images" />
   </component>
 </project>
