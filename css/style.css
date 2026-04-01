@@ -262,6 +262,7 @@ hr {
 .features-band {
   background: var(--color-green);
   width: 100%;
+  margin-bottom: 3rem;
 }
 
 /* ===== HOME: FEATURES GRID ===== */
@@ -335,9 +336,8 @@ hr {
   transform: scale(1.03);
   border-color: var(--color-accent);
 }
-.gallery img:nth-child(3)  { grid-column: span 2; grid-row: span 2; }
+.gallery img:nth-child(1)  { grid-column: span 2; grid-row: span 2; }
 .gallery img:nth-child(6)  { grid-column: span 2; }
-.gallery img:nth-child(9)  { grid-row: span 2; }
 .gallery img:nth-child(11) { grid-column: span 2; }
 
 @media (max-width: 700px) {
