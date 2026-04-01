@@ -1,7 +1,7 @@
 /* ===== CUSTOM FONTS ===== */
 @font-face {
   font-family: 'Aero';
-  src: url('../Aero%202.ttf') format('truetype');
+  src: url('aero.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
