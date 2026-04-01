@@ -90,5 +90,38 @@
     <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
   </footer>
 
+  <div id="lightbox" aria-hidden="true">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+
+    document.querySelector('.gallery').addEventListener('click', e => {
+      if (e.target.tagName !== 'IMG') return;
+      lbImg.src = e.target.src;
+      lbImg.alt = e.target.alt;
+      lb.classList.add('active');
+      lb.setAttribute('aria-hidden', 'false');
+    });
+
+    lb.addEventListener('click', e => {
+      if (e.target === lb) {
+        lb.classList.remove('active');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        lb.classList.remove('active');
+        lb.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+      }
+    });
+  </script>
+
 </body>
 </html>
