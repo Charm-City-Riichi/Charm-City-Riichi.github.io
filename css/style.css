@@ -13,7 +13,7 @@
   --color-link: #e87a1e;
   --color-link-hover: #d06a12;
   --color-border: rgba(26, 26, 26, 0.12);
-  --color-green: #2d8c3c;
+  --color-green: #b1c5a4;
   --max-width: 1200px;
   --nav-height: 60px;
   --font-body: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -649,7 +649,7 @@ strong { font-weight: 600; }
   color: #fff;
   white-space: nowrap;
 }
-.yaku-han-tag.han-1 { background: #2d8c3c; }
+.yaku-han-tag.han-1 { background: #b1c5a4; }
 .yaku-han-tag.han-2 { background: #2b6cb0; }
 .yaku-han-tag.han-3 { background: #7b5ea7; }
 .yaku-han-tag.han-5 { background: #b8860b; }
