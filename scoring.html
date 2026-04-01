@@ -48,7 +48,7 @@
   <p>Every winning hand in riichi mahjong is scored using two values: <strong>han</strong> and <strong>fu</strong>.</p>
 
   <ul>
-    <li>Han come from the <a href="#yaku">yaku</a> (scoring patterns) in your hand and any dora.</li>
+    <li>Han come from the <a href="#yaku">yaku</a> (winning conditions) in your hand and any dora.</li>
     <li><a href="#scoring-fu">Fu</a> adds texture to smaller hands. Fu is based on the specific shape of your hand and how you won.</li>
   </ul>
 
@@ -143,7 +143,9 @@
   <section id="yaku">
     <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Han</h2>
 
-    <p>Han are the primary unit of hand value. Each yaku is worth a set number of han, and a hand can combine multiple yaku. <strong>Dora</strong> tiles also add han, but they are not yaku on their own — your hand must have at least one yaku to win.</p>
+    <p>Han are the primary unit of hand value. They are earned through circumstances (such as the timing or source of your winning tile) or through specific patterns of tiles in your hand. </p>
+
+    <p>Each yaku is worth a set number of han, and a hand can combine multiple yaku. <strong>Dora</strong> tiles also add han, but they are not yaku on their own — your hand must have at least one yaku to win.</p>
 
     <p>Some yaku are worth fewer han (or are unavailable entirely) when your hand is open — that is, when you've called chi, pon, or kan. A <strong>×</strong> in the "Open" column means the yaku cannot be used with an open hand.</p>
 
@@ -183,7 +185,7 @@
           {jp:"Riichi",en:"Ready Hand Declaration",closed:1,open:null,desc:"Declare riichi when tenpai with a closed hand."},
           {jp:"Ippatsu",en:"One-Shot Win",closed:1,open:null,desc:"Win within one turn of declaring riichi, before any calls interrupt."},
           {jp:"Menzen Tsumo",en:"Concealed Self-Draw",closed:1,open:null,desc:"Win by tsumo with a fully closed hand."},
-          {jp:"Pinfu",en:"All Sequences",closed:1,open:null,desc:"Closed hand of four sequences and a non-value pair, with a two-sided wait."},
+          {jp:"Pinfu",en:"No Fu / All Sequences",closed:1,open:null,desc:"Closed hand of four sequences and a non-value pair, with a two-sided wait."},
           {jp:"Iipeikou",en:"Pure Double Sequence",closed:1,open:null,desc:"Two identical sequences of the same suit in a closed hand."},
           {jp:"Yakuhai",en:"Value Tiles",closed:1,open:1,desc:"A triplet of dragons, seat wind, or round wind. Scores 1 han per qualifying triplet."},
           {jp:"Tanyao",en:"All Simples",closed:1,open:1,desc:"Hand contains only tiles numbered 2–8 (no terminals or honors)."},
@@ -191,26 +193,26 @@
           {jp:"Houtei",en:"Last Tile Discard",closed:1,open:1,desc:"Win by ron on the very last discard of the round."},
           {jp:"Rinshan Kaihou",en:"After Kan Win",closed:1,open:1,desc:"Win on the replacement tile drawn after declaring a kan."},
           {jp:"Chankan",en:"Robbing a Kan",closed:1,open:1,desc:"Win by ron on the tile another player uses to upgrade a pon to a kan."},
-          {jp:"Double Riichi",en:"Double Ready",closed:2,open:null,desc:"Declare riichi on your very first discard, before any calls have been made."},
+          {jp:"Daabu Riichi",en:"Double Riichi",closed:2,open:null,desc:"Declare riichi on your very first discard, before any calls have been made."},
           {jp:"Chiitoitsu",en:"Seven Pairs",closed:2,open:null,desc:"Hand consists of seven unique pairs. Fixed at 25 fu."},
-          {jp:"Sanshoku Doujun",en:"Mixed Triple Sequence",closed:2,open:1,desc:"The same sequence (e.g. 4-5-6) in all three suits."},
+          {jp:"Sanshoku Doujun",en:"Three-Colors, Same Sequence",closed:2,open:1,desc:"The same sequence (e.g. 4-5-6) in all three suits."},
           {jp:"Ittsu",en:"Pure Straight",closed:2,open:1,desc:"Three sequences forming 1-2-3, 4-5-6, 7-8-9 in the same suit."},
-          {jp:"Chanta",en:"Mixed Outside Hand",closed:2,open:1,desc:"Every set and the pair includes a terminal (1 or 9) or honor tile."},
-          {jp:"Sanshoku Doukou",en:"Triple Triplet",closed:2,open:2,desc:"The same triplet (e.g. 5-5-5) in all three suits."},
+          {jp:"Chanta",en:"Half Outside Hand",closed:2,open:1,desc:"Every set and the pair includes a terminal (1 or 9) or honor tile."},
+          {jp:"Sanshoku Doukou",en:"Three-Colors, Same Triplet",closed:2,open:2,desc:"The same triplet (e.g. 5-5-5) in all three suits."},
           {jp:"San Ankou",en:"Three Concealed Triplets",closed:2,open:2,desc:"Three of your four sets are closed triplets."},
           {jp:"Toitoi",en:"All Triplets",closed:2,open:2,desc:"All four sets are triplets (no sequences)."},
           {jp:"San Kantsu",en:"Three Kans",closed:2,open:2,desc:"Three of your four sets are kans."},
           {jp:"Shousangen",en:"Little Three Dragons",closed:2,open:2,desc:"Two dragon triplets and a dragon pair."},
           {jp:"Honroutou",en:"All Terminals & Honors",closed:2,open:2,desc:"Hand consists only of terminal tiles (1s and 9s) and honor tiles."},
           {jp:"Ryanpeikou",en:"Twice Pure Double Sequence",closed:3,open:null,desc:"Two different pairs of identical sequences in a closed hand."},
-          {jp:"Junchan",en:"Pure Outside Hand",closed:3,open:2,desc:"Every set and the pair includes a terminal (1 or 9). No honors."},
+          {jp:"Junchan",en:"Full Outside Hand",closed:3,open:2,desc:"Every set and the pair includes a terminal (1 or 9). No honors."},
           {jp:"Honitsu",en:"Half Flush",closed:3,open:2,desc:"Hand uses only one suit plus honor tiles."},
           {jp:"Chinitsu",en:"Full Flush",closed:6,open:5,desc:"Entire hand is composed of a single suit. No honors."},
           {jp:"Suu Ankou",en:"Four Concealed Triplets",closed:"Yakuman",open:null,desc:"Four closed triplets."},
           {jp:"Kokushi Musou",en:"Thirteen Orphans",closed:"Yakuman",open:null,desc:"One of each terminal and honor tile, plus one duplicate."},
           {jp:"Chuuren Poutou",en:"Nine Gates",closed:"Yakuman",open:null,desc:"1-1-1-2-3-4-5-6-7-8-9-9-9 of one suit, plus any tile of that suit."},
-          {jp:"Tenhou",en:"Heavenly Hand",closed:"Yakuman",open:null,desc:"Dealer wins on their initial 14-tile draw."},
-          {jp:"Chiihou",en:"Earthly Hand",closed:"Yakuman",open:null,desc:"Non-dealer wins on their first tsumo, before any calls."},
+          {jp:"Tenhou",en:"Heavenly Blessing",closed:"Yakuman",open:null,desc:"Dealer wins on their initial 14-tile draw."},
+          {jp:"Chiihou",en:"Earthly Blessing",closed:"Yakuman",open:null,desc:"Non-dealer wins on their first tsumo, before any calls."},
           {jp:"Daisangen",en:"Big Three Dragons",closed:"Yakuman",open:"Yakuman",desc:"Triplets of all three dragons."},
           {jp:"Shousuushii",en:"Little Four Winds",closed:"Yakuman",open:"Yakuman",desc:"Three wind triplets and a wind pair."},
           {jp:"Daisuushii",en:"Big Four Winds",closed:"Yakuman",open:"Yakuman",desc:"Triplets of all four winds."},
