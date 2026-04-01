@@ -451,8 +451,12 @@ hr {
 .content-section {
   margin-bottom: 2rem;
 }
+.content-section h2 {
+  margin-top: 1.5rem;
+}
 .content-section h3 {
   font-size: 1.3rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
