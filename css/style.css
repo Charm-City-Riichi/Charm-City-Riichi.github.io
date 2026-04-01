@@ -475,6 +475,7 @@ hr {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
   scrollbar-width: thin;
