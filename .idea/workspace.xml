@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update how to play">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated how-to-play">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
-      <workItem from="1774661896273" duration="23291000" />
+      <workItem from="1774661896273" duration="24980000" />
     </task>
     <task id="LOCAL-00001" summary="Update scoring.html">
       <option name="closed" value="true" />
@@ -412,7 +412,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775063837013</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="updated some yaku names">
+      <option name="closed" value="true" />
+      <created>1775064254423</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1775064254424</updated>
+    </task>
+    <task id="LOCAL-00044" summary="updated how-to-play">
+      <option name="closed" value="true" />
+      <created>1775064406514</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1775064406514</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,8 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add images and update pathing" />
-    <MESSAGE value="Update index and one day events" />
     <MESSAGE value="Update index and css for gallery" />
     <MESSAGE value="Add robots.txt" />
     <MESSAGE value="Add sitemap" />
@@ -455,6 +469,8 @@
     <MESSAGE value="update index" />
     <MESSAGE value="update weekly meet ups" />
     <MESSAGE value="update how to play" />
-    <option name="LAST_COMMIT_MESSAGE" value="update how to play" />
+    <MESSAGE value="updated some yaku names" />
+    <MESSAGE value="updated how-to-play" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated how-to-play" />
   </component>
 </project>
