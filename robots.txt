@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://charm-city-riichi.github.io/sitemap.xml
