@@ -64,10 +64,22 @@
 <main class="page-content">
   <h1 class="page-title">How to Play</h1>
 
+  <nav class="htp-toc" aria-label="Page sections">
+    <p class="htp-toc-title">On this page</p>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#game-flow">Game Flow</a></li>
+      <li><a href="#winning">Winning</a></li>
+      <li><a href="#scoring">Scoring Basics</a></li>
+      <li><a href="#etiquette">Table Etiquette</a></li>
+    </ol>
+  </nav>
+
   <!-- ==================== OVERVIEW ==================== -->
 
   <section id="overview" class="content-section">
-    <h2 style="font-size:1.6rem; margin-bottom:1rem;">Overview</h2>
+    <span class="section-label">01 — Overview</span>
+    <h2>Overview</h2>
 
     <h3>The goal</h3>
     <p>Mahjong is a four-player strategy game built on pattern recognition and timing. Each player draws and discards tiles to build a complete hand before anyone else does.</p>
@@ -75,23 +87,24 @@
 
     <h3>The tiles</h3>
     <p>A riichi mahjong set has 136 tiles:</p>
-    <ul>
-      <li><strong>Three suits</strong> (numbered 1–9)
+    <div class="tile-grid">
+      <div class="tile-card">
+        <p class="tile-card-label">Three suits (numbered 1–9)</p>
         <ul>
           <li><em>manzu</em> — "characters"</li>
           <li><em>pinzu</em> — "dots" or "circles"</li>
           <li><em>souzu</em> — "bamboo"</li>
         </ul>
-      </li>
-      <li><strong>Honors</strong> (not numbered)
+      </div>
+      <div class="tile-card">
+        <p class="tile-card-label">Honors (not numbered)</p>
         <ul>
           <li><em>kazehai</em> — "winds" (East, South, West, North)</li>
           <li><em>sangenpai</em> — "dragons" (White, Green, Red)</li>
         </ul>
-      </li>
-    </ul>
-
-    <p>Each tile type appears exactly four times. </p>
+      </div>
+    </div>
+    <p>Each tile type appears exactly four times.</p>
 
     <h3>What a winning hand looks like</h3>
     <p>A standard winning hand has 14 tiles arranged as <strong>four sets and one pair</strong>. Understanding this shape is the foundation of everything else in the game.</p>
@@ -101,8 +114,7 @@
       <li>A <strong>pair</strong> is two identical tiles.</li>
     </ul>
     <p>Because sequences have to be the same suit, honor tiles (which have no suit) can only form triplets. Also note that sequences cannot wrap around (8-9-1 is not valid).</p>
-    <p>A complete hand might be: sequence + sequence + sequence + triplet + pair. Or: triplet + triplet + sequence + sequence + pair. Any combination of four sets (sequences or triplets) and one pair is valid. To win, you also have a valid <em>yaku</em>, which is covered in the Winning section below.</p>
-
+    <p>A complete hand might be: sequence + sequence + sequence + triplet + pair. Or: triplet + triplet + sequence + sequence + pair. Any combination of four sets (sequences or triplets) and one pair is valid. To win, you also need a valid <em>yaku</em>, which is covered in the Winning section below.</p>
   </section>
 
   <hr>
@@ -110,13 +122,14 @@
   <!-- ==================== GAME FLOW ==================== -->
 
   <section id="game-flow" class="content-section">
-    <h2 style="font-size:1.6rem; margin-bottom:1rem;">Game Flow</h2>
+    <span class="section-label">02 — Game Flow</span>
+    <h2>Game Flow</h2>
 
     <h3>Setup &amp; rounds</h3>
     <p>Each player is assigned an initial <strong>seat wind</strong> at the start of a game: East, South, West, or North. The <strong>East player is always the dealer</strong> for that hand. Each player begins with a certain number of points; at our club it's <strong>30,000 points</strong>. The goal is to finish the game with more points than you started with, and ideally the most points of anyone at the table.</p>
-    <p>After a hand ends, the deal usually passes to the next player counter-clockwise and everyone's seat wind shifts with it — the South player becomes East (dealer), the West becomes South, and so on. </p>
-    <p>Sometimes the deal doesn't rotate. This happens when the dealer wins, or when nobody wins but the dealer is <em>tenpai</em> (see below). In that case, they stay as dealer and the hand repeats. </p>
-    <p>These repeated hands add <em>honba</em>, which increases the value of the next win by a 300-point bonus. Honba are also added if the deal rotates with no win having been called. The more honba present, the more valuable the eventual win becomes. Honba reset after a non-dealer player wins. </p>
+    <p>After a hand ends, the deal usually passes to the next player counter-clockwise and everyone's seat wind shifts with it — the South player becomes East (dealer), the West becomes South, and so on.</p>
+    <p>Sometimes the deal doesn't rotate. This happens when the dealer wins, or when nobody wins but the dealer is <em>tenpai</em> (see below). In that case, they stay as dealer and the hand repeats.</p>
+    <p>These repeated hands add <em>honba</em>, which increases the value of the next win by a 300-point bonus. Honba are also added if the deal rotates with no win having been called. The more honba present, the more valuable the eventual win becomes. Honba reset after a non-dealer player wins.</p>
     <p>A <strong>round</strong> is complete once every player has had a turn as dealer. Rounds are named after winds — the <strong>East round</strong> is first, the <strong>South round</strong> is second. A full game (<em>hanchan</em>) plays both rounds, meaning each player deals at least twice. Some clubs and casual sessions play <strong>East-only games</strong> (<em>tonpuusen</em>) when time is short. We usually play full hanchan at club nights.</p>
 
     <h3>Your turn</h3>
@@ -126,9 +139,9 @@
     <p>When your hand is exactly one tile away from complete, you're in <strong><em>tenpai</em></strong> (ready). The specific tile or tiles that would complete your hand are called your <strong>wait</strong>.</p>
     <p>If your hand is still <strong>closed</strong> at that point — meaning you haven't made any chi, pon, or kan calls — you can declare <strong><em>riichi</em></strong>. Your hand locks in, you gain a yaku (a scoring pattern required to win, covered below), and you get a shot at <em>uradora</em> — hidden bonus tiles that are only revealed and counted if you win.</p>
 
-    <div style="background:#fdf6e3; border-left:4px solid #c0392b; border-radius:6px; padding:1rem 1.25rem; margin:1.25rem 0;">
-      <p style="font-weight:700; margin:0 0 0.6rem; font-size:1rem;">Declaring riichi — in this order:</p>
-      <ol style="margin:0; padding-left:1.4rem; line-height:1.8;">
+    <div class="callout callout--amber">
+      <p class="callout-title">Declaring riichi — in this order:</p>
+      <ol>
         <li>Say <strong>"riichi!"</strong> out loud.</li>
         <li>Discard your tile <strong>placed sideways</strong>. That rotated tile acts as a marker in your discard pile — a public record of exactly when you called riichi.</li>
         <li>If no one wins off that discard, place a <strong>1,000-point stick at the center of the table</strong> as your bet.</li>
@@ -144,16 +157,16 @@
     </ul>
     <p>Making a chi or pon <strong>opens your hand</strong> — meaning your called set is placed face-up in front of you for all to see. An open hand locks out riichi and limits which yaku you can use. A <strong>closed hand</strong> (one where you've made no calls at all) keeps more options available, most importantly including riichi itself. Kan is more nuanced — see below.</p>
 
-    <div style="background:#f0f4f8; border-left:4px solid #4a6fa5; border-radius:6px; padding:1rem 1.25rem; margin:1.25rem 0;">
-      <p style="font-weight:700; margin:0 0 0.75rem; font-size:1rem;">The three types of kan</p>
-      <p style="margin:0 0 0.4rem;"><strong>Open kan</strong> (<em>daiminkan</em>) — claim another player's discard to complete a quad. Your hand becomes open, the set is placed face-up, and you draw a bonus tile from the end of the wall.</p>
-      <p style="margin:0.75rem 0 0.4rem;"><strong>Upgraded kan</strong> (<em>shouminkan</em>) — if you already have an open pon on the table and later draw the fourth matching tile, you can add it to that meld. Your hand stays open. You still draw a bonus tile from the end of the wall, but note that opponents can call ron on the tile you're adding if it completes their hand.</p>
-      <p style="margin:0.75rem 0 0;"><strong>Closed kan</strong> (<em>ankan</em>) — if you hold all four copies of a tile in your own hand, you can declare kan without opening your hand. The set is placed face-down with only the outer tiles visible, and you draw a bonus tile. Because the hand stays closed, you can still declare riichi afterward (if you're now in tenpai and your wait hasn't changed).</p>
-      <p style="margin:0.75rem 0 0; font-size:0.92rem; color:#555;">Every kan — regardless of type — flips an additional dora indicator and costs one tile from the live wall, slightly shrinking the remaining draws for everyone.</p>
+    <div class="callout callout--blue">
+      <p class="callout-title">The three types of kan</p>
+      <p><strong>Open kan</strong> (<em>daiminkan</em>) — claim another player's discard to complete a quad. Your hand becomes open, the set is placed face-up, and you draw a bonus tile from the end of the wall.</p>
+      <p><strong>Upgraded kan</strong> (<em>shouminkan</em>) — if you already have an open pon on the table and later draw the fourth matching tile, you can add it to that meld. Your hand stays open. You still draw a bonus tile from the end of the wall, but note that opponents can call ron on the tile you're adding if it completes their hand.</p>
+      <p><strong>Closed kan</strong> (<em>ankan</em>) — if you hold all four copies of a tile in your own hand, you can declare kan without opening your hand. The set is placed face-down with only the outer tiles visible, and you draw a bonus tile. Because the hand stays closed, you can still declare riichi afterward (if you're now in tenpai and your wait hasn't changed).</p>
+      <p class="callout-note">Every kan — regardless of type — flips an additional dora indicator and costs one tile from the live wall, slightly shrinking the remaining draws for everyone.</p>
     </div>
 
     <h3>When the wall runs out</h3>
-    <p>If the wall is exhausted and nobody has won, the hand ends in a draw. Players then reveal whether they're in tenpai or not. Anyone in tenpai receives a payment split from those who aren't — the total is 3,000 points divided among the tenpai players. This is called a <em>noten payment</em>, and it's worth staying in tenpai near the end of the wall even if a win looks unlikely.</p>
+    <p>If the wall is exhausted and nobody has won, the hand ends in a draw. Players then reveal whether they're in tenpai or not, starting with the dealer. Anyone in tenpai receives a payment split from those who aren't — the total is 3,000 points divided among the tenpai players. This is called a <em>noten payment</em>, and it's worth staying in tenpai near the end of the wall even if a win looks unlikely.</p>
   </section>
 
   <hr>
@@ -161,7 +174,8 @@
   <!-- ==================== WINNING ==================== -->
 
   <section id="winning" class="content-section">
-    <h2 style="font-size:1.6rem; margin-bottom:1rem;">Winning</h2>
+    <span class="section-label">03 — Winning</span>
+    <h2>Winning</h2>
 
     <p>When you reach tenpai and your final tile arrives, you win by calling <em>ron</em> (winning off someone else's discard) or <em>tsumo</em> (drawing the winning tile yourself from the wall).</p>
 
@@ -169,18 +183,36 @@
     <p>A complete hand alone isn't enough to win. You also need at least one <em>yaku</em> — a recognized scoring pattern that makes the hand valid. Without one, you cannot declare a win even if your hand is complete. See the <a href="/scoring.html#yaku">full yaku list on the Scoring page</a> once you're ready for a complete reference.</p>
 
     <h3>Beginner yaku to learn first</h3>
-    <ul>
-      <li><em>riichi</em> — declaring tenpai with a closed hand</li>
-      <li><em>tanyao</em> — only tiles numbered 2–8, no 1s, 9s, or honors. A great beginner target: you can mentally discard entire tile types from consideration and still build a complete hand.</li>
-      <li><em>yakuhai</em> — a triplet of dragons, your seat wind, or the round wind. Your <strong>seat wind</strong> is whichever wind tile matches your current seat (East, South, West, or North). The <strong>round wind</strong> is East during the East round and South during the South round — so during the East round, the East player's wind triplet counts double (it's both their seat wind and the round wind).</li>
-      <li><em>toitoi</em> — all triplets, no sequences. Works well with open calls — every pon you make moves you one step closer.</li>
-      <li><em>honitsu</em> — one suit plus honor tiles. Limiting yourself to one suit makes it easier to track what you need.</li>
-      <li><em>chiitoitsu</em> — seven unique pairs (a non-standard hand shape: no sets, just pairs)</li>
+    <ul class="yaku-list">
+      <li class="yaku-item">
+        <span class="yaku-item-name">riichi</span>
+        <span class="yaku-item-desc">Declaring tenpai with a closed hand.</span>
+      </li>
+      <li class="yaku-item">
+        <span class="yaku-item-name">tanyao</span>
+        <span class="yaku-item-desc">Only tiles numbered 2–8, no 1s, 9s, or honors. A great beginner target: you can mentally discard entire tile types from consideration and still build a complete hand.</span>
+      </li>
+      <li class="yaku-item">
+        <span class="yaku-item-name">yakuhai</span>
+        <span class="yaku-item-desc">A triplet of dragons, your seat wind, or the round wind. Your <strong>seat wind</strong> is whichever wind tile matches your current seat (East, South, West, or North). The <strong>round wind</strong> is East during the East round and South during the South round — so during the East round, the East player's wind triplet counts double (it's both their seat wind and the round wind).</span>
+      </li>
+      <li class="yaku-item">
+        <span class="yaku-item-name">toitoi</span>
+        <span class="yaku-item-desc">All triplets, no sequences. Works well with open calls — every pon you make moves you one step closer.</span>
+      </li>
+      <li class="yaku-item">
+        <span class="yaku-item-name">honitsu</span>
+        <span class="yaku-item-desc">One suit plus honor tiles. Limiting yourself to one suit makes it easier to track what you need.</span>
+      </li>
+      <li class="yaku-item">
+        <span class="yaku-item-name">chiitoitsu</span>
+        <span class="yaku-item-desc">Seven unique pairs (a non-standard hand shape: no sets, just pairs).</span>
+      </li>
     </ul>
 
     <h3>Furiten — when ron is blocked</h3>
     <p>There's one important restriction on calling ron: if any of your winning tiles is already in your own discard pond, you're in <em>furiten</em> and cannot win off anyone's discard. You can still win by drawing the tile yourself (tsumo), but ron is blocked for as long as you hold that wait.</p>
-    <p>For example: say you're waiting on 1-man or 4-man to complete the last sequence, but you discarded 1-man earlier. That 1-man sitting in your pond <em>could</em> have completed your hand — so even if an opponent discards a 4-man now, you can't call ron on it. You'd have to draw the 1-man or 4-man yourself, or restructure your hand. It's worth double-checking your own pond when you reach tenpai to see whether you've already discarded a possible winning tiles.</p>
+    <p>For example: say you're waiting on 1-man or 4-man to complete the last sequence, but you discarded 1-man earlier. That 1-man sitting in your pond <em>could</em> have completed your hand — so even if an opponent discards a 4-man now, you can't call ron on it. You'd have to draw the 1-man or 4-man yourself, or restructure your hand. It's worth double-checking your own pond when you reach tenpai to see whether you've already discarded a possible winning tile.</p>
   </section>
 
   <hr>
@@ -188,7 +220,8 @@
   <!-- ==================== SCORING ==================== -->
 
   <section id="scoring" class="content-section">
-    <h2 style="font-size:1.6rem; margin-bottom:1rem;">Scoring Basics</h2>
+    <span class="section-label">04 — Scoring</span>
+    <h2>Scoring Basics</h2>
 
     <p>Every winning hand's value is built from two components: <strong><a href="/scoring.html#yaku">han</a></strong> and <strong><a href="/scoring.html#scoring-fu">fu</a></strong>. Together they determine how many points change hands.</p>
 
@@ -197,7 +230,7 @@
 
     <h3>Dora</h3>
     <p>At the start of each hand, one tile is flipped face-up from the wall as the <strong>dora indicator</strong>. The actual dora is the tile <em>one step higher</em> in sequence. For numbered suit tiles, that means the indicator 4 makes 5 dora; the indicator 9 wraps around to make 1 dora. Any dora tiles you hold at the end of a winning hand add 1 han each.</p>
-    <p>For honor tiles, the wrap order is fixed. Winds cycle as: East → South → West → North → East (so a North indicator makes East dora). Dragons cycle as: White → Green → Red → White (so a Red indicator makes White dora). </p>
+    <p>For honor tiles, the wrap order is fixed. Winds cycle as: East → South → West → North → East (so a North indicator makes East dora). Dragons cycle as: White → Green → Red → White (so a Red indicator makes White dora).</p>
     <p>There can be more than one dora indicator in a hand — each kan call flips an additional one.</p>
 
     <h3>Uradora</h3>
@@ -210,7 +243,7 @@
     <p><em>Fu</em> are base points earned from the specific shape of your hand and how you won. They add texture to lower-scoring hands. Once your hand reaches <strong>5 or more han</strong>, fu no longer matter — the score jumps to a fixed limit amount. As a beginner, don't worry about calculating fu yourself — just ask a tablemate to help until it becomes familiar.</p>
 
     <h3>Limit hands</h3>
-    <p>High-han hands earn special names and fixed payouts: <em>mangan</em> (5 han), <em>haneman</em> (6–7), <em>baiman</em> (8–10), <em>sanbaiman</em> (11–12), and <em>counted yakuman</em> (13+). At the top are true <em>yakuman</em> — difficult & rare hand patterns that are the highest-scoring in the game.</p>
+    <p>High-han hands earn special names and fixed payouts: <em>mangan</em> (5 han), <em>haneman</em> (6–7), <em>baiman</em> (8–10), <em>sanbaiman</em> (11–12), and <em>counted yakuman</em> (13+). At the top are true <em>yakuman</em> — difficult &amp; rare hand patterns that are the highest-scoring in the game.</p>
 
     <p>For the full breakdown — including the complete yaku table, fu calculation, and an interactive payment calculator — visit the <a href="/scoring.html">Scoring page</a>.</p>
   </section>
@@ -220,7 +253,8 @@
   <!-- ==================== ETIQUETTE ==================== -->
 
   <section id="etiquette" class="content-section">
-    <h2 style="font-size:1.6rem; margin-bottom:1rem;">Table Etiquette</h2>
+    <span class="section-label">05 — Etiquette</span>
+    <h2>Table Etiquette</h2>
 
     <p>Riichi mahjong has a set of common courtesies that keep games smooth and friendly. These aren't strict rules, but following them is good habit — especially at club nights and tournaments.</p>
 
@@ -242,14 +276,25 @@
   <!-- ==================== NEXT STEPS ==================== -->
 
   <section id="next-steps" class="content-section">
-    <h2 style="font-size:1.6rem; margin-bottom:1rem;">Ready for more?</h2>
+    <h2>Ready for more?</h2>
 
-    <p>Once you're comfortable with the basics, the <a href="/scoring.html">Scoring page</a> is your next stop. It includes:</p>
-    <ul>
-      <li>A <a href="/scoring.html#yaku">searchable, sortable yaku table</a> with every valid hand pattern and its han value</li>
-      <li>A <a href="/scoring.html#scoring-fu">complete fu reference</a> broken down by win method, melds, pair, and wait shape</li>
-      <li>An <a href="/scoring.html#calculator">interactive payment calculator</a> — enter your han, fu, and honba count and get exact point payments instantly</li>
-    </ul>
+    <p>Once you're comfortable with the basics, the <a href="/scoring.html">Scoring page</a> is your next stop.</p>
+
+    <div class="next-steps-grid">
+      <div class="next-step-card">
+        <a href="/scoring.html#yaku">Yaku table</a>
+        <p>Searchable, sortable list of every valid hand pattern and its han value.</p>
+      </div>
+      <div class="next-step-card">
+        <a href="/scoring.html#scoring-fu">Fu reference</a>
+        <p>Complete fu breakdown by win method, melds, pair, and wait shape.</p>
+      </div>
+      <div class="next-step-card">
+        <a href="/scoring.html#calculator">Payment calculator</a>
+        <p>Enter your han, fu, and honba — get exact point payments instantly.</p>
+      </div>
+    </div>
+
     <p>And of course, the fastest way to learn is to play! Come to one of our <a href="/events/weekly-meet-ups.html">weekly meet-ups</a>. Beginners are always welcome, and we'll walk you through everything at the table.</p>
   </section>
 
