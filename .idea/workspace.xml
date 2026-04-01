@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="Update index">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="moved four images from index to weekly meetups" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
-      <workItem from="1774661896273" duration="20154000" />
+      <workItem from="1774661896273" duration="20546000" />
     </task>
     <task id="LOCAL-00001" summary="Update scoring.html">
       <option name="closed" value="true" />
@@ -347,7 +345,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775016917160</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Update footer and spacing">
+      <option name="closed" value="true" />
+      <created>1775060818948</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1775060818949</updated>
+    </task>
+    <task id="LOCAL-00036" summary="moved four images from index to weekly meetups">
+      <option name="closed" value="true" />
+      <created>1775060935088</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1775060935088</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +401,8 @@
     <MESSAGE value="Update events and css" />
     <MESSAGE value="Update one day events and css" />
     <MESSAGE value="Update index" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update index" />
+    <MESSAGE value="Update footer and spacing" />
+    <MESSAGE value="moved four images from index to weekly meetups" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved four images from index to weekly meetups" />
   </component>
 </project>
