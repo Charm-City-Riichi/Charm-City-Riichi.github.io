@@ -44,18 +44,18 @@
   <h1 class="page-title">One-Day Events</h1>
 
   <div class="photo-grid">
-    <img src="../mahjong%20images/0326/discard.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/wide.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/build.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/cheese.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/consider.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/count.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/group.webp" alt="Tournament group photo" loading="lazy">
-    <img src="../mahjong%20images/0326/serious.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/smile.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/wide2.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/shuffle.webp" alt="Tournament photo" loading="lazy">
-    <img src="../mahjong%20images/0326/stretch.webp" alt="Tournament photo" loading="lazy">
+    <img src="../mahjong%20images/0326/discard.webp" alt="Four players lean in over a green-matted mahjong table as one makes a discard. Multiple tournament tables and players are visible in the background at Omnihedral." loading="lazy">
+    <img src="../mahjong%20images/0326/wide.webp" alt="Wide view of Omnihedral's game room packed with players at mahjong tables during the March 2026 one-day tournament. String lights hang from the ceiling across the full venue." loading="lazy">
+    <img src="../mahjong%20images/0326/build.webp" alt="Four players sort yellow mahjong tiles at the start of a hand. One player smiles and wears a name tag while tiles are being set up on the green mat." loading="lazy">
+    <img src="../mahjong%20images/0326/cheese.webp" alt="A tournament organizer stands in the center of the room overseeing active play at Omnihedral. Players study their tiles in the foreground while more tables are visible in the background." loading="lazy">
+    <img src="../mahjong%20images/0326/consider.webp" alt="Four players concentrate on an active mahjong hand. A player wearing a colorful floral cap leans in to study the yellow tiles arranged on the table." loading="lazy">
+    <img src="../mahjong%20images/0326/count.webp" alt="Players build their starting walls at a large mahjong table while a full room of competitors does the same in the background. The busy March 2026 tournament floor at Omnihedral stretches across multiple tables." loading="lazy">
+    <img src="../mahjong%20images/0326/group.webp" alt="Group photo of approximately 30 tournament participants gathered at the end of the March 2026 one-day event at Omnihedral game store in Savage, MD. Mahjong tables are visible in the foreground." loading="lazy">
+    <img src="../mahjong%20images/0326/serious.webp" alt="Four players sit in focused concentration around a mahjong table mid-game. Tiles are arranged on the mat as players study their hands carefully." loading="lazy">
+    <img src="../mahjong%20images/0326/smile.webp" alt="A young player in a maroon sweater smiles during a tournament game at Omnihedral. Three other players are seated around the table, with the store's blue wall and shelves visible in the background." loading="lazy">
+    <img src="../mahjong%20images/0326/wide2.webp" alt="Wide shot of the full tournament room showing players at multiple mahjong tables in active play. The room is packed for the one-day event at Omnihedral." loading="lazy">
+    <img src="../mahjong%20images/0326/shuffle.webp" alt="Players shuffle and mix yellow mahjong tiles across the mat at the start of a new hand, with a busy room of other competitors visible in the background." loading="lazy">
+    <img src="../mahjong%20images/0326/stretch.webp" alt="A player reaches across the mahjong table to make a tile claim while three opponents watch. Several other games are underway in the background at Omnihedral." loading="lazy">
   </div>
 
   <hr>
@@ -91,6 +91,40 @@
 <footer class="site-footer">
   <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
 </footer>
+
+
+<div id="lightbox" aria-hidden="true">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+
+  document.querySelector('.photo-grid').addEventListener('click', e => {
+    if (e.target.tagName !== 'IMG') return;
+    lbImg.src = e.target.src;
+    lbImg.alt = e.target.alt;
+    lb.classList.add('active');
+    lb.setAttribute('aria-hidden', 'false');
+  });
+
+  lb.addEventListener('click', e => {
+    if (e.target === lb) {
+      lb.classList.remove('active');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lb.classList.remove('active');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+  });
+</script>
 
 </body>
 </html>
