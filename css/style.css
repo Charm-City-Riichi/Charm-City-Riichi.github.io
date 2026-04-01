@@ -545,6 +545,9 @@ hr {
 /* ===== UTILITIES ===== */
 strong { font-weight: 600; }
 
+p { margin-bottom: 0.85rem; }
+p:last-child { margin-bottom: 0; }
+
 /* ===== SCORE CALCULATOR ===== */
 .ccr-calculator-wrapper {
   display: grid;
