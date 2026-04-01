@@ -386,6 +386,33 @@ hr {
 .event-block {
   margin-bottom: 2rem;
 }
+
+/* Two-column layout matching live site */
+.event-row {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.event-row-left {
+  flex: 0 0 40%;
+  min-width: 0;
+}
+.event-row-right {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .event-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .event-row-left {
+    flex: none;
+    width: 100%;
+  }
+}
+
 .event-block h2 {
   font-size: 1.6rem;
   margin-bottom: 0.3rem;
@@ -407,6 +434,17 @@ hr {
 
 .event-block em {
   color: var(--color-text-muted);
+}
+
+/* Google Calendar embed */
+.calendar-embed {
+  margin: 2rem 0;
+}
+.calendar-embed iframe {
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  display: block;
+  width: 100%;
 }
 
 /* ===== SUBPAGE CONTENT ===== */

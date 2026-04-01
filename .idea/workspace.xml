@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="Update css" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="Update index">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
-      <workItem from="1774661896273" duration="17289000" />
+      <workItem from="1774661896273" duration="18387000" />
     </task>
     <task id="LOCAL-00001" summary="Update scoring.html">
       <option name="closed" value="true" />
@@ -297,7 +299,31 @@
       <option name="project" value="LOCAL" />
       <updated>1775013973339</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Update css">
+      <option name="closed" value="true" />
+      <created>1775014158795</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1775014158795</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Update css">
+      <option name="closed" value="true" />
+      <created>1775014458375</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1775014458375</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Update index">
+      <option name="closed" value="true" />
+      <created>1775015754099</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1775015754099</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,9 +358,9 @@
     <MESSAGE value="Update weekly meetups" />
     <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Update css and index" />
-    <MESSAGE value="Update index" />
     <MESSAGE value="Add aero ttf" />
     <MESSAGE value="Update css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update css" />
+    <MESSAGE value="Update index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update index" />
   </component>
 </project>
