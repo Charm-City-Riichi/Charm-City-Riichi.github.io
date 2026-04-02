@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated scoring and css" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated css" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,23 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
-      <workItem from="1774661896273" duration="28835000" />
-    </task>
-    <task id="LOCAL-00005" summary="Update scoring.html and style.css">
-      <option name="closed" value="true" />
-      <created>1774665654594</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1774665654594</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Update style.css">
-      <option name="closed" value="true" />
-      <created>1774665837497</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1774665837497</updated>
+      <workItem from="1774661896273" duration="29711000" />
     </task>
     <task id="LOCAL-00007" summary="Add images and update pathing">
       <option name="closed" value="true" />
@@ -465,7 +449,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775093714921</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="updated css">
+      <option name="closed" value="true" />
+      <created>1775093839880</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1775093839880</updated>
+    </task>
+    <task id="LOCAL-00055" summary="updated css">
+      <option name="closed" value="true" />
+      <created>1775093992385</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1775093992386</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,11 +503,11 @@
     <MESSAGE value="update how to play" />
     <MESSAGE value="updated some yaku names" />
     <MESSAGE value="updated how-to-play" />
-    <MESSAGE value="updated css" />
     <MESSAGE value="updated css and how-to-play" />
     <MESSAGE value="updated scoring" />
     <MESSAGE value="updated how to play and css" />
     <MESSAGE value="updated scoring and css" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated scoring and css" />
+    <MESSAGE value="updated css" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated css" />
   </component>
 </project>
