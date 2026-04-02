@@ -63,32 +63,34 @@
     <div class="ccr-calculator-container">
       <div class="ccr-card">
 
-        <div class="ccr-form-group">
-          <label>Dealer?</label>
-          <div class="ccr-radio-group">
-            <label><input type="radio" name="dealer" value="yes"> Dealer</label>
-            <label><input type="radio" name="dealer" value="no" checked> Non-dealer</label>
+        <div class="ccr-form-row">
+          <div class="ccr-form-group">
+            <label>Dealer?</label>
+            <div class="ccr-radio-group">
+              <label><input type="radio" name="dealer" value="yes"> Dealer</label>
+              <label><input type="radio" name="dealer" value="no" checked> Non-dealer</label>
+            </div>
+          </div>
+          <div class="ccr-form-group">
+            <label>Win type?</label>
+            <div class="ccr-radio-group">
+              <label><input type="radio" name="tsumo" value="yes"> Tsumo</label>
+              <label><input type="radio" name="tsumo" value="no" checked> Ron</label>
+            </div>
           </div>
         </div>
 
-        <div class="ccr-form-group">
-          <label>Win type?</label>
-          <div class="ccr-radio-group">
-            <label><input type="radio" name="tsumo" value="yes"> Tsumo</label>
-            <label><input type="radio" name="tsumo" value="no" checked> Ron</label>
+        <div class="ccr-form-row">
+          <div class="ccr-form-group">
+            <label for="han">Han</label>
+            <input type="number" id="han" min="1" max="59" value="1">
+            <div class="ccr-error" id="han-error"></div>
           </div>
-        </div>
-
-        <div class="ccr-form-group">
-          <label for="honba">Honba on the table</label>
-          <input type="number" id="honba" min="0" max="20" value="0">
-          <div class="ccr-error" id="honba-error"></div>
-        </div>
-
-        <div class="ccr-form-group">
-          <label for="han">Han</label>
-          <input type="number" id="han" min="1" max="59" value="1">
-          <div class="ccr-error" id="han-error"></div>
+          <div class="ccr-form-group">
+            <label for="honba">Honba</label>
+            <input type="number" id="honba" min="0" max="20" value="0">
+            <div class="ccr-error" id="honba-error"></div>
+          </div>
         </div>
 
         <div class="ccr-form-group" id="fu-group">
