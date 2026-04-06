@@ -55,13 +55,13 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">Charm City Riichi</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span>
     </button>
     <ul class="main-nav">
       <li><a href="/" class="active">Home</a></li>
       <li class="dropdown">
-        <a href="/events.html">Events</a>
+        <a href="/events.html" aria-haspopup="true" aria-expanded="false">Events</a>
         <ul class="dropdown-menu">
           <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
           <li><a href="/events/one-day-events.html">One-Day Events</a></li>
@@ -130,41 +130,16 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Charm City Riichi &middot; <a href="/cdn-cgi/l/email-protection#7b18131a091618120f020912121813123b1c161a121755181416"><span class="__cf_email__" data-cfemail="dab9b2bba8b7b9b3aea3a8b3b3b9b2b39abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
+  <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
 </footer>
 
-<div id="lightbox" aria-hidden="true">
+<div id="lightbox" role="dialog" aria-label="Image viewer" aria-hidden="true" tabindex="-1">
   <img id="lightbox-img" src="" alt="">
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightbox-img');
-
-  document.querySelector('.gallery').addEventListener('click', e => {
-    if (e.target.tagName !== 'IMG') return;
-    lbImg.src = e.target.src;
-    lbImg.alt = e.target.alt;
-    lb.classList.add('active');
-    lb.setAttribute('aria-hidden', 'false');
-  });
-
-  lb.addEventListener('click', e => {
-    if (e.target === lb) {
-      lb.classList.remove('active');
-      lb.setAttribute('aria-hidden', 'true');
-      lbImg.src = '';
-    }
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      lb.classList.remove('active');
-      lb.setAttribute('aria-hidden', 'true');
-      lbImg.src = '';
-    }
-  });
-</script>
+<script src="/js/nav.js"></script>
+<script src="/js/lightbox.js"></script>
+<script>initLightbox('.gallery');</script>
 
 </body>
 </html>

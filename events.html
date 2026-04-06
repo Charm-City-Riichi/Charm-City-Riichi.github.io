@@ -34,13 +34,13 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">Charm City Riichi</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span>
     </button>
     <ul class="main-nav">
       <li><a href="/">Home</a></li>
       <li class="dropdown">
-        <a href="/events.html" class="active">Events</a>
+        <a href="/events.html" class="active" aria-haspopup="true" aria-expanded="false">Events</a>
         <ul class="dropdown-menu">
           <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
           <li><a href="/events/one-day-events.html">One-Day Events</a></li>
@@ -119,5 +119,6 @@
   <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
 </footer>
 
+<script src="/js/nav.js"></script>
 </body>
 </html>

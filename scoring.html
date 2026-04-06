@@ -8,17 +8,17 @@
   <meta name="description" content="Riichi mahjong scoring reference for all skill levels — full yaku list, han and fu explained, point calculation tables, and an interactive payment calculator.">
   <meta property="og:title" content="Riichi Mahjong Scoring – Charm City Riichi">
   <meta property="og:description" content="Riichi mahjong scoring reference for all skill levels — full yaku list, han and fu explained, point calculation tables, and an interactive payment calculator.">
-  <meta property="og:image" content="https://charm-city-riichi.github.io/mahjong%20images/nlb/nlb10.webp">
+  <meta property="og:image" content="https://charm-city-riichi.github.io/mahjong%20images/cool%20hands/yakuman.webp">
   <meta property="og:url" content="https://charm-city-riichi.github.io/scoring.html">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:site_name" content="Charm City Riichi">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image:width" content="2208">
+  <meta property="og:image:width" content="2210">
   <meta property="og:image:height" content="1658">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Riichi Mahjong Scoring – Charm City Riichi">
   <meta name="twitter:description" content="Riichi mahjong scoring reference for all skill levels — full yaku list, han and fu explained, point calculation tables, and an interactive payment calculator.">
-  <meta name="twitter:image" content="https://charm-city-riichi.github.io/mahjong%20images/nlb/nlb10.webp">
+  <meta name="twitter:image" content="https://charm-city-riichi.github.io/mahjong%20images/cool%20hands/yakuman.webp">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://charm-city-riichi.github.io/scoring.html">
   <script type="application/ld+json">
@@ -90,13 +90,13 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">Charm City Riichi</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span>
     </button>
     <ul class="main-nav">
       <li><a href="/">Home</a></li>
       <li class="dropdown">
-        <a href="/events.html">Events</a>
+        <a href="/events.html" aria-haspopup="true" aria-expanded="false">Events</a>
         <ul class="dropdown-menu">
           <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
           <li><a href="/events/one-day-events.html">One-Day Events</a></li>
@@ -189,11 +189,11 @@
           </div>
         </div>
 
-        <button class="ccr-button" onclick="ccr_calculateScore()">Calculate Payments</button>
+        <button class="ccr-button" id="ccr-calc-btn">Calculate Payments</button>
       </div>
     </div>
 
-    <div id="ccr-results" class="ccr-result-card">
+    <div id="ccr-results" class="ccr-result-card" aria-live="polite" role="status">
       <div class="ccr-result-title">Your win</div>
       <div class="ccr-result-value" id="ccr-win-type"></div>
       <div class="ccr-result-details">
@@ -480,79 +480,100 @@
   <p style="margin-top:0.8rem">Hands also reach mangan if they hit <strong>4 han 30+ fu</strong> or <strong>3 han 60+ fu</strong>. Use the calculator above to look up the exact point values.</p>
 
   <script>
-    const ccr_validHanAmounts = Array.from({length: 59}, (_, i) => i + 1);
-    const ccr_validFuAmounts = ["20","25","30","40","50","60","70","80","90","100","120","130","140"];
-    const ccr_validHonbaAmounts = Array.from({length: 20}, (_, i) => i);
+  (function () {
+    'use strict';
 
-    document.getElementById('han').addEventListener('change', function() {
-      const han = parseInt(this.value);
-      const fuGroup = document.getElementById('fu-group');
-      const yakumanGroup = document.getElementById('yakuman-group');
+    var MAX_HAN = 59;
+    var MAX_HONBA = 20;
+    var YAKUMAN_BASE = 8000;
+    var DOUBLE_YAKUMAN_BASE = 16000;
+    var SANBAIMAN_BASE = 6000;
+    var BAIMAN_BASE = 4000;
+    var HANEMAN_BASE = 3000;
+    var MANGAN_BASE = 2000;
+    var DEALER_TSUMO_MULT = 2;
+    var NON_DEALER_RON_MULT = 4;
+    var DEALER_RON_MULT = 6;
+    var HONBA_TSUMO = 100;
+    var HONBA_RON = 300;
+    var BASE_FU_EXPONENT = 2;
+
+    var validHanAmounts = Array.from({length: MAX_HAN}, function (_, i) { return i + 1; });
+    var validFuAmounts = ["20","25","30","40","50","60","70","80","90","100","120","130","140"];
+    var validHonbaAmounts = Array.from({length: MAX_HONBA}, function (_, i) { return i; });
+
+    document.getElementById('han').addEventListener('change', function () {
+      var han = parseInt(this.value);
+      var fuGroup = document.getElementById('fu-group');
+      var yakumanGroup = document.getElementById('yakuman-group');
       if (han >= 13) { fuGroup.classList.add('ccr-hidden'); yakumanGroup.classList.remove('ccr-hidden'); }
       else if (han >= 5) { fuGroup.classList.add('ccr-hidden'); yakumanGroup.classList.add('ccr-hidden'); }
       else { fuGroup.classList.remove('ccr-hidden'); yakumanGroup.classList.add('ccr-hidden'); }
     });
 
-    function ccr_roundUp100(x) { return Math.ceil(x / 100) * 100; }
+    function roundUp100(x) { return Math.ceil(x / 100) * 100; }
 
-    function ccr_typeAndPoints(han, fu) {
-      let handType, basicPoints;
+    function typeAndPoints(han, fu) {
+      var handType, basicPoints;
       if (han >= 13) {
-        const yakumanType = document.getElementById('yakuman').value;
+        var yakumanType = document.getElementById('yakuman').value;
         handType = yakumanType;
-        basicPoints = yakumanType === "double yakuman" ? 16000 : 8000;
-      } else if (han >= 11) { handType = "sanbaiman"; basicPoints = 6000; }
-      else if (han >= 8) { handType = "baiman"; basicPoints = 4000; }
-      else if (han >= 6) { handType = "haneman"; basicPoints = 3000; }
-      else if (han >= 5 || (han === 4 && fu >= 30) || (han === 3 && fu >= 60)) { handType = "mangan"; basicPoints = 2000; }
-      else { handType = "normal"; basicPoints = fu * Math.pow(2, 2 + han); }
-      return { handType, basicPoints };
+        basicPoints = yakumanType === "double yakuman" ? DOUBLE_YAKUMAN_BASE : YAKUMAN_BASE;
+      } else if (han >= 11) { handType = "sanbaiman"; basicPoints = SANBAIMAN_BASE; }
+      else if (han >= 8) { handType = "baiman"; basicPoints = BAIMAN_BASE; }
+      else if (han >= 6) { handType = "haneman"; basicPoints = HANEMAN_BASE; }
+      else if (han >= 5 || (han === 4 && fu >= 30) || (han === 3 && fu >= 60)) { handType = "mangan"; basicPoints = MANGAN_BASE; }
+      else { handType = "normal"; basicPoints = fu * Math.pow(2, BASE_FU_EXPONENT + han); }
+      return { handType: handType, basicPoints: basicPoints };
     }
 
-    function ccr_paymentCalc(basicPoints, dealer, tsumo, honba) {
-      let winType, payment;
+    function paymentCalc(basicPoints, dealer, tsumo, honba) {
+      var winType, payment;
       if (dealer) {
-        if (tsumo) { winType = "Dealer tsumo"; payment = (ccr_roundUp100(2 * basicPoints) + 100 * honba) + " from each player"; }
-        else { winType = "Dealer ron"; payment = (ccr_roundUp100(6 * basicPoints) + 300 * honba) + " from the discarder"; }
+        if (tsumo) { winType = "Dealer tsumo"; payment = (roundUp100(DEALER_TSUMO_MULT * basicPoints) + HONBA_TSUMO * honba) + " from each player"; }
+        else { winType = "Dealer ron"; payment = (roundUp100(DEALER_RON_MULT * basicPoints) + HONBA_RON * honba) + " from the discarder"; }
       } else {
         if (tsumo) {
           winType = "Non-dealer tsumo";
-          const nonDealerPay = ccr_roundUp100(basicPoints) + 100 * honba;
-          const dealerPay = ccr_roundUp100(2 * basicPoints) + 100 * honba;
+          var nonDealerPay = roundUp100(basicPoints) + HONBA_TSUMO * honba;
+          var dealerPay = roundUp100(DEALER_TSUMO_MULT * basicPoints) + HONBA_TSUMO * honba;
           payment = nonDealerPay + " from each non-dealer, " + dealerPay + " from the dealer";
-        } else { winType = "Non-dealer ron"; payment = (ccr_roundUp100(4 * basicPoints) + 300 * honba) + " from the discarder"; }
+        } else { winType = "Non-dealer ron"; payment = (roundUp100(NON_DEALER_RON_MULT * basicPoints) + HONBA_RON * honba) + " from the discarder"; }
       }
-      return { winType, payment };
+      return { winType: winType, payment: payment };
     }
 
-    function ccr_calculateScore() {
-      document.querySelectorAll('.ccr-error').forEach(el => { el.textContent = ''; el.classList.remove('show'); });
-      const dealer = document.querySelector('input[name="dealer"]:checked').value === 'yes';
-      const tsumo = document.querySelector('input[name="tsumo"]:checked').value === 'yes';
-      const honba = parseInt(document.getElementById('honba').value);
-      const han = parseInt(document.getElementById('han').value);
-      const fu = han < 5 ? parseInt(document.getElementById('fu').value) : 20;
-      let valid = true;
-      if (!ccr_validHanAmounts.includes(han)) { document.getElementById('han-error').textContent = 'Valid han: 1-59'; document.getElementById('han-error').classList.add('show'); valid = false; }
-      if (!ccr_validHonbaAmounts.includes(honba)) { document.getElementById('honba-error').textContent = 'Valid honba: 0-19'; document.getElementById('honba-error').classList.add('show'); valid = false; }
-      if (han < 5 && !ccr_validFuAmounts.includes(fu.toString())) { document.getElementById('fu-error').textContent = 'Select a valid fu'; document.getElementById('fu-error').classList.add('show'); valid = false; }
+    function calculateScore() {
+      document.querySelectorAll('.ccr-error').forEach(function (el) { el.textContent = ''; el.classList.remove('show'); });
+      var dealer = document.querySelector('input[name="dealer"]:checked').value === 'yes';
+      var tsumo = document.querySelector('input[name="tsumo"]:checked').value === 'yes';
+      var honba = parseInt(document.getElementById('honba').value);
+      var han = parseInt(document.getElementById('han').value);
+      var fu = han < 5 ? parseInt(document.getElementById('fu').value) : 20;
+      var valid = true;
+      if (!validHanAmounts.includes(han)) { document.getElementById('han-error').textContent = 'Valid han: 1-' + MAX_HAN; document.getElementById('han-error').classList.add('show'); valid = false; }
+      if (!validHonbaAmounts.includes(honba)) { document.getElementById('honba-error').textContent = 'Valid honba: 0-' + (MAX_HONBA - 1); document.getElementById('honba-error').classList.add('show'); valid = false; }
+      if (han < 5 && !validFuAmounts.includes(fu.toString())) { document.getElementById('fu-error').textContent = 'Select a valid fu'; document.getElementById('fu-error').classList.add('show'); valid = false; }
       if (!valid) return;
-      const { handType, basicPoints } = ccr_typeAndPoints(han, fu);
-      const { winType, payment } = ccr_paymentCalc(basicPoints, dealer, tsumo, honba);
-      document.getElementById('ccr-win-type').textContent = winType;
-      document.getElementById('ccr-hand-info').textContent = handType === 'normal' ? han + ' han, ' + fu + ' fu; ' + honba + ' honba' : handType.charAt(0).toUpperCase() + handType.slice(1) + ', ' + honba + ' honba';
-      document.getElementById('ccr-payment-info').textContent = payment;
+      var result = typeAndPoints(han, fu);
+      var pay = paymentCalc(result.basicPoints, dealer, tsumo, honba);
+      document.getElementById('ccr-win-type').textContent = pay.winType;
+      document.getElementById('ccr-hand-info').textContent = result.handType === 'normal' ? han + ' han, ' + fu + ' fu; ' + honba + ' honba' : result.handType.charAt(0).toUpperCase() + result.handType.slice(1) + ', ' + honba + ' honba';
+      document.getElementById('ccr-payment-info').textContent = pay.payment;
       document.getElementById('ccr-results').classList.add('show');
     }
 
-    document.addEventListener('keypress', function(e) { if (e.key === 'Enter') ccr_calculateScore(); });
+    document.getElementById('ccr-calc-btn').addEventListener('click', calculateScore);
+    document.addEventListener('keypress', function (e) { if (e.key === 'Enter') calculateScore(); });
+  })();
   </script>
 
 </main>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Charm City Riichi &middot; <a href="/cdn-cgi/l/email-protection#7b18131a091618120f020912121813123b1c161a121755181416"><span class="__cf_email__" data-cfemail="dab9b2bba8b7b9b3aea3a8b3b3b9b2b39abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
+  <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
 </footer>
 
+<script src="/js/nav.js"></script>
 </body>
 </html>

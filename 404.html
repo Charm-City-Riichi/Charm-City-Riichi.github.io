@@ -19,13 +19,13 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">Charm City Riichi</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Toggle navigation">
       <span></span>
     </button>
     <ul class="main-nav">
       <li><a href="/">Home</a></li>
       <li class="dropdown">
-        <a href="/events.html">Events</a>
+        <a href="/events.html" aria-haspopup="true" aria-expanded="false">Events</a>
         <ul class="dropdown-menu">
           <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
           <li><a href="/events/one-day-events.html">One-Day Events</a></li>
@@ -39,17 +39,36 @@
   </div>
 </header>
 
-<main class="page-content" style="text-align:center; padding-top: 4rem; padding-bottom: 4rem;">
+<main class="page-content page-content--centered">
   <h1 class="page-title">Page Not Found</h1>
   <p>Sorry, that page doesn't exist. Maybe it moved, or maybe the link was mistyped.</p>
-  <p style="margin-top: 1.5rem;">
+  <p class="error-cta">
     <a href="/" class="btn">Back to Home</a>
   </p>
+  <div class="next-steps-grid">
+    <div class="next-step-card">
+      <a href="/events.html">Events</a>
+      <p>Weekly meetups, one-day tournaments, and the Charm City Riichi Open.</p>
+    </div>
+    <div class="next-step-card">
+      <a href="/how-to-play.html">How to Play</a>
+      <p>Beginner guide to riichi mahjong: tiles, turns, yaku, and etiquette.</p>
+    </div>
+    <div class="next-step-card">
+      <a href="/scoring.html">Scoring</a>
+      <p>Full yaku list, han/fu tables, and an interactive payment calculator.</p>
+    </div>
+    <div class="next-step-card">
+      <a href="/contact.html">Contact</a>
+      <p>Join our Discord, send us an email, or come play in person.</p>
+    </div>
+  </div>
 </main>
 
 <footer class="site-footer">
   <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
 </footer>
 
+<script src="/js/nav.js"></script>
 </body>
 </html>
