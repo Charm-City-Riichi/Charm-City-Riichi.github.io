@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated css">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated whole site">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/one-day-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/one-day-events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/weekly-meet-ups.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/weekly-meet-ups.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/how-to-play.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,15 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
-      <workItem from="1774661896273" duration="31352000" />
-    </task>
-    <task id="LOCAL-00008" summary="Update index and one day events">
-      <option name="closed" value="true" />
-      <created>1775003991330</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1775003991331</updated>
+      <workItem from="1774661896273" duration="34887000" />
     </task>
     <task id="LOCAL-00009" summary="Update index and css for gallery">
       <option name="closed" value="true" />
@@ -476,7 +459,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775096485657</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="updated whole site">
+      <option name="closed" value="true" />
+      <created>1775098280778</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1775098280778</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +485,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update events" />
     <MESSAGE value="Update how to play" />
     <MESSAGE value="Update one day events" />
     <MESSAGE value="Update scoring" />
@@ -519,6 +509,7 @@
     <MESSAGE value="updated how to play and css" />
     <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated css" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated css" />
+    <MESSAGE value="updated whole site" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated whole site" />
   </component>
 </project>
