@@ -1177,8 +1177,8 @@ p:last-child { margin-bottom: 0; }
 
 /* ===== PLAY ONLINE PAGE ===== */
 .platform-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
   margin: 1.25rem 0 2rem;
 }
@@ -1276,11 +1276,6 @@ p:last-child { margin-bottom: 0; }
   margin: 0 auto 1.25rem;
 }
 
-@media (max-width: 768px) {
-  .platform-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ===== FOCUS-VISIBLE STYLES ===== */
 a:focus-visible {
