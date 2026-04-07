@@ -1175,6 +1175,113 @@ p:last-child { margin-bottom: 0; }
   .yaku-item-name { min-width: 72px; }
 }
 
+/* ===== PLAY ONLINE PAGE ===== */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.platform-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.4rem 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.platform-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.platform-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+}
+
+.platform-card h3 a {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.platform-card h3 a:hover {
+  color: var(--color-accent);
+}
+
+.platform-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0.6rem 0 0;
+}
+
+.platform-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tag-free {
+  background: rgba(106, 168, 79, 0.15);
+  color: #4a7a2e;
+}
+
+.tag-paid {
+  background: rgba(189, 89, 12, 0.12);
+  color: var(--color-accent);
+}
+
+.tag-platform {
+  background: rgba(26, 26, 26, 0.07);
+  color: var(--color-text-muted);
+}
+
+.tag-open-source {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563b0;
+}
+
+.platform-note {
+  font-size: 0.85rem !important;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.play-online-cta {
+  text-align: center;
+  background: var(--color-green-bg);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.play-online-cta h2 {
+  margin-top: 0;
+}
+
+.play-online-cta p {
+  max-width: 540px;
+  margin: 0 auto 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== FOCUS-VISIBLE STYLES ===== */
 a:focus-visible {
   outline: 2px solid var(--color-accent);

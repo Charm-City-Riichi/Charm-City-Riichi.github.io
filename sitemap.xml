@@ -43,6 +43,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://charm-city-riichi.github.io/play-online.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://charm-city-riichi.github.io/contact.html</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>yearly</changefreq>
