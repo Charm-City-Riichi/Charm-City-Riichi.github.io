@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated whole site">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/how-to-play.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lightbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lightbox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mahjong images/stock-photo-many-white-tiles-mahjong-white-background-edited copy.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated homepage" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,23 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="2114000" />
-    </task>
-    <task id="LOCAL-00011" summary="Update css">
-      <option name="closed" value="true" />
-      <created>1775009418102</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1775009418102</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Add robots.txt">
-      <option name="closed" value="true" />
-      <created>1775011121295</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011121295</updated>
+      <workItem from="1775507658686" duration="2456000" />
     </task>
     <task id="LOCAL-00013" summary="Add sitemap">
       <option name="closed" value="true" />
@@ -477,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775508801850</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="updated whole site">
+      <option name="closed" value="true" />
+      <created>1775587751941</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1775587751941</updated>
+    </task>
+    <task id="LOCAL-00061" summary="updated homepage">
+      <option name="closed" value="true" />
+      <created>1775587867250</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1775587867250</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update how to play" />
     <MESSAGE value="Update one day events" />
     <MESSAGE value="Update scoring" />
     <MESSAGE value="Update weekly meetups" />
@@ -520,6 +508,7 @@
     <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated css" />
     <MESSAGE value="updated whole site" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated whole site" />
+    <MESSAGE value="updated homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated homepage" />
   </component>
 </project>
