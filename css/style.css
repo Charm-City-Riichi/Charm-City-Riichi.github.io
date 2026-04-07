@@ -299,7 +299,7 @@ hr {
 
 .hero-text {
   font-size: 1.1rem;
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto 1.8rem;
   color: var(--color-text);
   line-height: 1.8;

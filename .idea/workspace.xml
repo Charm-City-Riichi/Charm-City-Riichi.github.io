@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated css">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated css" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,23 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="3748000" />
-    </task>
-    <task id="LOCAL-00015" summary="Update contact">
-      <option name="closed" value="true" />
-      <created>1775011295738</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011295738</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Update events">
-      <option name="closed" value="true" />
-      <created>1775011303217</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011303217</updated>
+      <workItem from="1775507658686" duration="4201000" />
     </task>
     <task id="LOCAL-00017" summary="Update how to play">
       <option name="closed" value="true" />
@@ -468,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775589752025</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775590365599</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1775590365599</updated>
+    </task>
+    <task id="LOCAL-00065" summary="updated css">
+      <option name="closed" value="true" />
+      <created>1775590603587</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1775590603587</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update one day events" />
     <MESSAGE value="Update scoring" />
     <MESSAGE value="Update weekly meetups" />
     <MESSAGE value="Update workspace.xml" />
@@ -510,6 +507,7 @@
     <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated whole site" />
     <MESSAGE value="updated homepage" />
+    <MESSAGE value="updated play online" />
     <MESSAGE value="updated css" />
     <option name="LAST_COMMIT_MESSAGE" value="updated css" />
   </component>
