@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated whole site">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lightbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lightbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mahjong images/stock-photo-many-white-tiles-mahjong-white-background-edited copy.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,15 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="888000" />
-    </task>
-    <task id="LOCAL-00010" summary="Update index and css for gallery">
-      <option name="closed" value="true" />
-      <created>1775007048625</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1775007048625</updated>
+      <workItem from="1775507658686" duration="2114000" />
     </task>
     <task id="LOCAL-00011" summary="Update css">
       <option name="closed" value="true" />
@@ -468,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775507670579</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="updated whole site">
+      <option name="closed" value="true" />
+      <created>1775508801850</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1775508801850</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -127,7 +127,7 @@
 
   <!-- ==================== CALCULATOR ==================== -->
 
-  <h2 id="calculator" style="font-size:1.6rem; margin-bottom:1rem; margin-top:2rem;">Payment Calculator</h2>
+  <h2 id="calculator" class="scoring-section-title scoring-section-title--calc">Payment Calculator</h2>
 
   <div class="ccr-calculator-wrapper">
     <div class="ccr-calculator-container">
@@ -198,7 +198,7 @@
       <div class="ccr-result-value" id="ccr-win-type"></div>
       <div class="ccr-result-details">
         <div id="ccr-hand-info"></div>
-        <div style="margin-top: 1rem;"><strong>Payment:</strong></div>
+        <div class="ccr-payment-label"><strong>Payment:</strong></div>
         <div id="ccr-payment-info"></div>
       </div>
     </div>
@@ -210,7 +210,7 @@
   <hr>
 
   <section id="yaku">
-    <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Han</h2>
+    <h2 class="scoring-section-title">Han</h2>
 
     <p>Han are the primary unit of hand value. They are earned through circumstances (such as the timing or source of your winning tile) or through specific patterns of tiles in your hand. </p>
 
@@ -218,8 +218,9 @@
 
     <p>Some yaku are worth fewer han (or are unavailable entirely) when your hand is open — that is, when you've called chi, pon, or kan. A <strong>×</strong> in the "Open" column means the yaku cannot be used with an open hand.</p>
 
-    <div class="yaku-interactive" style="margin-top:1.5rem;">
+    <div class="yaku-interactive mt-xl">
       <div class="yaku-controls">
+        <label for="yakuSearch" class="sr-only">Search yaku</label>
         <input type="text" class="yaku-search" id="yakuSearch" placeholder="Search yaku…" autocomplete="off">
         <div class="yaku-filters">
           <button class="yaku-filter active" data-filter="all">All</button>
@@ -360,7 +361,7 @@
 
   <hr>
   <section id="scoring-fu">
-    <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Fu </h2>
+    <h2 class="scoring-section-title">Fu </h2>
 
     <p>Fu are base points determined by the shape of your hand and how you won. To calculate fu, add up the values from the categories below, then <strong>round the total up to the nearest 10</strong> (e.g. 32 fu → 40 fu).</p>
 
@@ -435,13 +436,13 @@
         <div class="fu-card-header">Formula</div>
         <div class="fu-card-body">
           <p><strong>① Base (20) + ② Win Method + ③ Melds + ④ Pair + ⑤ Wait</strong></p>
-          <p style="margin-top:0.4rem;">Round up to the nearest 10.</p>
+          <p class="mt-sm">Round up to the nearest 10.</p>
         </div>
       </div>
 
     </div>
 
-    <div class="content-section" style="margin-top:1.5rem;">
+    <div class="content-section mt-xl">
       <h3>Exceptions</h3>
       <table class="scoring-table fu-table">
         <thead>
@@ -460,7 +461,7 @@
 
   <hr>
 
-  <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">Limit Hands</h2>
+  <h2 class="scoring-section-title">Limit Hands</h2>
 
   <p>When a hand reaches 5 or more han, fu no longer matter. The score jumps to a fixed amount based on the han count:</p>
 
@@ -477,7 +478,7 @@
     </tbody>
   </table>
 
-  <p style="margin-top:0.8rem">Hands also reach mangan if they hit <strong>4 han 30+ fu</strong> or <strong>3 han 60+ fu</strong>. Use the calculator above to look up the exact point values.</p>
+  <p class="mt-md">Hands also reach mangan if they hit <strong>4 han 30+ fu</strong> or <strong>3 han 60+ fu</strong>. Use the calculator above to look up the exact point values.</p>
 
   <script>
   (function () {
@@ -503,7 +504,7 @@
     var validHonbaAmounts = Array.from({length: MAX_HONBA}, function (_, i) { return i; });
 
     document.getElementById('han').addEventListener('change', function () {
-      var han = parseInt(this.value);
+      var han = parseInt(this.value, 10);
       var fuGroup = document.getElementById('fu-group');
       var yakumanGroup = document.getElementById('yakuman-group');
       if (han >= 13) { fuGroup.classList.add('ccr-hidden'); yakumanGroup.classList.remove('ccr-hidden'); }
@@ -543,24 +544,35 @@
       return { winType: winType, payment: payment };
     }
 
+    var elHonba = document.getElementById('honba');
+    var elHan = document.getElementById('han');
+    var elFu = document.getElementById('fu');
+    var elHanError = document.getElementById('han-error');
+    var elHonbaError = document.getElementById('honba-error');
+    var elFuError = document.getElementById('fu-error');
+    var elWinType = document.getElementById('ccr-win-type');
+    var elHandInfo = document.getElementById('ccr-hand-info');
+    var elPaymentInfo = document.getElementById('ccr-payment-info');
+    var elResults = document.getElementById('ccr-results');
+
     function calculateScore() {
       document.querySelectorAll('.ccr-error').forEach(function (el) { el.textContent = ''; el.classList.remove('show'); });
       var dealer = document.querySelector('input[name="dealer"]:checked').value === 'yes';
       var tsumo = document.querySelector('input[name="tsumo"]:checked').value === 'yes';
-      var honba = parseInt(document.getElementById('honba').value);
-      var han = parseInt(document.getElementById('han').value);
-      var fu = han < 5 ? parseInt(document.getElementById('fu').value) : 20;
+      var honba = parseInt(elHonba.value, 10);
+      var han = parseInt(elHan.value, 10);
+      var fu = han < 5 ? parseInt(elFu.value, 10) : 20;
       var valid = true;
-      if (!validHanAmounts.includes(han)) { document.getElementById('han-error').textContent = 'Valid han: 1-' + MAX_HAN; document.getElementById('han-error').classList.add('show'); valid = false; }
-      if (!validHonbaAmounts.includes(honba)) { document.getElementById('honba-error').textContent = 'Valid honba: 0-' + (MAX_HONBA - 1); document.getElementById('honba-error').classList.add('show'); valid = false; }
-      if (han < 5 && !validFuAmounts.includes(fu.toString())) { document.getElementById('fu-error').textContent = 'Select a valid fu'; document.getElementById('fu-error').classList.add('show'); valid = false; }
+      if (!validHanAmounts.includes(han)) { elHanError.textContent = 'Valid han: 1-' + MAX_HAN; elHanError.classList.add('show'); valid = false; }
+      if (!validHonbaAmounts.includes(honba)) { elHonbaError.textContent = 'Valid honba: 0-' + (MAX_HONBA - 1); elHonbaError.classList.add('show'); valid = false; }
+      if (han < 5 && !validFuAmounts.includes(fu.toString())) { elFuError.textContent = 'Select a valid fu'; elFuError.classList.add('show'); valid = false; }
       if (!valid) return;
       var result = typeAndPoints(han, fu);
       var pay = paymentCalc(result.basicPoints, dealer, tsumo, honba);
-      document.getElementById('ccr-win-type').textContent = pay.winType;
-      document.getElementById('ccr-hand-info').textContent = result.handType === 'normal' ? han + ' han, ' + fu + ' fu; ' + honba + ' honba' : result.handType.charAt(0).toUpperCase() + result.handType.slice(1) + ', ' + honba + ' honba';
-      document.getElementById('ccr-payment-info').textContent = pay.payment;
-      document.getElementById('ccr-results').classList.add('show');
+      elWinType.textContent = pay.winType;
+      elHandInfo.textContent = result.handType === 'normal' ? han + ' han, ' + fu + ' fu; ' + honba + ' honba' : result.handType.charAt(0).toUpperCase() + result.handType.slice(1) + ', ' + honba + ' honba';
+      elPaymentInfo.textContent = pay.payment;
+      elResults.classList.add('show');
     }
 
     document.getElementById('ccr-calc-btn').addEventListener('click', calculateScore);

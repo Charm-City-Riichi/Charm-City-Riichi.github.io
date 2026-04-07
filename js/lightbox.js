@@ -36,8 +36,13 @@
     });
 
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lb.classList.contains('active')) {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') {
         closeLightbox();
+      }
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        lb.focus();
       }
     });
   }
