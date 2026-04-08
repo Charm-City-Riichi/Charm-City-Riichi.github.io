@@ -244,6 +244,10 @@ hr {
     padding: 1rem 0;
   }
   .main-nav.open { display: flex; }
+  .main-nav > li {
+    width: 100%;
+    text-align: center;
+  }
   .main-nav > li > a { padding: 0.65rem 1.5rem; }
   .main-nav .dropdown-menu {
     position: static;
@@ -251,7 +255,8 @@ hr {
     border: none;
     border-radius: 0;
     background: transparent;
-    padding-left: 1rem;
+    padding-left: 0;
+    text-align: center;
   }
   .main-nav .dropdown-menu { display: block; }
 }
