@@ -1,5 +1,11 @@
 # CLAUDE.md — Charm City Riichi Website
 
+> ## ⚠️ DO NOT TRY TO RUN A PREVIEW SERVER
+>
+> The `preview_*` tools **do not work in this project**. Every local HTTP server (Ruby WEBrick, `python3 -m http.server`, etc.) fails on startup with `Operation not permitted - getcwd` because of the sandbox. This has been tried multiple times — do not waste turns retrying with different commands or editing `.claude/launch.json`.
+>
+> **How to verify changes here:** read the source code carefully, reason about CSS/HTML/JS by hand, and ship. The user will check the result in their own browser. Do **not** ask the user to start a server for you.
+
 ## Project Overview
 
 **Charm City Riichi** is a riichi mahjong club based in Baltimore and Savage, Maryland. This website serves as the club's public information hub: events, rules, scoring reference, and community links.

@@ -671,6 +671,17 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
+@media (max-width: 640px) {
+  .ccr-form-row {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .ccr-calculator-container input[type="number"],
+  .ccr-calculator-container select {
+    max-width: 100%;
+  }
+}
+
 .ccr-calculator-container { max-width: 100%; }
 .ccr-card {
   background: var(--color-bg-alt);
@@ -686,7 +697,7 @@ p:last-child { margin-bottom: 0; }
 .ccr-form-group { margin-bottom: 0.9rem; }
 .ccr-form-group > label { display: block; margin-bottom: 0.35rem; font-weight: 600; color: var(--color-text); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
 .ccr-radio-group { display: flex; gap: 1.25rem; }
-.ccr-radio-group label { display: flex; align-items: center; gap: 0.5rem; font-weight: 400; cursor: pointer; color: var(--color-text); text-transform: none; letter-spacing: normal; font-size: 0.95rem; margin: 0; }
+.ccr-radio-group label { display: flex; align-items: center; gap: 0.5rem; font-weight: 400; cursor: pointer; color: var(--color-text); text-transform: none; letter-spacing: normal; font-size: 0.95rem; margin: 0; white-space: nowrap; }
 .ccr-radio-group input { cursor: pointer; accent-color: var(--color-accent); }
 .ccr-calculator-container input[type="number"],
 .ccr-calculator-container select {
@@ -701,6 +712,8 @@ p:last-child { margin-bottom: 0; }
   text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-body), sans-serif; transition: background 0.2s, transform 0.15s;
 }
 .ccr-button:hover { background: var(--color-accent-hover); transform: translateY(-1px); }
+.ccr-calc-note { margin: 0.9rem 0 0; font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.5; }
+.ccr-calc-note strong { color: var(--color-text); font-weight: 600; }
 .ccr-result-card {
   background: var(--color-surface); padding: 1.25rem; border-radius: 10px; margin-top: 0;
   border-left: 4px solid var(--color-accent); display: none;

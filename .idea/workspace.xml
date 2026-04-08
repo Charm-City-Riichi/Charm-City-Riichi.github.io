@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated css" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated play online">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,47 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="4830000" />
-    </task>
-    <task id="LOCAL-00018" summary="Update index">
-      <option name="closed" value="true" />
-      <created>1775011317973</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011317974</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Update one day events">
-      <option name="closed" value="true" />
-      <created>1775011350413</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011350413</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Update scoring">
-      <option name="closed" value="true" />
-      <created>1775011358008</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011358008</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Update weekly meetups">
-      <option name="closed" value="true" />
-      <created>1775011368850</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011368850</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Update workspace.xml">
-      <option name="closed" value="true" />
-      <created>1775011384400</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1775011384400</updated>
+      <workItem from="1775507658686" duration="9014000" />
     </task>
     <task id="LOCAL-00023" summary="Update css">
       <option name="closed" value="true" />
@@ -466,7 +428,47 @@
       <option name="project" value="LOCAL" />
       <updated>1775590812308</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775591701472</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1775591701472</updated>
+    </task>
+    <task id="LOCAL-00068" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775591726566</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1775591726566</updated>
+    </task>
+    <task id="LOCAL-00069" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775665471318</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1775665471318</updated>
+    </task>
+    <task id="LOCAL-00070" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775666142022</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1775666142023</updated>
+    </task>
+    <task id="LOCAL-00071" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775666764965</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1775666764965</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,8 +509,8 @@
     <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated whole site" />
     <MESSAGE value="updated homepage" />
-    <MESSAGE value="updated play online" />
     <MESSAGE value="updated css" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated css" />
+    <MESSAGE value="updated play online" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated play online" />
   </component>
 </project>

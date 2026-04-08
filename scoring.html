@@ -154,12 +154,40 @@
         <div class="ccr-form-row">
           <div class="ccr-form-group">
             <label for="honba">Honba</label>
-            <input type="number" id="honba" min="0" max="20" value="0">
+            <select id="honba">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
             <div class="ccr-error" id="honba-error"></div>
           </div>
           <div class="ccr-form-group">
             <label for="han">Han</label>
-            <input type="number" id="han" min="1" max="59" value="1">
+            <select id="han">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13+</option>
+            </select>
             <div class="ccr-error" id="han-error"></div>
           </div>
           <div class="ccr-form-group" id="fu-group">
@@ -191,6 +219,8 @@
         </div>
 
         <button class="ccr-button" id="ccr-calc-btn">Calculate Payments</button>
+
+        <p class="ccr-calc-note">Note: this calculator uses <strong>kiriage mangan</strong> — 4 han 30 fu and 3 han 60 fu are rounded up to mangan.</p>
       </div>
     </div>
 
