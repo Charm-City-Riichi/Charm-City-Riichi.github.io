@@ -9,6 +9,7 @@
 ## Project Overview
 
 **Charm City Riichi** is a riichi mahjong club based in Baltimore and Savage, Maryland. This website serves as the club's public information hub: events, rules, scoring reference, and community links.
+
 **Stack:** Pure HTML, CSS, vanilla JavaScript — no build tools, no frameworks, no dependencies beyond Google Fonts
 
 ---
