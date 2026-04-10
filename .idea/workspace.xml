@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated mobile menu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated trainer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,23 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="27634000" />
-    </task>
-    <task id="LOCAL-00045" summary="updated how-to-play">
-      <option name="closed" value="true" />
-      <created>1775065786599</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1775065786600</updated>
-    </task>
-    <task id="LOCAL-00046" summary="updated how-to-play">
-      <option name="closed" value="true" />
-      <created>1775066125331</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1775066125331</updated>
+      <workItem from="1775507658686" duration="28337000" />
     </task>
     <task id="LOCAL-00047" summary="updated how-to-play">
       <option name="closed" value="true" />
@@ -468,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775852179241</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="updated trainer">
+      <option name="closed" value="true" />
+      <created>1775853823367</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1775853823367</updated>
+    </task>
+    <task id="LOCAL-00095" summary="updated trainer">
+      <option name="closed" value="true" />
+      <created>1775854246765</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1775854246766</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,8 +507,8 @@
     <MESSAGE value="updated css" />
     <MESSAGE value="updated play online" />
     <MESSAGE value="updated whole site" />
-    <MESSAGE value="updated trainer" />
     <MESSAGE value="updated mobile menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated mobile menu" />
+    <MESSAGE value="updated trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated trainer" />
   </component>
 </project>

@@ -1370,18 +1370,19 @@ p:last-child { margin-bottom: 0; }
   align-items: start;
 }
 .trainer-question { min-width: 0; }
-.trainer-answer {
+.trainer-right {
   border-top: none;
   margin-top: 0;
   padding-top: 0;
   border-left: 2px solid var(--color-accent);
   padding-left: 1.25rem;
+  min-width: 0;
 }
 @media (max-width: 768px) {
   .trainer-split {
     grid-template-columns: 1fr;
   }
-  .trainer-answer {
+  .trainer-right {
     border-left: none;
     border-top: 2px solid var(--color-accent);
     padding-left: 0;
@@ -1499,9 +1500,7 @@ p:last-child { margin-bottom: 0; }
   }
 }
 .trainer-actions {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
+  margin-bottom: 1.25rem;
   display: flex;
   gap: 0.75rem;
 }
