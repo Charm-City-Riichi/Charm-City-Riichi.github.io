@@ -1371,7 +1371,7 @@ p:last-child { margin-bottom: 0; }
 .trainer-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 0.4rem 1rem;
   margin-bottom: 0.75rem;
 }
@@ -1382,17 +1382,69 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-text-muted);
   font-weight: 700;
   min-width: 7rem;
+  padding-top: 0.4rem;
 }
 .trainer-row-value {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.25rem;
   letter-spacing: 0.05em;
   color: var(--color-heading);
-  word-break: break-all;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 2px;
 }
 .trainer-row-value--win {
   color: var(--color-accent);
   font-weight: 700;
+}
+
+/* -- Tile images -- */
+.tile-img {
+  display: inline-block;
+  width: 40px;
+  height: 53px;
+  background-size: 70% auto, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center 55%, center center;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  vertical-align: bottom;
+  flex-shrink: 0;
+}
+.tile-img--back {
+  background-size: 100% 100%;
+  background-position: center center;
+}
+/* Rotated (sideways) tile for open calls.
+   We want the tile to appear 53w × 40h while the element is 40w × 53h.
+   rotate(90deg) around center makes the visual box 53×40 centered on the
+   original 40×53 box. Negative vertical margin trims the extra height;
+   horizontal margin adds the extra width. */
+.tile-img--rotated {
+  transform: rotate(90deg);
+  margin: -6.5px 6.5px;
+}
+.tile-call-group {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+.tile-call-spacer {
+  display: inline-block;
+  width: 8px;
+}
+
+@media (max-width: 600px) {
+  .tile-img {
+    width: 32px;
+    height: 43px;
+    border-radius: 3px;
+  }
+  .tile-img--rotated {
+    /* 43 - 32 = 11; half = 5.5 */
+    margin: -5.5px 5.5px;
+  }
 }
 .trainer-actions {
   margin-top: 1rem;
