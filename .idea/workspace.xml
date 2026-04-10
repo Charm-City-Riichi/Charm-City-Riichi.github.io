@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated play online">
-      <change afterPath="$PROJECT_DIR$/js/score-trainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/score-trainer.html" afterDir="false" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated trainer">
+      <change afterPath="$PROJECT_DIR$/js/st-core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/st-generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/st-scoring.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/st-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/st-waits.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/score-trainer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/score-trainer.html" beforeDir="false" afterPath="$PROJECT_DIR$/score-trainer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,15 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="16412000" />
-    </task>
-    <task id="LOCAL-00030" summary="Update css">
-      <option name="closed" value="true" />
-      <created>1775014458375</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1775014458375</updated>
+      <workItem from="1775507658686" duration="17781000" />
     </task>
     <task id="LOCAL-00031" summary="Update index">
       <option name="closed" value="true" />
@@ -471,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775794031523</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775798028589</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1775798028589</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +494,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update scoring" />
     <MESSAGE value="Update weekly meetups" />
     <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Update css and index" />
@@ -514,6 +518,7 @@
     <MESSAGE value="updated homepage" />
     <MESSAGE value="updated css" />
     <MESSAGE value="updated play online" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated play online" />
+    <MESSAGE value="updated trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated trainer" />
   </component>
 </project>
