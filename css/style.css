@@ -1375,7 +1375,7 @@ p:last-child { margin-bottom: 0; }
 }
 .trainer-split {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 55% 45%;
   gap: 0 1.5rem;
   align-items: start;
 }
@@ -1514,12 +1514,12 @@ p:last-child { margin-bottom: 0; }
   margin: 0 0 0.75rem;
   color: var(--color-accent);
 }
-.trainer-yaku-list {
+.trainer-answer .trainer-yaku-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.trainer-yaku-list li {
+.trainer-answer .trainer-yaku-list li {
   line-height: 1.6;
 }
 
