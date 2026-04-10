@@ -12,7 +12,7 @@
 
   // ----- Tile image paths ----------------------------------------------------
 
-  var TILE_DIR = 'mahjong images/tiles/';
+  var TILE_DIR = '/mahjong images/tiles/';
 
   // Map tile {suit, value, red} → filename stem (e.g. "Man5-Dora", "Ton")
   var HONOR_NAMES = { 1: 'Ton', 2: 'Nan', 3: 'Shaa', 4: 'Pei', 5: 'Haku', 6: 'Hatsu', 7: 'Chun' };
