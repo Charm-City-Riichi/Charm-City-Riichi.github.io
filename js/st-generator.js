@@ -87,7 +87,7 @@
           if (bankCount(bank, t.suit, t.value) >= 1) {
             bankTake(bank, t.suit, t.value, 1);
             result.calls[ci] = {
-              type: 'kan',
+              type: Math.random() < 0.5 ? 'daiminkan' : 'shouminkan',
               tiles: result.calls[ci].tiles.concat([tile(t.suit, t.value, false)])
             };
             break;
@@ -96,10 +96,54 @@
       }
     }
 
+    // Optional: promote a closed triplet to ankan (~5 %)
+    // Only on standard hands — kokushi/chiitoitsu have no sets to extract.
+    if (result.handShape === 'standard' && Math.random() < 0.15) {
+      var closedCounts = {};
+      for (var ai = 0; ai < result.closedTiles.length; ai++) {
+        var at = result.closedTiles[ai];
+        var akey = at.suit + at.value;
+        closedCounts[akey] = (closedCounts[akey] || 0) + 1;
+      }
+      var ankanCands = [];
+      for (var akey2 in closedCounts) {
+        if (closedCounts[akey2] >= 3) {
+          var aks = akey2[0], akv = parseInt(akey2.substring(1), 10);
+          if (bankCount(bank, aks, akv) >= 1) {
+            ankanCands.push({ suit: aks, value: akv });
+          }
+        }
+      }
+      if (ankanCands.length > 0) {
+        var pick = ankanCands[Math.floor(Math.random() * ankanCands.length)];
+        var removed = 0;
+        var newClosed = [];
+        for (var ri = 0; ri < result.closedTiles.length; ri++) {
+          if (removed < 3 && result.closedTiles[ri].suit === pick.suit
+              && result.closedTiles[ri].value === pick.value) {
+            removed++;
+          } else {
+            newClosed.push(result.closedTiles[ri]);
+          }
+        }
+        bankTake(bank, pick.suit, pick.value, 1);
+        result.closedTiles = newClosed;
+        result.calls = result.calls.concat([{
+          type: 'ankan',
+          tiles: [
+            tile(pick.suit, pick.value, false),
+            tile(pick.suit, pick.value, false),
+            tile(pick.suit, pick.value, false),
+            tile(pick.suit, pick.value, false)
+          ]
+        }]);
+      }
+    }
+
     markAkadora(result.closedTiles, result.winningTile);
     var numKans = 0;
     for (var ki = 0; ki < result.calls.length; ki++) {
-      if (result.calls[ki].type === 'kan' || result.calls[ki].type === 'ankan') numKans++;
+      if (result.calls[ki].type === 'daiminkan' || result.calls[ki].type === 'shouminkan' || result.calls[ki].type === 'ankan') numKans++;
     }
     var dora = drawIndicators(bank, 1 + numKans);
     var ura = result.riichi ? drawIndicators(bank, 1 + numKans) : [];

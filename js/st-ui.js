@@ -46,6 +46,17 @@
     return span;
   }
 
+  // Sort tiles for display: m → p → s → z, then ascending by value within suit
+  var SUIT_ORDER = { m: 0, p: 1, s: 2, z: 3 };
+
+  function sortTilesForDisplay(tiles) {
+    return tiles.slice().sort(function (a, b) {
+      var sa = SUIT_ORDER[a.suit], sb = SUIT_ORDER[b.suit];
+      if (sa !== sb) return sa - sb;
+      return a.value - b.value;
+    });
+  }
+
   // Build a row of tile images from an array of tile objects
   function makeTileRow(tiles) {
     var frag = document.createDocumentFragment();
@@ -61,7 +72,18 @@
     wrap.className = 'tile-call-group';
 
     var tiles = call.tiles;
-    var rotIdx = 0; // which tile to show sideways
+    // Which tile to show sideways.
+    // pon / shouminkan: 3 tile positions → random {0,1,2}.
+    // daiminkan: 4 tiles in a row, rotated tile marks which player's discard → random {0,1,3}.
+    // chi: always 0 (called from left player).
+    var rotIdx;
+    if (call.type === 'pon' || call.type === 'shouminkan') {
+      rotIdx = Math.floor(Math.random() * 3);
+    } else if (call.type === 'daiminkan') {
+      rotIdx = [0, 1, 3][Math.floor(Math.random() * 3)];
+    } else {
+      rotIdx = 0; // chi
+    }
 
     if (call.type === 'ankan') {
       // Closed kan: show back-front-front-back
@@ -81,9 +103,27 @@
       return wrap;
     }
 
-    // chi: rotated tile first; pon/kan: rotated tile first
-    for (var j = 0; j < tiles.length; j++) {
-      wrap.appendChild(makeTileEl(tiles[j], { rotated: j === rotIdx }));
+    if (call.type === 'shouminkan') {
+      // Pon upgraded by drawing the 4th tile: looks like a pon but with the
+      // added tile (tiles[3]) stacked on top of the rotated called tile.
+      var addedTile = tiles[3];
+      for (var j = 0; j < 3; j++) {
+        if (j === rotIdx) {
+          var stack = document.createElement('span');
+          stack.className = 'tile-kan-stack';
+          stack.appendChild(makeTileEl(addedTile, { rotated: true }));
+          stack.appendChild(makeTileEl(tiles[j], { rotated: true }));
+          wrap.appendChild(stack);
+        } else {
+          wrap.appendChild(makeTileEl(tiles[j]));
+        }
+      }
+      return wrap;
+    }
+
+    // chi / pon / daiminkan: flat row, one tile rotated at rotIdx
+    for (var k = 0; k < tiles.length; k++) {
+      wrap.appendChild(makeTileEl(tiles[k], { rotated: k === rotIdx }));
     }
     return wrap;
   }
@@ -132,8 +172,8 @@
     $('trainer-wintype').textContent = s.winType === 'tsumo' ? 'Tsumo' : 'Ron';
     $('trainer-riichi').textContent  = s.riichi ? 'Yes' : 'No';
 
-    // Closed hand — tile images
-    setTiles($('trainer-closed'), makeTileRow(s.closedTiles));
+    // Closed hand — tile images, sorted m→p→s→z then ascending value
+    setTiles($('trainer-closed'), makeTileRow(sortTilesForDisplay(s.closedTiles)));
 
     // Calls — tile images with rotated called tiles
     var callsRow = $('trainer-calls-row');

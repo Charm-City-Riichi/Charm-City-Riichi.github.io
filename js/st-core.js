@@ -301,7 +301,7 @@
       var calledTiles = 0, kansStd = 0;
       for (var i = 0; i < s.calls.length; i++) {
         calledTiles += s.calls[i].tiles.length;
-        if (s.calls[i].type === 'kan' || s.calls[i].type === 'ankan') kansStd++;
+        if (s.calls[i].type === 'daiminkan' || s.calls[i].type === 'shouminkan' || s.calls[i].type === 'ankan') kansStd++;
       }
       var standardTotal = s.closedTiles.length + calledTiles + 1;
       var expectedStd = 14 + kansStd;
@@ -312,7 +312,7 @@
 
     var totalKans = 0;
     for (var c = 0; c < s.calls.length; c++) {
-      if (s.calls[c].type === 'kan' || s.calls[c].type === 'ankan') totalKans++;
+      if (s.calls[c].type === 'daiminkan' || s.calls[c].type === 'shouminkan' || s.calls[c].type === 'ankan') totalKans++;
     }
     var expectedIndicators = 1 + totalKans;
     if (s.doraIndicators.length !== expectedIndicators) {

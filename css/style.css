@@ -1451,11 +1451,23 @@ p:last-child { margin-bottom: 0; }
 .tile-img--rotated {
   transform: rotate(90deg);
   margin: -6.5px 6.5px;
+  box-shadow: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
 }
 .tile-call-group {
   display: inline-flex;
   align-items: flex-end;
   gap: 2px;
+}
+/* Shouminkan: two tiles stacked at the called-from position.
+   The existing .tile-img--rotated margins (-6.5px top/bottom, +6.5px left/right)
+   work correctly here: each tile occupies 40px height in the column
+   and the container widens to 53px. The pair stands taller than upright tiles. */
+.tile-kan-stack {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
 }
 .tile-call-spacer {
   display: inline-block;
@@ -1471,6 +1483,8 @@ p:last-child { margin-bottom: 0; }
   .tile-img--rotated {
     /* 43 - 32 = 11; half = 5.5 */
     margin: -5.5px 5.5px;
+    box-shadow: none;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
   }
 }
 .trainer-actions {

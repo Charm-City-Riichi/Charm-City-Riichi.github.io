@@ -552,7 +552,7 @@
       }
       if (concealed) base *= 2;
 
-      var isKan = g.fromCall && (g.callType === 'kan' || g.callType === 'ankan');
+      var isKan = g.fromCall && (g.callType === 'daiminkan' || g.callType === 'shouminkan' || g.callType === 'ankan');
       if (isKan) base *= 4;
 
       fu += base;
