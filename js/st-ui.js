@@ -324,6 +324,7 @@
     newHand();
   });
 
+  ST.makeTileEl = makeTileEl;
   ST.renderHand = renderHand;
 
 })(window.ScoreTrainer || (window.ScoreTrainer = {}));

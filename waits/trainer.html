@@ -4,20 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>Page Not Found – Charm City Riichi</title>
-  <meta name="description" content="Page not found – Charm City Riichi, a riichi mahjong club in Baltimore and Savage, Maryland.">
-  <meta property="og:title" content="Page Not Found – Charm City Riichi">
-  <meta property="og:description" content="Page not found – Charm City Riichi, a riichi mahjong club in Baltimore and Savage, Maryland.">
-  <meta property="og:image" content="https://charm-city-riichi.github.io/mahjong%20images/nlb/nlb10.webp">
-  <meta property="og:url" content="https://charm-city-riichi.github.io/404.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Charm City Riichi">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Page Not Found – Charm City Riichi">
-  <meta name="twitter:description" content="Page not found – Charm City Riichi, a riichi mahjong club in Baltimore and Savage, Maryland.">
-  <meta name="twitter:image" content="https://charm-city-riichi.github.io/mahjong%20images/nlb/nlb10.webp">
-  <meta name="robots" content="noindex, follow">
+  <title>Waits Trainer – Charm City Riichi</title>
+  <meta name="description" content="Practice reading chinitsu tenpai hands. A one-suit hand of 13 tiles is shown — select every tile that completes it.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://charm-city-riichi.github.io/waits/trainer.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -64,7 +54,7 @@
         <ul class="dropdown-menu">
           <li><a href="/scoring/calculator.html">Calculator</a></li>
           <li><a href="/scoring/trainer.html">Score Trainer</a></li>
-          <li><a href="/waits/trainer.html">Waits Trainer</a></li>
+          <li><a href="/waits/trainer.html" class="active">Waits Trainer</a></li>
         </ul>
       </li>
       <li><a href="/play-online.html">Play Online</a></li>
@@ -73,30 +63,49 @@
   </div>
 </header>
 
-<main class="page-content page-content--centered">
-  <h1 class="page-title">Page Not Found</h1>
-  <p>Sorry, that page doesn't exist. Maybe it moved, or maybe the link was mistyped.</p>
-  <p class="error-cta">
-    <a href="/" class="btn">Back to Home</a>
-  </p>
-  <div class="next-steps-grid">
-    <div class="next-step-card">
-      <a href="/events.html">Events</a>
-      <p>Weekly meetups, one-day tournaments, and the Charm City Riichi Open.</p>
+<main class="page-content">
+  <h1 class="page-title">Chinitsu Waits Trainer</h1>
+
+  <div class="ccr-card trainer-card">
+
+    <!-- Top: prompt + buttons -->
+    <div class="trainer-top">
+      <p style="margin:0; color: var(--color-text); opacity: 0.75; font-size: 0.9rem;">
+        Select every tile that completes this hand, then check your answer.
+      </p>
+      <div class="trainer-actions">
+        <button class="ccr-button" id="wt-check-btn">Check Answer</button>
+        <button class="ccr-button ccr-hidden" id="wt-new-btn">New Hand</button>
+      </div>
     </div>
-    <div class="next-step-card">
-      <a href="/how-to-play/getting-started.html">Getting Started</a>
-      <p>Beginner guide to riichi mahjong: tiles, turns, yaku, and etiquette.</p>
+
+    <!-- Hand display -->
+    <div class="trainer-row" style="margin-top: 1.25rem;">
+      <span class="trainer-row-label">Hand</span>
+      <span class="trainer-row-value" id="wt-hand"></span>
     </div>
-    <div class="next-step-card">
-      <a href="/scoring.html">Scoring</a>
-      <p>Full yaku list, han/fu tables, and an interactive payment calculator.</p>
+
+    <!-- Tile selector -->
+    <div class="trainer-row" style="align-items: flex-start; margin-top: 1rem;">
+      <span class="trainer-row-label">Waits?</span>
+      <div>
+        <div class="wt-suit-label" id="wt-suit-label"></div>
+        <div id="wt-tile-selector" class="wt-tile-selector"></div>
+      </div>
     </div>
-    <div class="next-step-card">
-      <a href="/contact.html">Contact</a>
-      <p>Join our Discord, send us an email, or come play in person.</p>
+
+    <!-- Result (hidden until checked) -->
+    <div id="wt-result" class="ccr-hidden" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+      <div class="wt-verdict" id="wt-verdict"></div>
     </div>
+
   </div>
+
+  <div class="callout callout--amber">
+    <p class="callout-title">Under Development</p>
+    <p>This trainer is still being built. If you run into bugs or have feature requests, please reach out to <strong>fionnagán</strong> on our <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a>.</p>
+  </div>
+
 </main>
 
 <footer class="site-footer">
@@ -104,5 +113,12 @@
 </footer>
 
 <script src="/js/nav.js"></script>
+<script src="/js/st-core.js"></script>
+<script src="/js/st-waits.js"></script>
+<script src="/js/st-builder.js"></script>
+<script src="/js/st-ui.js"></script>
+<script src="/js/wt-solver.js"></script>
+<script src="/js/wt-generator.js"></script>
+<script src="/js/wt-ui.js"></script>
 </body>
 </html>

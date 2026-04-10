@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="edit trainer" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="edit trainer">
+      <change beforePath="$PROJECT_DIR$/.claude/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/one-day-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/one-day-events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/weekly-meet-ups.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/weekly-meet-ups.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/3-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/3-player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/detailed-guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/detailed-guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/getting-started.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/getting-started.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/strategy.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/strategy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play-online.html" beforeDir="false" afterPath="$PROJECT_DIR$/play-online.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring/calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring/calculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring/trainer.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring/trainer.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,15 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="33251000" />
-    </task>
-    <task id="LOCAL-00055" summary="updated css">
-      <option name="closed" value="true" />
-      <created>1775093992385</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1775093992386</updated>
+      <workItem from="1775507658686" duration="35334000" />
     </task>
     <task id="LOCAL-00056" summary="updated css">
       <option name="closed" value="true" />
@@ -466,7 +478,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775859122824</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="edit trainer">
+      <option name="closed" value="true" />
+      <created>1775861041817</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1775861041818</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
