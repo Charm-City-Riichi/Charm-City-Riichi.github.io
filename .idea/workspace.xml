@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated trainer">
-      <change afterPath="$PROJECT_DIR$/js/st-builder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/st-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/st-generator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/score-trainer.html" beforeDir="false" afterPath="$PROJECT_DIR$/score-trainer.html" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated trainer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,23 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="18201000" />
-    </task>
-    <task id="LOCAL-00032" summary="Update events and css">
-      <option name="closed" value="true" />
-      <created>1775016100545</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1775016100545</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Update one day events and css">
-      <option name="closed" value="true" />
-      <created>1775016501980</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1775016501980</updated>
+      <workItem from="1775507658686" duration="18956000" />
     </task>
     <task id="LOCAL-00034" summary="Update index">
       <option name="closed" value="true" />
@@ -470,7 +450,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775839636074</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="updated trainer">
+      <option name="closed" value="true" />
+      <created>1775839909466</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1775839909466</updated>
+    </task>
+    <task id="LOCAL-00082" summary="updated trainer">
+      <option name="closed" value="true" />
+      <created>1775840687577</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1775840687577</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

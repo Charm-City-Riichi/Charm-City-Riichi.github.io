@@ -616,7 +616,8 @@
       var kokScore = computePayments(8000, isDealer, situation.winType);
       candidates.push({
         yaku: [{ name: 'kokushi', han: 0, yakuman: true }],
-        fu: 0, han: 0, yakuman: true, score: kokScore
+        fu: 0, han: 0, yakuman: true, score: kokScore,
+        waitType: 'kokushi'
       });
     }
 
@@ -628,7 +629,7 @@
         var cIsYM = cResult.yaku.length > 0 && cResult.yaku[0].yakuman;
         if (cIsYM) {
           var cYMScore = computePayments(8000, isDealer, situation.winType);
-          candidates.push({ yaku: cResult.yaku, fu: 0, han: 0, yakuman: true, score: cYMScore });
+          candidates.push({ yaku: cResult.yaku, fu: 0, han: 0, yakuman: true, score: cYMScore, waitType: 'tanki' });
         } else {
           var cHan = 0;
           for (var cy = 0; cy < cResult.yaku.length; cy++) cHan += cResult.yaku[cy].han;
@@ -644,7 +645,8 @@
           var cScore = computePayments(cBase, isDealer, situation.winType);
           candidates.push({
             yaku: cResult.yaku.concat(cDoraY),
-            fu: 25, han: cTotalHan, yakuman: false, score: cScore
+            fu: 25, han: cTotalHan, yakuman: false, score: cScore,
+            waitType: 'tanki'
           });
         }
       }
@@ -674,7 +676,7 @@
         if (isYM) {
           var ymBase = 8000 * result.yaku.length;
           var ymScore = computePayments(ymBase, isDealer, situation.winType);
-          candidates.push({ yaku: result.yaku, fu: 0, han: 0, yakuman: true, score: ymScore });
+          candidates.push({ yaku: result.yaku, fu: 0, han: 0, yakuman: true, score: ymScore, waitType: w.waitType });
         } else {
           var yakuHan = 0;
           for (var yhi = 0; yhi < result.yaku.length; yhi++) yakuHan += result.yaku[yhi].han;
@@ -691,7 +693,8 @@
           var sScore = computePayments(sBase, isDealer, situation.winType);
           candidates.push({
             yaku: result.yaku.concat(sDoraY),
-            fu: sFu, han: sTotalHan, yakuman: false, score: sScore
+            fu: sFu, han: sTotalHan, yakuman: false, score: sScore,
+            waitType: w.waitType
           });
         }
       }

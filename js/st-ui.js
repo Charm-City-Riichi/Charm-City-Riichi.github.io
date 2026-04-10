@@ -7,7 +7,6 @@
 
   var windName = ST.windName;
   var tilesToNotation = ST.tilesToNotation;
-  var formatWaitShape = ST.formatWaitShape;
 
   function fmtCall(call) {
     return '[' + call.type + '] ' + tilesToNotation(call.tiles);
@@ -137,13 +136,19 @@
       elLevel.textContent = LEVEL_DISPLAY[sc.level] || sc.level;
     } else {
       elLevelRow.classList.add('ccr-hidden');
+      elLevel.textContent = '';
     }
 
-    // Wait shape
-    var waitParts = [];
-    if (s.waitShape) waitParts.push(formatWaitShape(s.waitShape));
-    if (s.archetype) waitParts.push(s.archetype);
-    elWait.textContent = waitParts.length ? waitParts.join(' / ') : '\u2014';
+    // Wait type
+    var WAIT_DISPLAY = {
+      'ryanmen': 'Ryanmen (two-sided)',
+      'kanchan': 'Kanchan (closed)',
+      'penchan': 'Penchan (edge)',
+      'shanpon': 'Shanpon (double pair)',
+      'tanki': 'Tanki (single)',
+      'kokushi': 'Kokushi (thirteen orphans)'
+    };
+    elWait.textContent = sc.waitType ? (WAIT_DISPLAY[sc.waitType] || sc.waitType) : '\u2014';
 
     // Payment
     var pay = sc.score;
