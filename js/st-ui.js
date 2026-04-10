@@ -81,20 +81,6 @@
       $('trainer-ura').textContent = '';
     }
 
-    var shapeRow = $('trainer-shape-row');
-    if (shapeRow) {
-      var debugParts = [];
-      if (s.archetype) debugParts.push(s.archetype);
-      if (s.waitShape) debugParts.push(formatWaitShape(s.waitShape));
-      if (debugParts.length) {
-        shapeRow.classList.remove('ccr-hidden');
-        $('trainer-shape').textContent = debugParts.join(' / ');
-      } else {
-        shapeRow.classList.add('ccr-hidden');
-        $('trainer-shape').textContent = '';
-      }
-    }
-
     // Hide the answer section and swap buttons
     $('trainer-answer').classList.add('ccr-hidden');
     $('trainer-show-btn').classList.remove('ccr-hidden');
@@ -112,10 +98,13 @@
     var elPayment = $('trainer-payment');
     var elAnswer = $('trainer-answer');
 
+    var elWait = $('trainer-wait');
+
     if (!sc) {
       elYaku.textContent = '(no valid yaku found)';
       elHanfu.textContent = '';
       elLevel.textContent = '';
+      elWait.textContent = '';
       elPayment.textContent = '';
       elLevelRow.classList.add('ccr-hidden');
       elAnswer.classList.remove('ccr-hidden');
@@ -149,6 +138,12 @@
     } else {
       elLevelRow.classList.add('ccr-hidden');
     }
+
+    // Wait shape
+    var waitParts = [];
+    if (s.waitShape) waitParts.push(formatWaitShape(s.waitShape));
+    if (s.archetype) waitParts.push(s.archetype);
+    elWait.textContent = waitParts.length ? waitParts.join(' / ') : '\u2014';
 
     // Payment
     var pay = sc.score;

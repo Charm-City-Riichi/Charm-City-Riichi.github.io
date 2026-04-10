@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated trainer">
-      <change afterPath="$PROJECT_DIR$/js/st-core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/st-generator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/st-scoring.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/st-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/st-waits.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/score-trainer.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/st-builder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/st-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/st-generator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/score-trainer.html" beforeDir="false" afterPath="$PROJECT_DIR$/score-trainer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,15 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="17781000" />
-    </task>
-    <task id="LOCAL-00031" summary="Update index">
-      <option name="closed" value="true" />
-      <created>1775015754099</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1775015754099</updated>
+      <workItem from="1775507658686" duration="18201000" />
     </task>
     <task id="LOCAL-00032" summary="Update events and css">
       <option name="closed" value="true" />
@@ -476,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775798028589</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="updated trainer">
+      <option name="closed" value="true" />
+      <created>1775839636074</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1775839636074</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
