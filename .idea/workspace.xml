@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated trainer" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="added plausible analytics script">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/strategy.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/strategy.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,23 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="28714000" />
-    </task>
-    <task id="LOCAL-00048" summary="updated how-to-play">
-      <option name="closed" value="true" />
-      <created>1775066734823</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1775066734823</updated>
-    </task>
-    <task id="LOCAL-00049" summary="updated css">
-      <option name="closed" value="true" />
-      <created>1775067070410</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1775067070410</updated>
+      <workItem from="1775507658686" duration="29943000" />
     </task>
     <task id="LOCAL-00050" summary="updated css and how-to-play">
       <option name="closed" value="true" />
@@ -466,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775854626349</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="updated trainer">
+      <option name="closed" value="true" />
+      <created>1775855494070</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1775855494070</updated>
+    </task>
+    <task id="LOCAL-00098" summary="added plausible analytics script">
+      <option name="closed" value="true" />
+      <created>1775855534064</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1775855534064</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update workspace.xml" />
     <MESSAGE value="Update css and index" />
     <MESSAGE value="Add aero ttf" />
     <MESSAGE value="Update css" />
@@ -509,6 +511,7 @@
     <MESSAGE value="updated whole site" />
     <MESSAGE value="updated mobile menu" />
     <MESSAGE value="updated trainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated trainer" />
+    <MESSAGE value="added plausible analytics script" />
+    <option name="LAST_COMMIT_MESSAGE" value="added plausible analytics script" />
   </component>
 </project>
