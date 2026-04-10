@@ -1375,7 +1375,7 @@ p:last-child { margin-bottom: 0; }
 }
 .trainer-split {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: max-content 1fr;
   gap: 0 1.5rem;
   align-items: start;
 }
@@ -1440,8 +1440,6 @@ p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 2px;
-  flex: 1;
-  min-width: 0;
 }
 .trainer-row-value--win {
   color: var(--color-accent);
