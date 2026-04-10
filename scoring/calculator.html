@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Score Calculator – Charm City Riichi</title>
+  <meta name="description" content="Interactive riichi mahjong payment calculator. Enter han, fu, and honba to instantly see how many points change hands.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://charm-city-riichi.github.io/scoring/calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/webp" href="/favicon.webp">
+  <link rel="apple-touch-icon" href="/favicon.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Charm City Riichi</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+    </button>
+    <ul class="main-nav">
+      <li><a href="/">Home</a></li>
+      <li class="dropdown">
+        <a href="/events.html" aria-haspopup="true" aria-expanded="false">Events</a>
+        <ul class="dropdown-menu">
+          <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
+          <li><a href="/events/one-day-events.html">One-Day Events</a></li>
+          <li><a href="/events/ccro.html">CCRO '26</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="/how-to-play.html" aria-haspopup="true" aria-expanded="false">How to Play</a>
+        <ul class="dropdown-menu">
+          <li><a href="/how-to-play/getting-started.html">Getting Started</a></li>
+          <li><a href="/how-to-play/detailed-guide.html">Detailed Guide</a></li>
+          <li><a href="/how-to-play/strategy.html">Strategy</a></li>
+          <li><a href="/how-to-play/3-player.html">3-Player Rules</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="/scoring.html" aria-haspopup="true" aria-expanded="false">Scoring</a>
+        <ul class="dropdown-menu">
+          <li><a href="/scoring/calculator.html" class="active">Calculator</a></li>
+          <li><a href="/scoring/trainer.html">Trainer</a></li>
+        </ul>
+      </li>
+      <li><a href="/play-online.html">Play Online</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="page-content">
+  <h1 class="page-title">Score Calculator</h1>
+
+  <div class="ccr-calculator-wrapper">
+    <div class="ccr-calculator-container">
+      <div class="ccr-card">
+
+        <div class="ccr-form-row">
+          <div class="ccr-form-group">
+            <label>Dealer?</label>
+            <div class="ccr-radio-group">
+              <label><input type="radio" name="dealer" value="yes"> Dealer</label>
+              <label><input type="radio" name="dealer" value="no" checked> Non-dealer</label>
+            </div>
+          </div>
+          <div class="ccr-form-group">
+            <label>Win type?</label>
+            <div class="ccr-radio-group">
+              <label><input type="radio" name="tsumo" value="yes"> Tsumo</label>
+              <label><input type="radio" name="tsumo" value="no" checked> Ron</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ccr-form-row">
+          <div class="ccr-form-group">
+            <label for="honba">Honba</label>
+            <select id="honba">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <div class="ccr-error" id="honba-error"></div>
+          </div>
+          <div class="ccr-form-group">
+            <label for="han">Han</label>
+            <select id="han">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13+</option>
+            </select>
+            <div class="ccr-error" id="han-error"></div>
+          </div>
+          <div class="ccr-form-group" id="fu-group">
+            <label for="fu">Fu</label>
+            <select id="fu">
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30" selected>30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+              <option value="90">90</option>
+              <option value="100">100</option>
+              <option value="110">110</option>
+              <option value="120">120</option>
+            </select>
+            <div class="ccr-error" id="fu-error"></div>
+          </div>
+          <div class="ccr-form-group ccr-hidden" id="yakuman-group">
+            <label for="yakuman">Yakuman type</label>
+            <select id="yakuman">
+              <option value="counted yakuman">Counted yakuman</option>
+              <option value="single yakuman">Single yakuman</option>
+              <option value="double yakuman">Double yakuman</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="ccr-button" id="ccr-calc-btn">Calculate Payments</button>
+
+        <p class="ccr-calc-note">Note: this calculator uses <strong>kiriage mangan</strong> — 4 han 30 fu and 3 han 60 fu are rounded up to mangan.</p>
+      </div>
+    </div>
+
+    <div id="ccr-results" class="ccr-result-card" aria-live="polite" role="status">
+      <div class="ccr-result-title">Your win</div>
+      <div class="ccr-result-value" id="ccr-win-type"></div>
+      <div class="ccr-result-details">
+        <div id="ccr-hand-info"></div>
+        <div class="ccr-payment-label"><strong>Payment:</strong></div>
+        <div id="ccr-payment-info"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    var MAX_HAN = 59;
+    var MAX_HONBA = 20;
+    var YAKUMAN_BASE = 8000;
+    var DOUBLE_YAKUMAN_BASE = 16000;
+    var SANBAIMAN_BASE = 6000;
+    var BAIMAN_BASE = 4000;
+    var HANEMAN_BASE = 3000;
+    var MANGAN_BASE = 2000;
+    var DEALER_TSUMO_MULT = 2;
+    var NON_DEALER_RON_MULT = 4;
+    var DEALER_RON_MULT = 6;
+    var HONBA_TSUMO = 100;
+    var HONBA_RON = 300;
+    var BASE_FU_EXPONENT = 2;
+
+    var validHanAmounts = Array.from({length: MAX_HAN}, function (_, i) { return i + 1; });
+    var validFuAmounts = ["20","25","30","40","50","60","70","80","90","100","120","130","140"];
+    var validHonbaAmounts = Array.from({length: MAX_HONBA}, function (_, i) { return i; });
+
+    document.getElementById('han').addEventListener('change', function () {
+      var han = parseInt(this.value, 10);
+      var fuGroup = document.getElementById('fu-group');
+      var yakumanGroup = document.getElementById('yakuman-group');
+      if (han >= 13) { fuGroup.classList.add('ccr-hidden'); yakumanGroup.classList.remove('ccr-hidden'); }
+      else if (han >= 5) { fuGroup.classList.add('ccr-hidden'); yakumanGroup.classList.add('ccr-hidden'); }
+      else { fuGroup.classList.remove('ccr-hidden'); yakumanGroup.classList.add('ccr-hidden'); }
+    });
+
+    function roundUp100(x) { return Math.ceil(x / 100) * 100; }
+
+    function typeAndPoints(han, fu) {
+      var handType, basicPoints;
+      if (han >= 13) {
+        var yakumanType = document.getElementById('yakuman').value;
+        handType = yakumanType;
+        basicPoints = yakumanType === "double yakuman" ? DOUBLE_YAKUMAN_BASE : YAKUMAN_BASE;
+      } else if (han >= 11) { handType = "sanbaiman"; basicPoints = SANBAIMAN_BASE; }
+      else if (han >= 8) { handType = "baiman"; basicPoints = BAIMAN_BASE; }
+      else if (han >= 6) { handType = "haneman"; basicPoints = HANEMAN_BASE; }
+      else if (han >= 5 || (han === 4 && fu >= 30) || (han === 3 && fu >= 60)) { handType = "mangan"; basicPoints = MANGAN_BASE; }
+      else { handType = "normal"; basicPoints = fu * Math.pow(2, BASE_FU_EXPONENT + han); }
+      return { handType: handType, basicPoints: basicPoints };
+    }
+
+    function paymentCalc(basicPoints, dealer, tsumo, honba) {
+      var winType, payment;
+      if (dealer) {
+        if (tsumo) { winType = "Dealer tsumo"; payment = (roundUp100(DEALER_TSUMO_MULT * basicPoints) + HONBA_TSUMO * honba) + " from each player"; }
+        else { winType = "Dealer ron"; payment = (roundUp100(DEALER_RON_MULT * basicPoints) + HONBA_RON * honba) + " from the discarder"; }
+      } else {
+        if (tsumo) {
+          winType = "Non-dealer tsumo";
+          var nonDealerPay = roundUp100(basicPoints) + HONBA_TSUMO * honba;
+          var dealerPay = roundUp100(DEALER_TSUMO_MULT * basicPoints) + HONBA_TSUMO * honba;
+          payment = nonDealerPay + " from each non-dealer, " + dealerPay + " from the dealer";
+        } else { winType = "Non-dealer ron"; payment = (roundUp100(NON_DEALER_RON_MULT * basicPoints) + HONBA_RON * honba) + " from the discarder"; }
+      }
+      return { winType: winType, payment: payment };
+    }
+
+    var elHonba = document.getElementById('honba');
+    var elHan = document.getElementById('han');
+    var elFu = document.getElementById('fu');
+    var elHanError = document.getElementById('han-error');
+    var elHonbaError = document.getElementById('honba-error');
+    var elFuError = document.getElementById('fu-error');
+    var elWinType = document.getElementById('ccr-win-type');
+    var elHandInfo = document.getElementById('ccr-hand-info');
+    var elPaymentInfo = document.getElementById('ccr-payment-info');
+    var elResults = document.getElementById('ccr-results');
+
+    function calculateScore() {
+      document.querySelectorAll('.ccr-error').forEach(function (el) { el.textContent = ''; el.classList.remove('show'); });
+      var dealer = document.querySelector('input[name="dealer"]:checked').value === 'yes';
+      var tsumo = document.querySelector('input[name="tsumo"]:checked').value === 'yes';
+      var honba = parseInt(elHonba.value, 10);
+      var han = parseInt(elHan.value, 10);
+      var fu = han < 5 ? parseInt(elFu.value, 10) : 20;
+      var valid = true;
+      if (!validHanAmounts.includes(han)) { elHanError.textContent = 'Valid han: 1-' + MAX_HAN; elHanError.classList.add('show'); valid = false; }
+      if (!validHonbaAmounts.includes(honba)) { elHonbaError.textContent = 'Valid honba: 0-' + (MAX_HONBA - 1); elHonbaError.classList.add('show'); valid = false; }
+      if (han < 5 && !validFuAmounts.includes(fu.toString())) { elFuError.textContent = 'Select a valid fu'; elFuError.classList.add('show'); valid = false; }
+      if (!valid) return;
+      var result = typeAndPoints(han, fu);
+      var pay = paymentCalc(result.basicPoints, dealer, tsumo, honba);
+      elWinType.textContent = pay.winType;
+      elHandInfo.textContent = result.handType === 'normal' ? han + ' han, ' + fu + ' fu; ' + honba + ' honba' : result.handType.charAt(0).toUpperCase() + result.handType.slice(1) + ', ' + honba + ' honba';
+      elPaymentInfo.textContent = pay.payment;
+      elResults.classList.add('show');
+    }
+
+    document.getElementById('ccr-calc-btn').addEventListener('click', calculateScore);
+    document.addEventListener('keypress', function (e) { if (e.key === 'Enter') calculateScore(); });
+  })();
+  </script>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
+</footer>
+
+<script src="/js/nav.js"></script>
+</body>
+</html>
