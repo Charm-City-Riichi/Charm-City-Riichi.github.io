@@ -52,91 +52,93 @@
 <main class="page-content">
   <h1 class="page-title">Score Trainer</h1>
 
-  <p>Practice scoring riichi mahjong hands. Each hand is presented with the full context you'd see at the table — round wind, seat, dora, calls, riichi status, and the winning tile. Work out the han, fu, and payment, then check your answer.</p>
-
-  <p>Hands are shown in standard notation: digits followed by suit letter, where <code>m</code> = man (characters), <code>p</code> = pin (dots), <code>s</code> = sou (bamboo), <code>z</code> = honors (1–4 = E/S/W/N, 5–7 = white/green/red dragons). A <code>0</code> in m, p, or s denotes a red five.</p>
-
   <div class="ccr-calculator-wrapper">
     <div class="ccr-calculator-container">
-      <div class="ccr-card">
+      <div class="ccr-card trainer-card">
+        <div class="trainer-split">
 
-        <div class="trainer-meta">
-          <div class="trainer-meta-item">
-            <span class="trainer-meta-label">Round</span>
-            <span class="trainer-meta-value" id="trainer-round"></span>
+          <!-- Left: hand / question -->
+          <div class="trainer-question">
+            <div class="trainer-meta">
+              <div class="trainer-meta-item">
+                <span class="trainer-meta-label">Round</span>
+                <span class="trainer-meta-value" id="trainer-round"></span>
+              </div>
+              <div class="trainer-meta-item">
+                <span class="trainer-meta-label">Seat</span>
+                <span class="trainer-meta-value" id="trainer-seat"></span>
+              </div>
+              <div class="trainer-meta-item">
+                <span class="trainer-meta-label">Honba</span>
+                <span class="trainer-meta-value" id="trainer-honba"></span>
+              </div>
+              <div class="trainer-meta-item">
+                <span class="trainer-meta-label">Win type</span>
+                <span class="trainer-meta-value" id="trainer-wintype"></span>
+              </div>
+              <div class="trainer-meta-item">
+                <span class="trainer-meta-label">Riichi</span>
+                <span class="trainer-meta-value" id="trainer-riichi"></span>
+              </div>
+            </div>
+
+            <div class="trainer-row">
+              <span class="trainer-row-label">Closed hand</span>
+              <span class="trainer-row-value" id="trainer-closed"></span>
+            </div>
+
+            <div class="trainer-row ccr-hidden" id="trainer-calls-row">
+              <span class="trainer-row-label">Calls</span>
+              <span class="trainer-row-value" id="trainer-calls"></span>
+            </div>
+
+            <div class="trainer-row">
+              <span class="trainer-row-label">Winning tile</span>
+              <span class="trainer-row-value trainer-row-value--win" id="trainer-winning-tile"></span>
+            </div>
+
+            <div class="trainer-row">
+              <span class="trainer-row-label">Dora indicator</span>
+              <span class="trainer-row-value" id="trainer-dora"></span>
+            </div>
+
+            <div class="trainer-row ccr-hidden" id="trainer-ura-row">
+              <span class="trainer-row-label">Ura indicator</span>
+              <span class="trainer-row-value" id="trainer-ura"></span>
+            </div>
+
+            <div class="trainer-actions">
+              <button class="ccr-button" id="trainer-show-btn">Show Answer</button>
+              <button class="ccr-button ccr-hidden" id="trainer-new-btn">New Hand</button>
+            </div>
           </div>
-          <div class="trainer-meta-item">
-            <span class="trainer-meta-label">Seat</span>
-            <span class="trainer-meta-value" id="trainer-seat"></span>
+
+          <!-- Right: answer panel -->
+          <div class="trainer-answer ccr-hidden" id="trainer-answer">
+            <h3 class="trainer-answer-heading">Scoring</h3>
+            <div class="trainer-row" id="trainer-yaku-row">
+              <span class="trainer-row-label">Yaku</span>
+              <span class="trainer-row-value" id="trainer-yaku"></span>
+            </div>
+            <div class="trainer-row" id="trainer-han-row">
+              <span class="trainer-row-label">Han / Fu</span>
+              <span class="trainer-row-value" id="trainer-hanfu"></span>
+            </div>
+            <div class="trainer-row" id="trainer-level-row">
+              <span class="trainer-row-label">Level</span>
+              <span class="trainer-row-value" id="trainer-level"></span>
+            </div>
+            <div class="trainer-row">
+              <span class="trainer-row-label">Wait</span>
+              <span class="trainer-row-value" id="trainer-wait"></span>
+            </div>
+            <div class="trainer-row">
+              <span class="trainer-row-label">Payment</span>
+              <span class="trainer-row-value" id="trainer-payment"></span>
+            </div>
           </div>
-          <div class="trainer-meta-item">
-            <span class="trainer-meta-label">Honba</span>
-            <span class="trainer-meta-value" id="trainer-honba"></span>
-          </div>
-          <div class="trainer-meta-item">
-            <span class="trainer-meta-label">Win type</span>
-            <span class="trainer-meta-value" id="trainer-wintype"></span>
-          </div>
-          <div class="trainer-meta-item">
-            <span class="trainer-meta-label">Riichi</span>
-            <span class="trainer-meta-value" id="trainer-riichi"></span>
-          </div>
+
         </div>
-
-        <div class="trainer-row">
-          <span class="trainer-row-label">Closed hand</span>
-          <span class="trainer-row-value" id="trainer-closed"></span>
-        </div>
-
-        <div class="trainer-row ccr-hidden" id="trainer-calls-row">
-          <span class="trainer-row-label">Calls</span>
-          <span class="trainer-row-value" id="trainer-calls"></span>
-        </div>
-
-        <div class="trainer-row">
-          <span class="trainer-row-label">Winning tile</span>
-          <span class="trainer-row-value trainer-row-value--win" id="trainer-winning-tile"></span>
-        </div>
-
-        <div class="trainer-row">
-          <span class="trainer-row-label">Dora indicator</span>
-          <span class="trainer-row-value" id="trainer-dora"></span>
-        </div>
-
-        <div class="trainer-row ccr-hidden" id="trainer-ura-row">
-          <span class="trainer-row-label">Ura indicator</span>
-          <span class="trainer-row-value" id="trainer-ura"></span>
-        </div>
-
-        <div class="trainer-actions">
-          <button class="ccr-button" id="trainer-show-btn">Show Answer</button>
-          <button class="ccr-button ccr-hidden" id="trainer-new-btn">New Hand</button>
-        </div>
-
-        <div class="trainer-answer ccr-hidden" id="trainer-answer">
-          <h3 class="trainer-answer-heading">Scoring</h3>
-          <div class="trainer-row" id="trainer-yaku-row">
-            <span class="trainer-row-label">Yaku</span>
-            <span class="trainer-row-value" id="trainer-yaku"></span>
-          </div>
-          <div class="trainer-row" id="trainer-han-row">
-            <span class="trainer-row-label">Han / Fu</span>
-            <span class="trainer-row-value" id="trainer-hanfu"></span>
-          </div>
-          <div class="trainer-row" id="trainer-level-row">
-            <span class="trainer-row-label">Level</span>
-            <span class="trainer-row-value" id="trainer-level"></span>
-          </div>
-          <div class="trainer-row">
-            <span class="trainer-row-label">Wait</span>
-            <span class="trainer-row-value" id="trainer-wait"></span>
-          </div>
-          <div class="trainer-row">
-            <span class="trainer-row-label">Payment</span>
-            <span class="trainer-row-value" id="trainer-payment"></span>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
