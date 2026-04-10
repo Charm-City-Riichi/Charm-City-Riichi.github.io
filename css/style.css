@@ -1365,7 +1365,7 @@ p:last-child { margin-bottom: 0; }
 .trainer-card { max-width: 100%; }
 .trainer-split {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 55% 45%;
   gap: 0 1.5rem;
   align-items: start;
 }
@@ -1406,7 +1406,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 700;
 }
 .trainer-meta-value {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-heading);
 }
@@ -1450,13 +1450,13 @@ p:last-child { margin-bottom: 0; }
   background-repeat: no-repeat, no-repeat;
   background-position: center 55%, center center;
   border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(0, 0, 0, 0.35);
   vertical-align: bottom;
   flex-shrink: 0;
 }
 .tile-img--back {
-  background-size: 100% 100%;
-  background-position: center center;
+  background-image: none;
+  background-color: #2a6b3c;
 }
 /* Rotated (sideways) tile for open calls.
    We want the tile to appear 53w × 40h while the element is 40w × 53h.
@@ -1466,8 +1466,6 @@ p:last-child { margin-bottom: 0; }
 .tile-img--rotated {
   transform: rotate(90deg);
   margin: -6.5px 6.5px;
-  box-shadow: none;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
 }
 .tile-call-group {
   display: inline-flex;
@@ -1498,8 +1496,6 @@ p:last-child { margin-bottom: 0; }
   .tile-img--rotated {
     /* 43 - 32 = 11; half = 5.5 */
     margin: -5.5px 5.5px;
-    box-shadow: none;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
   }
 }
 .trainer-actions {
@@ -1514,6 +1510,14 @@ p:last-child { margin-bottom: 0; }
   font-size: 1.15rem;
   margin: 0 0 0.75rem;
   color: var(--color-accent);
+}
+.trainer-yaku-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.trainer-yaku-list li {
+  line-height: 1.6;
 }
 
 

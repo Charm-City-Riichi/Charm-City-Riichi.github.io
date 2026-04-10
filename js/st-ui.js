@@ -91,8 +91,6 @@
         if (i === 0 || i === 3) {
           var back = document.createElement('span');
           back.className = 'tile-img tile-img--back';
-          var folder = TILE_DIR + tileFolder();
-          back.style.backgroundImage = 'url("' + folder + 'Back.svg")';
           back.setAttribute('aria-label', 'face-down');
           back.setAttribute('role', 'img');
           wrap.appendChild(back);
@@ -242,17 +240,17 @@
     }
 
     // Yaku list
-    var yakuParts = [];
+    elYaku.textContent = '';
+    var yakuList = document.createElement('ul');
+    yakuList.className = 'trainer-yaku-list';
     for (var i = 0; i < sc.yaku.length; i++) {
       var y = sc.yaku[i];
       var name = YAKU_DISPLAY[y.name] || y.name;
-      if (y.yakuman) {
-        yakuParts.push(name + ' (yakuman)');
-      } else {
-        yakuParts.push(name + ' (' + y.han + ')');
-      }
+      var li = document.createElement('li');
+      li.textContent = y.yakuman ? name + ' (yakuman)' : name + ' (' + y.han + ')';
+      yakuList.appendChild(li);
     }
-    elYaku.textContent = yakuParts.join(', ');
+    elYaku.appendChild(yakuList);
 
     // Han / Fu
     if (sc.yakuman) {
