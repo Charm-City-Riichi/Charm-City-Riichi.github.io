@@ -248,7 +248,15 @@ hr {
     width: 100%;
     text-align: center;
   }
-  .main-nav > li > a { padding: 0.65rem 1.5rem; }
+  .main-nav > li > a {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+  }
+  .main-nav > li > a:hover,
+  .main-nav > li > a.active { color: var(--color-accent); }
   .main-nav .dropdown-menu {
     position: static;
     box-shadow: none;
@@ -259,6 +267,13 @@ hr {
     text-align: center;
   }
   .main-nav .dropdown-menu { display: block; }
+  .main-nav .dropdown-menu li a {
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    padding: 0.35rem 1.5rem;
+  }
+  .main-nav .dropdown-menu li a:hover { color: var(--color-accent); background: transparent; }
 }
 
 /* ===== MAIN CONTENT ===== */
