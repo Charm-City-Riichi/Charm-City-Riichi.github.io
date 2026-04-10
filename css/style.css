@@ -742,7 +742,7 @@ p:last-child { margin-bottom: 0; }
 .ccr-result-details strong { color: var(--color-heading); }
 .ccr-error { color: var(--color-error); font-size: 0.8rem; margin-top: 0.4rem; display: none; font-weight: 500; }
 .ccr-error.show { display: block; }
-.ccr-hidden { display: none; }
+.ccr-hidden { display: none !important; }
 
 /* ===== SCORING TABLES ===== */
 .scoring-table {
