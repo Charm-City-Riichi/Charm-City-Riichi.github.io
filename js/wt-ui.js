@@ -73,6 +73,7 @@
     for (var i = 0; i < currentHand.waits.length; i++) {
       waitsSet[currentHand.waits[i]] = true;
     }
+    var phantomSet = currentHand.phantomWaits || {};
 
     var selector = byId('wt-tile-selector');
     selector.classList.add('wt-checked');
@@ -84,11 +85,16 @@
       var el = tiles[j];
       var val = parseInt(el.dataset.value, 10);
       var isWait = !!waitsSet[val];
+      var isPhantom = !!phantomSet[val];
       var isSelected = el.classList.contains('wt-answer-tile--selected');
 
       el.classList.remove('wt-answer-tile--selected');
 
-      if (isWait && isSelected) {
+      if (isPhantom) {
+        // Phantom: mathematically valid but physically impossible — show regardless,
+        // don't count toward missed or wrong either way
+        el.classList.add('wt-answer-tile--phantom');
+      } else if (isWait && isSelected) {
         el.classList.add('wt-answer-tile--correct');
       } else if (isSelected && !isWait) {
         el.classList.add('wt-answer-tile--wrong');

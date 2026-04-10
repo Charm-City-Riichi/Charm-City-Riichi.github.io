@@ -1547,6 +1547,7 @@ p:last-child { margin-bottom: 0; }
 .wt-answer-tile--correct  { border-color: var(--color-han-1); }
 .wt-answer-tile--wrong    { border-color: var(--color-yakuman); }
 .wt-answer-tile--missed   { border-color: var(--color-han-5); }
+.wt-answer-tile--phantom  { border-color: var(--color-border); border-style: dashed; opacity: 0.5; }
 .wt-checked .wt-answer-tile { cursor: default; pointer-events: none; }
 .wt-answer-tile-label {
   font-size: 0.65rem;

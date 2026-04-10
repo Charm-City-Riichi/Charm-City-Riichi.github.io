@@ -40,10 +40,20 @@
 
         if (waits.length === 0) continue; // shouldn't happen, but retry to be safe
 
+        // Phantom waits: mathematically valid but all 4 copies already in the hand
+        var handCounts = {};
+        for (var ci = 0; ci < vals.length; ci++) {
+          handCounts[vals[ci]] = (handCounts[vals[ci]] || 0) + 1;
+        }
+        var phantomWaits = {};
+        for (var wi = 0; wi < waits.length; wi++) {
+          if ((handCounts[waits[wi]] || 0) >= 4) phantomWaits[waits[wi]] = true;
+        }
+
         // Sort tiles ascending by value for display
         var sorted = tiles.slice().sort(function (a, b) { return a.value - b.value; });
 
-        return { suit: suit, tiles: sorted, waits: waits };
+        return { suit: suit, tiles: sorted, waits: waits, phantomWaits: phantomWaits };
       } catch (e) {
         lastErr = e;
         if (!(e instanceof ST.BankError) && e.name !== 'BankError') throw e;
