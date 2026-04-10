@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Score Trainer – Charm City Riichi</title>
+  <meta name="description" content="Practice scoring riichi mahjong hands. Generates winning hands with full context — winds, dora, riichi, calls, and winning tile — for you to score by hand.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/webp" href="/favicon.webp">
+  <link rel="apple-touch-icon" href="/favicon.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Charm City Riichi</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+    </button>
+    <ul class="main-nav">
+      <li><a href="/">Home</a></li>
+      <li class="dropdown">
+        <a href="/events.html" aria-haspopup="true" aria-expanded="false">Events</a>
+        <ul class="dropdown-menu">
+          <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
+          <li><a href="/events/one-day-events.html">One-Day Events</a></li>
+          <li><a href="/events/ccro.html">CCRO '26</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="/how-to-play.html" aria-haspopup="true" aria-expanded="false">How to Play</a>
+        <ul class="dropdown-menu">
+          <li><a href="/how-to-play/getting-started.html">Getting Started</a></li>
+          <li><a href="/how-to-play/detailed-guide.html">Detailed Guide</a></li>
+          <li><a href="/how-to-play/strategy.html">Strategy</a></li>
+          <li><a href="/how-to-play/3-player.html">3-Player Rules</a></li>
+        </ul>
+      </li>
+      <li><a href="/scoring.html">Scoring</a></li>
+      <li><a href="/play-online.html">Play Online</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="page-content">
+  <h1 class="page-title">Score Trainer</h1>
+
+  <p>Practice scoring riichi mahjong hands. Each hand is presented with the full context you'd see at the table — round wind, seat, dora, calls, riichi status, and the winning tile. Work out the han, fu, and payment, then check your answer.</p>
+
+  <p>Hands are shown in standard notation: digits followed by suit letter, where <code>m</code> = man (characters), <code>p</code> = pin (dots), <code>s</code> = sou (bamboo), <code>z</code> = honors (1–4 = E/S/W/N, 5–7 = white/green/red dragons). A <code>0</code> in m, p, or s denotes a red five.</p>
+
+  <div class="ccr-calculator-wrapper">
+    <div class="ccr-calculator-container">
+      <div class="ccr-card">
+
+        <div class="trainer-meta">
+          <div class="trainer-meta-item">
+            <span class="trainer-meta-label">Round</span>
+            <span class="trainer-meta-value" id="trainer-round"></span>
+          </div>
+          <div class="trainer-meta-item">
+            <span class="trainer-meta-label">Seat</span>
+            <span class="trainer-meta-value" id="trainer-seat"></span>
+          </div>
+          <div class="trainer-meta-item">
+            <span class="trainer-meta-label">Honba</span>
+            <span class="trainer-meta-value" id="trainer-honba"></span>
+          </div>
+          <div class="trainer-meta-item">
+            <span class="trainer-meta-label">Win type</span>
+            <span class="trainer-meta-value" id="trainer-wintype"></span>
+          </div>
+          <div class="trainer-meta-item">
+            <span class="trainer-meta-label">Riichi</span>
+            <span class="trainer-meta-value" id="trainer-riichi"></span>
+          </div>
+        </div>
+
+        <div class="trainer-row">
+          <span class="trainer-row-label">Closed hand</span>
+          <span class="trainer-row-value" id="trainer-closed"></span>
+        </div>
+
+        <div class="trainer-row ccr-hidden" id="trainer-calls-row">
+          <span class="trainer-row-label">Calls</span>
+          <span class="trainer-row-value" id="trainer-calls"></span>
+        </div>
+
+        <div class="trainer-row">
+          <span class="trainer-row-label">Winning tile</span>
+          <span class="trainer-row-value trainer-row-value--win" id="trainer-winning-tile"></span>
+        </div>
+
+        <div class="trainer-row">
+          <span class="trainer-row-label">Dora indicator</span>
+          <span class="trainer-row-value" id="trainer-dora"></span>
+        </div>
+
+        <div class="trainer-row ccr-hidden" id="trainer-ura-row">
+          <span class="trainer-row-label">Ura indicator</span>
+          <span class="trainer-row-value" id="trainer-ura"></span>
+        </div>
+
+        <div class="trainer-row ccr-hidden" id="trainer-shape-row">
+          <span class="trainer-row-label">Wait shape <em>(debug)</em></span>
+          <span class="trainer-row-value" id="trainer-shape"></span>
+        </div>
+
+        <div class="trainer-actions">
+          <button class="ccr-button" id="trainer-new-btn">New Hand</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
+</footer>
+
+<script src="/js/nav.js"></script>
+<script src="/js/score-trainer.js"></script>
+</body>
+</html>

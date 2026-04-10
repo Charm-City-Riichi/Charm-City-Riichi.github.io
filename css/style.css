@@ -1346,6 +1346,61 @@ p:last-child { margin-bottom: 0; }
 }
 
 
+/* ===== SCORE TRAINER ===== */
+.trainer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.trainer-meta-item { display: flex; flex-direction: column; }
+.trainer-meta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+.trainer-meta-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+.trainer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.trainer-row-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  min-width: 7rem;
+}
+.trainer-row-value {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  color: var(--color-heading);
+  word-break: break-all;
+}
+.trainer-row-value--win {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.trainer-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+
 /* ===== FOCUS-VISIBLE STYLES ===== */
 a:focus-visible {
   outline: 2px solid var(--color-accent);

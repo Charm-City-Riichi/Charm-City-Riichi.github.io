@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="updated play online">
+      <change afterPath="$PROJECT_DIR$/js/score-trainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/score-trainer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/how-to-play/3-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/3-player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,23 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="15162000" />
-    </task>
-    <task id="LOCAL-00028" summary="Update css">
-      <option name="closed" value="true" />
-      <created>1775013973338</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1775013973339</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Update css">
-      <option name="closed" value="true" />
-      <created>1775014158795</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1775014158795</updated>
+      <workItem from="1775507658686" duration="16412000" />
     </task>
     <task id="LOCAL-00030" summary="Update css">
       <option name="closed" value="true" />
@@ -469,7 +455,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775772582692</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775778745363</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1775778745363</updated>
+    </task>
+    <task id="LOCAL-00078" summary="updated play online">
+      <option name="closed" value="true" />
+      <created>1775794031523</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1775794031523</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
