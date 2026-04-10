@@ -60,33 +60,41 @@
   <h1 class="page-title">Score Trainer</h1>
 
       <div class="ccr-card trainer-card">
+
+        <!-- Top: hand state + buttons -->
+        <div class="trainer-top">
+          <div class="trainer-meta">
+            <div class="trainer-meta-item">
+              <span class="trainer-meta-label">Round</span>
+              <span class="trainer-meta-value" id="trainer-round"></span>
+            </div>
+            <div class="trainer-meta-item">
+              <span class="trainer-meta-label">Seat</span>
+              <span class="trainer-meta-value" id="trainer-seat"></span>
+            </div>
+            <div class="trainer-meta-item">
+              <span class="trainer-meta-label">Honba</span>
+              <span class="trainer-meta-value" id="trainer-honba"></span>
+            </div>
+            <div class="trainer-meta-item">
+              <span class="trainer-meta-label">Win type</span>
+              <span class="trainer-meta-value" id="trainer-wintype"></span>
+            </div>
+            <div class="trainer-meta-item">
+              <span class="trainer-meta-label">Riichi</span>
+              <span class="trainer-meta-value" id="trainer-riichi"></span>
+            </div>
+          </div>
+          <div class="trainer-actions">
+            <button class="ccr-button" id="trainer-show-btn">Show Answer</button>
+            <button class="ccr-button ccr-hidden" id="trainer-new-btn">New Hand</button>
+          </div>
+        </div>
+
+        <!-- Bottom: hand tiles (left) + answer (right) -->
         <div class="trainer-split">
 
-          <!-- Left: hand / question -->
           <div class="trainer-question">
-            <div class="trainer-meta">
-              <div class="trainer-meta-item">
-                <span class="trainer-meta-label">Round</span>
-                <span class="trainer-meta-value" id="trainer-round"></span>
-              </div>
-              <div class="trainer-meta-item">
-                <span class="trainer-meta-label">Seat</span>
-                <span class="trainer-meta-value" id="trainer-seat"></span>
-              </div>
-              <div class="trainer-meta-item">
-                <span class="trainer-meta-label">Honba</span>
-                <span class="trainer-meta-value" id="trainer-honba"></span>
-              </div>
-              <div class="trainer-meta-item">
-                <span class="trainer-meta-label">Win type</span>
-                <span class="trainer-meta-value" id="trainer-wintype"></span>
-              </div>
-              <div class="trainer-meta-item">
-                <span class="trainer-meta-label">Riichi</span>
-                <span class="trainer-meta-value" id="trainer-riichi"></span>
-              </div>
-            </div>
-
             <div class="trainer-row">
               <span class="trainer-row-label">Closed hand</span>
               <span class="trainer-row-value" id="trainer-closed"></span>
@@ -111,37 +119,29 @@
               <span class="trainer-row-label">Ura indicator</span>
               <span class="trainer-row-value" id="trainer-ura"></span>
             </div>
-
           </div>
 
-          <!-- Right: buttons + answer panel -->
-          <div class="trainer-right">
-            <div class="trainer-actions">
-              <button class="ccr-button" id="trainer-show-btn">Show Answer</button>
-              <button class="ccr-button ccr-hidden" id="trainer-new-btn">New Hand</button>
+          <div class="trainer-answer ccr-hidden" id="trainer-answer">
+            <h3 class="trainer-answer-heading">Scoring</h3>
+            <div class="trainer-row" id="trainer-yaku-row">
+              <span class="trainer-row-label">Yaku</span>
+              <span class="trainer-row-value" id="trainer-yaku"></span>
             </div>
-            <div class="trainer-answer ccr-hidden" id="trainer-answer">
-              <h3 class="trainer-answer-heading">Scoring</h3>
-              <div class="trainer-row" id="trainer-yaku-row">
-                <span class="trainer-row-label">Yaku</span>
-                <span class="trainer-row-value" id="trainer-yaku"></span>
-              </div>
-              <div class="trainer-row" id="trainer-han-row">
-                <span class="trainer-row-label">Han / Fu</span>
-                <span class="trainer-row-value" id="trainer-hanfu"></span>
-              </div>
-              <div class="trainer-row" id="trainer-level-row">
-                <span class="trainer-row-label">Level</span>
-                <span class="trainer-row-value" id="trainer-level"></span>
-              </div>
-              <div class="trainer-row">
-                <span class="trainer-row-label">Wait</span>
-                <span class="trainer-row-value" id="trainer-wait"></span>
-              </div>
-              <div class="trainer-row">
-                <span class="trainer-row-label">Payment</span>
-                <span class="trainer-row-value" id="trainer-payment"></span>
-              </div>
+            <div class="trainer-row" id="trainer-han-row">
+              <span class="trainer-row-label">Han / Fu</span>
+              <span class="trainer-row-value" id="trainer-hanfu"></span>
+            </div>
+            <div class="trainer-row" id="trainer-level-row">
+              <span class="trainer-row-label">Level</span>
+              <span class="trainer-row-value" id="trainer-level"></span>
+            </div>
+            <div class="trainer-row">
+              <span class="trainer-row-label">Wait</span>
+              <span class="trainer-row-value" id="trainer-wait"></span>
+            </div>
+            <div class="trainer-row">
+              <span class="trainer-row-label">Payment</span>
+              <span class="trainer-row-value" id="trainer-payment"></span>
             </div>
           </div>
 
