@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="move chinitsu waits trainer" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="add efficiency trainer">
+      <change afterPath="$PROJECT_DIR$/js/et-core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/et-shanten.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/practice/efficiency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/one-day-events.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/one-day-events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/weekly-meet-ups.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/weekly-meet-ups.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/3-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/3-player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/detailed-guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/detailed-guide.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/getting-started.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/getting-started.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how-to-play/strategy.html" beforeDir="false" afterPath="$PROJECT_DIR$/how-to-play/strategy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/play-online.html" beforeDir="false" afterPath="$PROJECT_DIR$/play-online.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring/calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring/calculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scoring/trainer.html" beforeDir="false" afterPath="$PROJECT_DIR$/scoring/trainer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waits/trainer.html" beforeDir="false" afterPath="$PROJECT_DIR$/waits/trainer.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,15 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="36497000" />
-    </task>
-    <task id="LOCAL-00058" summary="updated whole site">
-      <option name="closed" value="true" />
-      <created>1775507670578</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1775507670579</updated>
+      <workItem from="1775507658686" duration="37791000" />
     </task>
     <task id="LOCAL-00059" summary="updated whole site">
       <option name="closed" value="true" />
@@ -466,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775864175802</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="update flush waits trainer">
+      <option name="closed" value="true" />
+      <created>1775864865678</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1775864865678</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,8 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="moved four images from index to weekly meetups" />
-    <MESSAGE value="update weekly meetups images" />
     <MESSAGE value="update index" />
     <MESSAGE value="update weekly meet ups" />
     <MESSAGE value="update how to play" />
@@ -509,6 +531,8 @@
     <MESSAGE value="edit trainer" />
     <MESSAGE value="added chinitsu waits trainer" />
     <MESSAGE value="move chinitsu waits trainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="move chinitsu waits trainer" />
+    <MESSAGE value="update flush waits trainer" />
+    <MESSAGE value="add efficiency trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add efficiency trainer" />
   </component>
 </project>
