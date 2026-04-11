@@ -87,6 +87,7 @@
       color: classification.color,
       bestTile: classification.bestTile,
       bestUkeire: classification.bestUkeire,
+      tiedTiles: classification.tiedTiles,
       shanten: resultingShanten
     });
     renderLogEntry(state.log[state.log.length - 1]);
@@ -160,6 +161,17 @@
     ukeireLabel.textContent = '\u2192 ' + entry.ukeire + ' ukeire';
     row.appendChild(ukeireLabel);
 
+    // For green: show other equally-good tiles (if any)
+    if (entry.color === 'green' && entry.tiedTiles && entry.tiedTiles.length > 0) {
+      var alsoLabel = document.createElement('span');
+      alsoLabel.className = 'et-log-best';
+      alsoLabel.textContent = 'Also best: ';
+      row.appendChild(alsoLabel);
+      for (var t = 0; t < entry.tiedTiles.length; t++) {
+        row.appendChild(ST.makeTileEl(entry.tiedTiles[t]));
+      }
+    }
+
     // For yellow/red: show best option
     if (entry.color !== 'green') {
       var bestLabel = document.createElement('span');
@@ -173,7 +185,7 @@
       row.appendChild(bestUkeire);
     }
 
-    logEl.appendChild(row);
+    logEl.insertBefore(row, logEl.firstChild);
   }
 
   // ---- End game -----------------------------------------------------------

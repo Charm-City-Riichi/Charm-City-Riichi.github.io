@@ -182,13 +182,23 @@
       color = 'red';
     }
 
+    // Collect other tiles tied at the same ukeire (excluding the chosen tile)
+    var tiedTiles = [];
+    if (rank === 1) {
+      for (var t = 0; t < ranked.length; t++) {
+        if (ranked[t].ukeire !== chosenUkeire) break;
+        if (ranked[t].key !== chosenKey) tiedTiles.push(ranked[t].tile);
+      }
+    }
+
     return {
       color: color,
       rank: rank,
       bestTile: ranked[0].tile,
       bestUkeire: bestUkeire,
       chosenUkeire: chosenUkeire,
-      ukeireLoss: bestUkeire - chosenUkeire
+      ukeireLoss: bestUkeire - chosenUkeire,
+      tiedTiles: tiedTiles
     };
   }
 
