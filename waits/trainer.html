@@ -3,128 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
-  <title>Waits Trainer – Charm City Riichi</title>
-  <meta name="description" content="Practice reading chinitsu tenpai hands. A one-suit hand of 13 tiles is shown — select every tile that completes it.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://charm-city-riichi.github.io/waits/trainer.html">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="icon" type="image/webp" href="/favicon.webp">
-  <link rel="apple-touch-icon" href="/favicon.png">
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="https://plausible.io/js/pa-JzbwfK79eUImOyw0xYv71.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
+  <title>Chinitsu Waits Trainer – Charm City Riichi</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://charm-city-riichi.github.io/practice/waits.html">
+  <meta http-equiv="refresh" content="0; url=/practice/waits.html">
+  <script>window.location.href = '/practice/waits.html';</script>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a href="/" class="site-logo">Charm City Riichi</a>
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-    </button>
-    <ul class="main-nav">
-      <li><a href="/">Home</a></li>
-      <li class="dropdown">
-        <a href="/events.html" aria-haspopup="true" aria-expanded="false">Events</a>
-        <ul class="dropdown-menu">
-          <li><a href="/events/weekly-meet-ups.html">Weekly Meet-Ups</a></li>
-          <li><a href="/events/one-day-events.html">One-Day Events</a></li>
-          <li><a href="/events/ccro.html">CCRO '26</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="/how-to-play/" aria-haspopup="true" aria-expanded="false">How to Play</a>
-        <ul class="dropdown-menu">
-          <li><a href="/how-to-play/getting-started.html">Getting Started</a></li>
-          <li><a href="/how-to-play/detailed-guide.html">Detailed Guide</a></li>
-          <li><a href="/how-to-play/strategy.html">Strategy</a></li>
-          <li><a href="/how-to-play/3-player.html">3-Player Rules</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="/scoring.html" aria-haspopup="true" aria-expanded="false">Scoring</a>
-        <ul class="dropdown-menu">
-          <li><a href="/scoring/calculator.html">Calculator</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#" aria-haspopup="true" aria-expanded="false">Practice</a>
-        <ul class="dropdown-menu">
-          <li><a href="/scoring/trainer.html">Score Trainer</a></li>
-          <li><a href="/waits/trainer.html" class="active">Waits Trainer</a></li>
-          <li><a href="/practice/efficiency.html">Efficiency Trainer</a></li>
-        </ul>
-      </li>
-      <li><a href="/play-online.html">Play Online</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-  </div>
-</header>
-
-<main class="page-content">
-  <h1 class="page-title">Chinitsu Waits Trainer</h1>
-
-  <div class="ccr-card trainer-card">
-
-    <!-- Top: prompt + buttons -->
-    <div class="trainer-top">
-      <p style="margin:0; color: var(--color-text); opacity: 0.75; font-size: 0.9rem;">
-        Select every tile that completes this hand, then check your answer.
-      </p>
-      <div class="trainer-actions">
-        <button class="ccr-button" id="wt-check-btn">Check Answer</button>
-        <button class="ccr-button ccr-hidden" id="wt-new-btn">New Hand</button>
-      </div>
-    </div>
-
-    <!-- Hand display -->
-    <div class="trainer-row" style="margin-top: 1.25rem;">
-      <span class="trainer-row-label">Hand</span>
-      <span class="trainer-row-value" id="wt-hand"></span>
-    </div>
-
-    <!-- Tile selector -->
-    <div class="trainer-row" style="align-items: flex-start; margin-top: 1rem;">
-      <span class="trainer-row-label">Waits?</span>
-      <div>
-        <div class="wt-suit-label" id="wt-suit-label"></div>
-        <div id="wt-tile-selector" class="wt-tile-selector"></div>
-      </div>
-    </div>
-
-    <!-- Result (hidden until checked) -->
-    <div id="wt-result" class="ccr-hidden" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
-      <div class="wt-verdict" id="wt-verdict"></div>
-    </div>
-
-  </div>
-
-  <div class="callout callout--amber">
-    <p class="callout-title">Under Development</p>
-    <p>This trainer is still being built. If you run into bugs or have feature requests, please reach out to <strong>fionnagán</strong> on our <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a>.</p>
-  </div>
-
-</main>
-
-<footer class="site-footer">
-  <p>&copy; 2026 Charm City Riichi &middot; <a href="mailto:charmcityriichi@gmail.com">charmcityriichi@gmail.com</a> &middot; <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a></p>
-</footer>
-
-<script src="/js/nav.js"></script>
-<script src="/js/st-core.js"></script>
-<script src="/js/st-waits.js"></script>
-<script src="/js/st-builder.js"></script>
-<script src="/js/st-ui.js"></script>
-<script src="/js/wt-solver.js"></script>
-<script src="/js/wt-generator.js"></script>
-<script src="/js/wt-ui.js"></script>
+  <p>If you are not automatically redirected, <a href="/practice/waits.html">click here</a>.</p>
 </body>
 </html>

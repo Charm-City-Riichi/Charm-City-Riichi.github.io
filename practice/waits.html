@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>Tile Efficiency Trainer – Charm City Riichi</title>
-  <meta name="description" content="Practice tile efficiency by choosing optimal discards. A 14-tile hand is shown — pick the discard with the highest ukeire to reach tenpai.">
+  <title>Waits Trainer – Charm City Riichi</title>
+  <meta name="description" content="Practice reading chinitsu tenpai hands. A one-suit hand of 13 tiles is shown — select every tile that completes it.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://charm-city-riichi.github.io/practice/efficiency.html">
+  <link rel="canonical" href="https://charm-city-riichi.github.io/practice/waits.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,44 +28,46 @@
 <script src="/js/nav-inject.js"></script>
 
 <main class="page-content">
-  <h1 class="page-title">Tile Efficiency Trainer</h1>
+  <h1 class="page-title">Chinitsu Waits Trainer</h1>
 
   <div class="ccr-card trainer-card">
 
-    <!-- Top: prompt + button -->
+    <!-- Top: prompt + buttons -->
     <div class="trainer-top">
       <p style="margin:0; color: var(--color-text); opacity: 0.75; font-size: 0.9rem;">
-        Click a tile to discard it. Try to reach tenpai with the fewest, most efficient discards.
+        Select every tile that completes this hand, then check your answer.
       </p>
       <div class="trainer-actions">
-        <button class="ccr-button ccr-hidden" id="et-new-btn">New Hand</button>
+        <button class="ccr-button" id="wt-check-btn">Check Answer</button>
+        <button class="ccr-button ccr-hidden" id="wt-new-btn">New Hand</button>
       </div>
     </div>
 
-    <!-- Hand display: 13 sorted + 1 drawn -->
+    <!-- Hand display -->
     <div class="trainer-row" style="margin-top: 1.25rem;">
       <span class="trainer-row-label">Hand</span>
-      <span class="trainer-row-value et-hand-area">
-        <span id="et-hand" class="et-hand-group"></span>
-        <span class="et-draw-separator"></span>
-        <span id="et-draw" class="et-draw-group"></span>
-      </span>
+      <span class="trainer-row-value" id="wt-hand"></span>
     </div>
 
-    <!-- Debug info (for verification against external calculators) -->
-    <div id="et-debug" class="et-debug"></div>
+    <!-- Tile selector -->
+    <div class="trainer-row" style="align-items: flex-start; margin-top: 1rem;">
+      <span class="trainer-row-label">Waits?</span>
+      <div>
+        <div class="wt-suit-label" id="wt-suit-label"></div>
+        <div id="wt-tile-selector" class="wt-tile-selector"></div>
+      </div>
+    </div>
 
-    <!-- Result (hidden until game ends) -->
-    <div id="et-result" class="et-result ccr-hidden"></div>
-
-    <!-- Discard log -->
-    <div id="et-log" class="et-log ccr-hidden"></div>
+    <!-- Result (hidden until checked) -->
+    <div id="wt-result" class="ccr-hidden" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+      <div class="wt-verdict" id="wt-verdict"></div>
+    </div>
 
   </div>
 
   <div class="callout callout--amber">
     <p class="callout-title">Under Development</p>
-    <p>If you run into bugs or have feature requests, please reach out to <strong>fionnag&aacute;n</strong> on our <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a>.</p>
+    <p>If you run into bugs or have feature requests, please reach out to <strong>fionnagán</strong> on our <a href="https://discord.gg/SzCeUjuGFP" target="_blank" rel="noopener">Discord</a>.</p>
   </div>
 
 </main>
@@ -76,9 +78,11 @@
 
 <script src="/js/nav.js"></script>
 <script src="/js/st-core.js"></script>
+<script src="/js/st-waits.js"></script>
+<script src="/js/st-builder.js"></script>
 <script src="/js/st-ui.js"></script>
-<script src="/js/et-shanten.js"></script>
-<script src="/js/et-core.js"></script>
-<script src="/js/et-ui.js"></script>
+<script src="/js/wt-solver.js"></script>
+<script src="/js/wt-generator.js"></script>
+<script src="/js/wt-ui.js"></script>
 </body>
 </html>
