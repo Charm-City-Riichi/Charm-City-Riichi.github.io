@@ -138,8 +138,13 @@
       });
     }
 
-    // Sort descending by ukeire (best first)
-    results.sort(function (a, b) { return b.ukeire - a.ukeire; });
+    // Sort: lowest shanten first, then highest ukeire among ties.
+    // A discard that keeps shanten low is always better than one that raises it,
+    // regardless of ukeire (ukeire only compares within the same shanten level).
+    results.sort(function (a, b) {
+      if (a.shanten !== b.shanten) return a.shanten - b.shanten;
+      return b.ukeire - a.ukeire;
+    });
 
     // Build lookup map
     var lookup = {};
@@ -159,17 +164,31 @@
   function classifyDiscard(chosenKey, evaluation) {
     var ranked = evaluation.ranked;
     var chosen = evaluation.lookup[chosenKey];
+    var bestShanten = ranked[0].shanten;
     var bestUkeire = ranked[0].ukeire;
+    var chosenShanten = chosen.shanten;
     var chosenUkeire = chosen.ukeire;
 
-    // Find rank (1-based): count how many distinct ukeire values are strictly better
+    // Two discards are equivalent if they give the same shanten AND same ukeire.
+    // A discard is strictly better if it gives lower shanten, or same shanten
+    // with higher ukeire.
+    function isSame(a, b) {
+      return a.shanten === b.shanten && a.ukeire === b.ukeire;
+    }
+    function isBetter(a, b) {
+      if (a.shanten !== b.shanten) return a.shanten < b.shanten;
+      return a.ukeire > b.ukeire;
+    }
+
+    // Find rank (1-based): count how many distinct (shanten, ukeire) tiers
+    // are strictly better than the chosen discard
     var rank = 1;
-    var prevUkeire = -1;
+    var prev = null;
     for (var j = 0; j < ranked.length; j++) {
-      if (ranked[j].ukeire === chosenUkeire) break;
-      if (ranked[j].ukeire !== prevUkeire) {
+      if (isSame(ranked[j], chosen)) break;
+      if (!prev || !isSame(ranked[j], prev)) {
         rank++;
-        prevUkeire = ranked[j].ukeire;
+        prev = ranked[j];
       }
     }
 
@@ -182,14 +201,20 @@
       color = 'red';
     }
 
-    // Collect other tiles tied at the same ukeire (excluding the chosen tile)
+    // Collect other tiles tied at best (same shanten + same ukeire, excluding chosen)
     var tiedTiles = [];
     if (rank === 1) {
       for (var t = 0; t < ranked.length; t++) {
-        if (ranked[t].ukeire !== chosenUkeire) break;
+        if (!isSame(ranked[t], chosen)) break;
         if (ranked[t].key !== chosenKey) tiedTiles.push(ranked[t].tile);
       }
     }
+
+    // Ukeire loss: only meaningful when shanten is the same as best;
+    // if chosen raises shanten, report the best ukeire at best shanten as the gap
+    var ukeireLoss = (chosenShanten === bestShanten)
+      ? bestUkeire - chosenUkeire
+      : bestUkeire;
 
     return {
       color: color,
@@ -197,7 +222,7 @@
       bestTile: ranked[0].tile,
       bestUkeire: bestUkeire,
       chosenUkeire: chosenUkeire,
-      ukeireLoss: bestUkeire - chosenUkeire,
+      ukeireLoss: ukeireLoss,
       tiedTiles: tiedTiles
     };
   }
