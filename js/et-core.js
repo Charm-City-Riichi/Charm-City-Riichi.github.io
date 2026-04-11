@@ -175,11 +175,6 @@
     function isSame(a, b) {
       return a.shanten === b.shanten && a.ukeire === b.ukeire;
     }
-    function isBetter(a, b) {
-      if (a.shanten !== b.shanten) return a.shanten < b.shanten;
-      return a.ukeire > b.ukeire;
-    }
-
     // Find rank (1-based): count how many distinct (shanten, ukeire) tiers
     // are strictly better than the chosen discard
     var rank = 1;
