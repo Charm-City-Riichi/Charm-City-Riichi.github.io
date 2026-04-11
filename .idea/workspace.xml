@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update ET">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/et-core.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-core.js" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update ET" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,23 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="41428000" />
-    </task>
-    <task id="LOCAL-00066" summary="updated css">
-      <option name="closed" value="true" />
-      <created>1775590812308</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1775590812308</updated>
-    </task>
-    <task id="LOCAL-00067" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775591701472</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1775591701472</updated>
+      <workItem from="1775507658686" duration="41869000" />
     </task>
     <task id="LOCAL-00068" summary="updated play online">
       <option name="closed" value="true" />
@@ -472,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775885551315</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="update ET">
+      <option name="closed" value="true" />
+      <created>1775886060377</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1775886060377</updated>
+    </task>
+    <task id="LOCAL-00116" summary="update ET">
+      <option name="closed" value="true" />
+      <created>1775911660983</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1775911660984</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
