@@ -13,6 +13,26 @@
 
   function byId(id) { return document.getElementById(id); }
 
+  // ---- Notation helper (for debug display) --------------------------------
+
+  /** Convert a sorted tile array to compact notation, e.g. "123m456p11z" */
+  function tilesToNotation(tiles) {
+    var sorted = tiles.slice().sort(ST.compareTiles);
+    var groups = { m: [], p: [], s: [], z: [] };
+    for (var i = 0; i < sorted.length; i++) {
+      groups[sorted[i].suit].push(sorted[i].value);
+    }
+    var out = '';
+    var suits = ['m', 'p', 's', 'z'];
+    for (var si = 0; si < suits.length; si++) {
+      var g = groups[suits[si]];
+      if (g.length > 0) {
+        out += g.join('') + suits[si];
+      }
+    }
+    return out;
+  }
+
   // ---- Game state ---------------------------------------------------------
 
   var state = null; // { hand, drawnTile, bank, remainingDeck, log, turnCount, drawCount, optimalCount, totalUkeireLoss, currentEval }
@@ -48,6 +68,24 @@
     drawWrap.appendChild(ST.makeTileEl(state.drawnTile));
     drawWrap.addEventListener('click', onTileClick);
     drawEl.appendChild(drawWrap);
+
+    // Debug display: hand notation + shanten for external verification
+    renderDebug();
+  }
+
+  function renderDebug() {
+    var debugEl = byId('et-debug');
+    if (!debugEl || !state) return;
+
+    var all14 = state.hand.concat([state.drawnTile]);
+    var notation14 = tilesToNotation(all14);
+    var shanten14 = ET.calculateShanten(all14);
+
+    var notation13 = tilesToNotation(state.hand);
+    var shanten13 = ET.calculateShanten(state.hand);
+
+    debugEl.textContent = '14 tiles: ' + notation14 + ' (shanten ' + shanten14 + ')' +
+      '  |  13 tiles: ' + notation13 + ' (shanten ' + shanten13 + ')';
   }
 
   // ---- Discard handling ---------------------------------------------------

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="add redirect link for CCRO" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update ET" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +57,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="Push.Settings">
+    <option name="SHOW_DETAILS_PANEL" value="false" />
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,23 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="39662000" />
-    </task>
-    <task id="LOCAL-00063" summary="updated css">
-      <option name="closed" value="true" />
-      <created>1775589752025</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1775589752025</updated>
-    </task>
-    <task id="LOCAL-00064" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775590365599</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1775590365599</updated>
+      <workItem from="1775507658686" duration="40333000" />
     </task>
     <task id="LOCAL-00065" summary="updated css">
       <option name="closed" value="true" />
@@ -466,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775882998725</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="add redirect link for CCRO">
+      <option name="closed" value="true" />
+      <created>1775883579223</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1775883579223</updated>
+    </task>
+    <task id="LOCAL-00113" summary="update ET">
+      <option name="closed" value="true" />
+      <created>1775883613168</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1775883613168</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update how to play" />
     <MESSAGE value="updated some yaku names" />
     <MESSAGE value="updated how-to-play" />
     <MESSAGE value="updated css and how-to-play" />
@@ -509,6 +511,7 @@
     <MESSAGE value="add efficiency trainer" />
     <MESSAGE value="update efficiency trainer" />
     <MESSAGE value="add redirect link for CCRO" />
-    <option name="LAST_COMMIT_MESSAGE" value="add redirect link for CCRO" />
+    <MESSAGE value="update ET" />
+    <option name="LAST_COMMIT_MESSAGE" value="update ET" />
   </component>
 </project>

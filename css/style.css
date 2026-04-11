@@ -1575,6 +1575,15 @@ p:last-child { margin-bottom: 0; }
 
 /* ===== EFFICIENCY TRAINER ===== */
 
+.et-debug {
+  margin-top: 0.5rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  opacity: 0.55;
+  word-break: break-all;
+}
+
 .et-hand-area {
   display: flex;
   align-items: flex-end;
