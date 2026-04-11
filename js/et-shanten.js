@@ -39,100 +39,123 @@
   }
 
   // ---- Standard shanten (backtracking) ------------------------------------
+  //
+  // Uses a counts array indexed 0–33 for fast access, with a "remaining
+  // tiles" counter for pruning.  Pruning rule: compute a lower bound on
+  // the shanten this branch can achieve; if it can't beat _best, prune.
 
-  var _best; // module-level variable updated during scan
+  var _best; // module-level — updated during scan
 
-  function scan(counts, keyIdx, mentsu, taatsu, jantai) {
-    // Upper bound: shanten if we skip all remaining tiles
+  // Flat counts array used during scan (avoids per-call allocation)
+  var _c = new Array(34);
+
+  function scan(idx, mentsu, taatsu, jantai, remaining) {
+    // Record current state as a valid decomposition (skip everything left)
     var potential = 8 - 2 * mentsu - taatsu - jantai;
     if (potential < _best) _best = potential;
+    if (_best === -1) return; // can't do better than complete
 
-    // Advance past zero-count keys
-    while (keyIdx < 34 && !(counts[KEYS[keyIdx]] > 0)) keyIdx++;
-    if (keyIdx >= 34) return;
+    // Lower bound: best case if remaining tiles form perfect groups.
+    // Each mentsu uses 3 tiles and contributes 2; each taatsu uses 2 and
+    // contributes 1; jantai uses 2 and contributes 1.  Greedy: fill mentsu
+    // first (best ratio), then taatsu, then jantai.
+    var slotsOpen = 4 - mentsu;
+    var addM = slotsOpen < 0 ? 0 : slotsOpen;
+    var rm = remaining;
+    // Can't form more mentsu than tiles allow
+    var tilesForM = addM * 3;
+    if (tilesForM > rm) { addM = (rm / 3) | 0; tilesForM = addM * 3; }
+    rm -= tilesForM;
+    var addT = 4 - mentsu - addM - taatsu;
+    if (addT < 0) addT = 0;
+    var tilesForT = addT * 2;
+    if (tilesForT > rm) { addT = (rm / 2) | 0; tilesForT = addT * 2; }
+    rm -= tilesForT;
+    var addJ = (!jantai && rm >= 2) ? 1 : 0;
+    var lowerBound = 8 - 2 * (mentsu + addM) - (taatsu + addT) - (jantai + addJ);
+    if (lowerBound >= _best) return;
 
-    var key = KEYS[keyIdx];
-    var suit = key[0];
-    var val = parseInt(key.substring(1), 10);
+    // Advance past zero-count tiles
+    while (idx < 34 && _c[idx] === 0) idx++;
+    if (idx >= 34) return;
+
+    var n = _c[idx];
+    var suit = KEYS[idx][0];
+    var val = parseInt(KEYS[idx].substring(1), 10);
     var numbered = suit !== 'z';
-    var canPartial = mentsu + taatsu < 4;
 
     // --- Complete groups (mentsu) ---
 
     // Triplet
-    if (counts[key] >= 3) {
-      counts[key] -= 3;
-      scan(counts, keyIdx, mentsu + 1, taatsu, jantai);
-      counts[key] += 3;
+    if (n >= 3) {
+      _c[idx] -= 3;
+      scan(idx, mentsu + 1, taatsu, jantai, remaining - 3);
+      _c[idx] += 3;
     }
 
     // Sequence (numbered suits only, val <= 7)
+    // Need to check that idx+1 and idx+2 are in the same suit
     if (numbered && val <= 7) {
-      var k2 = suit + (val + 1);
-      var k3 = suit + (val + 2);
-      if ((counts[k2] || 0) > 0 && (counts[k3] || 0) > 0) {
-        counts[key]--;
-        counts[k2]--;
-        counts[k3]--;
-        scan(counts, keyIdx, mentsu + 1, taatsu, jantai);
-        counts[key]++;
-        counts[k2]++;
-        counts[k3]++;
+      var i2 = idx + 1, i3 = idx + 2;
+      if (_c[i2] > 0 && _c[i3] > 0) {
+        _c[idx]--; _c[i2]--; _c[i3]--;
+        scan(idx, mentsu + 1, taatsu, jantai, remaining - 3);
+        _c[idx]++; _c[i2]++; _c[i3]++;
       }
     }
 
-    // --- Partial groups (taatsu) — only if room (mentsu + taatsu < 4) ---
-
-    // Pair as jantai (the one allowed pair, not a taatsu)
-    if (!jantai && counts[key] >= 2) {
-      counts[key] -= 2;
-      scan(counts, keyIdx, mentsu, taatsu, 1);
-      counts[key] += 2;
+    // --- Jantai (the one allowed pair) ---
+    if (!jantai && n >= 2) {
+      _c[idx] -= 2;
+      scan(idx, mentsu, taatsu, 1, remaining - 2);
+      _c[idx] += 2;
     }
 
-    if (canPartial) {
-      // Pair as taatsu (toward a triplet)
-      if (counts[key] >= 2) {
-        counts[key] -= 2;
-        scan(counts, keyIdx, mentsu, taatsu + 1, jantai);
-        counts[key] += 2;
+    // --- Partial groups (taatsu) — only if slots remain ---
+    if (mentsu + taatsu < 4) {
+      // Pair as taatsu (toward triplet)
+      if (n >= 2) {
+        _c[idx] -= 2;
+        scan(idx, mentsu, taatsu + 1, jantai, remaining - 2);
+        _c[idx] += 2;
       }
 
-      // Adjacent partial sequence (e.g. 45 waiting on 3 or 6)
+      // Adjacent partial sequence (e.g. 45)
       if (numbered && val <= 8) {
-        var kAdj = suit + (val + 1);
-        if ((counts[kAdj] || 0) > 0) {
-          counts[key]--;
-          counts[kAdj]--;
-          scan(counts, keyIdx, mentsu, taatsu + 1, jantai);
-          counts[key]++;
-          counts[kAdj]++;
+        var iAdj = idx + 1;
+        if (_c[iAdj] > 0) {
+          _c[idx]--; _c[iAdj]--;
+          scan(idx, mentsu, taatsu + 1, jantai, remaining - 2);
+          _c[idx]++; _c[iAdj]++;
         }
       }
 
-      // Skip-one partial sequence / kanchan (e.g. 46 waiting on 5)
+      // Skip-one partial sequence / kanchan (e.g. 46)
       if (numbered && val <= 7) {
-        var kSkip = suit + (val + 2);
-        if ((counts[kSkip] || 0) > 0) {
-          counts[key]--;
-          counts[kSkip]--;
-          scan(counts, keyIdx, mentsu, taatsu + 1, jantai);
-          counts[key]++;
-          counts[kSkip]++;
+        var iSkip = idx + 2;
+        if (_c[iSkip] > 0) {
+          _c[idx]--; _c[iSkip]--;
+          scan(idx, mentsu, taatsu + 1, jantai, remaining - 2);
+          _c[idx]++; _c[iSkip]++;
         }
       }
     }
 
-    // --- Skip all copies of this tile (isolated / leftover) ---
-    var saved = counts[key];
-    counts[key] = 0;
-    scan(counts, keyIdx + 1, mentsu, taatsu, jantai);
-    counts[key] = saved;
+    // --- Skip all copies of this tile ---
+    _c[idx] = 0;
+    scan(idx + 1, mentsu, taatsu, jantai, remaining - n);
+    _c[idx] = n;
   }
 
   function shantenStandard(counts) {
+    // Copy into flat array
+    var total = 0;
+    for (var i = 0; i < 34; i++) {
+      _c[i] = counts[KEYS[i]] || 0;
+      total += _c[i];
+    }
     _best = 8;
-    scan(counts, 0, 0, 0, 0);
+    scan(0, 0, 0, 0, total);
     return _best;
   }
 
