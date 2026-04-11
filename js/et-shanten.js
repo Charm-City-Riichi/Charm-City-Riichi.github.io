@@ -43,18 +43,13 @@
   var _best; // module-level variable updated during scan
 
   function scan(counts, keyIdx, mentsu, taatsu, jantai) {
-    // Pruning: best possible shanten from this state
+    // Upper bound: shanten if we skip all remaining tiles
     var potential = 8 - 2 * mentsu - taatsu - jantai;
-    if (potential <= _best) return; // can't improve — prune
+    if (potential < _best) _best = potential;
 
     // Advance past zero-count keys
     while (keyIdx < 34 && !(counts[KEYS[keyIdx]] > 0)) keyIdx++;
-    if (keyIdx >= 34) {
-      // All tiles consumed or skipped — record result
-      var sh = 8 - 2 * mentsu - taatsu - jantai;
-      if (sh < _best) _best = sh;
-      return;
-    }
+    if (keyIdx >= 34) return;
 
     var key = KEYS[keyIdx];
     var suit = key[0];

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="add efficiency trainer">
-      <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update efficiency trainer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,15 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="38115000" />
-    </task>
-    <task id="LOCAL-00060" summary="updated whole site">
-      <option name="closed" value="true" />
-      <created>1775587751941</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1775587751941</updated>
+      <workItem from="1775507658686" duration="38504000" />
     </task>
     <task id="LOCAL-00061" summary="updated homepage">
       <option name="closed" value="true" />
@@ -468,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775879023359</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="update efficiency trainer">
+      <option name="closed" value="true" />
+      <created>1775879594272</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1775879594272</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update index" />
     <MESSAGE value="update weekly meet ups" />
     <MESSAGE value="update how to play" />
     <MESSAGE value="updated some yaku names" />
@@ -511,6 +508,7 @@
     <MESSAGE value="move chinitsu waits trainer" />
     <MESSAGE value="update flush waits trainer" />
     <MESSAGE value="add efficiency trainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="add efficiency trainer" />
+    <MESSAGE value="update efficiency trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="update efficiency trainer" />
   </component>
 </project>
