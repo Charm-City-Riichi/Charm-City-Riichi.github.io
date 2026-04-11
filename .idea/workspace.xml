@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update efficiency trainer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="add redirect link for CCRO" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,15 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="39119000" />
-    </task>
-    <task id="LOCAL-00062" summary="updated css">
-      <option name="closed" value="true" />
-      <created>1775587933355</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1775587933355</updated>
+      <workItem from="1775507658686" duration="39662000" />
     </task>
     <task id="LOCAL-00063" summary="updated css">
       <option name="closed" value="true" />
@@ -468,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775880015625</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="add redirect link for CCRO">
+      <option name="closed" value="true" />
+      <created>1775882998725</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1775882998725</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +484,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update weekly meet ups" />
     <MESSAGE value="update how to play" />
     <MESSAGE value="updated some yaku names" />
     <MESSAGE value="updated how-to-play" />
@@ -511,6 +508,7 @@
     <MESSAGE value="update flush waits trainer" />
     <MESSAGE value="add efficiency trainer" />
     <MESSAGE value="update efficiency trainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="update efficiency trainer" />
+    <MESSAGE value="add redirect link for CCRO" />
+    <option name="LAST_COMMIT_MESSAGE" value="add redirect link for CCRO" />
   </component>
 </project>
