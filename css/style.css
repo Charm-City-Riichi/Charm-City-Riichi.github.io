@@ -242,6 +242,8 @@ hr {
     border-bottom: 1px solid var(--color-border);
     flex-direction: column;
     padding: 1rem 0;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
   }
   .main-nav.open { display: flex; }
   .main-nav > li {
