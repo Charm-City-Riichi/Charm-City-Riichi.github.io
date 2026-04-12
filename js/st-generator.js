@@ -198,50 +198,11 @@
     return fallback;
   }
 
-  // ----- Test harness ------------------------------------------------------
-
-  function testGenerator(n) {
-    n = n || 1000;
-    var ok = 0, fail = 0;
-    var byCat = {}, byArch = {};
-    var errors = [];
-    for (var i = 0; i < n; i++) {
-      try {
-        var s = generateHand();
-        ok++;
-        var cat = s.waitShape ? s.waitShape.category : '(none)';
-        byCat[cat] = (byCat[cat] || 0) + 1;
-        var arch = s.archetype || 'unknown';
-        byArch[arch] = (byArch[arch] || 0) + 1;
-      } catch (e) {
-        fail++;
-        if (errors.length < 5) errors.push(e.message || String(e));
-      }
-    }
-    var lines = ['n=' + n + ' ok=' + ok + ' fail=' + fail];
-    lines.push('-- archetypes:');
-    var archKeys = Object.keys(byArch).sort(function (a, b) { return byArch[b] - byArch[a]; });
-    for (var ak = 0; ak < archKeys.length; ak++) {
-      lines.push('  ' + archKeys[ak] + ': ' + (byArch[archKeys[ak]] / ok * 100).toFixed(1) + '%');
-    }
-    lines.push('-- wait shapes:');
-    var catKeys = Object.keys(byCat).sort(function (a, b) { return byCat[b] - byCat[a]; });
-    for (var ck = 0; ck < catKeys.length; ck++) {
-      lines.push('  ' + catKeys[ck] + ': ' + (byCat[catKeys[ck]] / ok * 100).toFixed(1) + '%');
-    }
-    if (errors.length) {
-      lines.push('first errors:');
-      for (var ei = 0; ei < errors.length; ei++) lines.push('  ' + errors[ei]);
-    }
-    return lines.join('\n');
-  }
-
   // ----- Exports -----------------------------------------------------------
 
   ST.ARCHETYPES = ARCHETYPES;
   ST.generateHandV2a = generateHandV2a;
   ST.generateHandV2b = generateHandV2b;
   ST.generateHand = generateHand;
-  ST.testGenerator = testGenerator;
 
 })(window.ScoreTrainer || (window.ScoreTrainer = {}));

@@ -98,22 +98,6 @@
     return name + ' \u2014 ' + shape.label;
   }
 
-  function testWaitShapeDistribution(n) {
-    n = n || 10000;
-    var counts = {};
-    for (var i = 0; i < n; i++) {
-      var s = pickWaitShape();
-      counts[s.category] = (counts[s.category] || 0) + 1;
-    }
-    var keys = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
-    var lines = ['n=' + n];
-    for (var k = 0; k < keys.length; k++) {
-      var key = keys[k];
-      lines.push('  ' + key + ': ' + (counts[key] / n * 100).toFixed(1) + '% (' + counts[key] + ')');
-    }
-    return lines.join('\n');
-  }
-
   // ----- Wait shape instantiation ------------------------------------------
 
   function takeSequenceWait(bank, shape, suit) {
@@ -331,7 +315,6 @@
   ST.WAIT_CATEGORY_NAMES = WAIT_CATEGORY_NAMES;
   ST.pickWaitShape = pickWaitShape;
   ST.formatWaitShape = formatWaitShape;
-  ST.testWaitShapeDistribution = testWaitShapeDistribution;
   ST.instantiateWaitShape = instantiateWaitShape;
 
 })(window.ScoreTrainer || (window.ScoreTrainer = {}));

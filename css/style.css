@@ -49,6 +49,7 @@
   --color-han-5: #8a6508;
   --color-han-6: #a34e0a;
   --color-yakuman: #b52828;
+  --color-tile-back: #2a6b3c;
   --max-width: 1200px;
   --nav-height: 60px;
   --font-body: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -93,6 +94,7 @@
     --color-han-5: #c09818;
     --color-han-6: #cc6520;
     --color-yakuman: #d03838;
+    --color-tile-back: #3a8a4c;
   }
 }
 
@@ -388,6 +390,10 @@ hr {
   border-color: var(--color-accent);
   transform: translateY(-2px);
 }
+.feature-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
 .feature-card h3 {
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
@@ -473,6 +479,34 @@ hr {
   border-radius: 6px;
   cursor: default;
   box-shadow: 0 8px 40px var(--color-shadow-strong);
+  outline: none;
+}
+#lightbox img:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--color-btn-text);
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  transition: transform 0.15s, opacity 0.15s;
+  outline: none;
+}
+.lightbox-close:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+.lightbox-close:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ===== EVENTS PAGE ===== */
@@ -552,7 +586,9 @@ hr {
   margin-bottom: 2rem;
 }
 .content-section h2 {
+  font-size: 1.3rem;
   margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 .content-section h3 {
   font-size: 1.3rem;
@@ -1381,6 +1417,12 @@ p:last-child { margin-bottom: 0; }
 
 /* ===== SCORE TRAINER ===== */
 .trainer-card { max-width: 100%; }
+.trainer-hint {
+  margin: 0;
+  color: var(--color-text);
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
 .trainer-top {
   display: flex;
   align-items: center;
@@ -1440,6 +1482,14 @@ p:last-child { margin-bottom: 0; }
   gap: 0.4rem 1rem;
   margin-bottom: 0.75rem;
 }
+.trainer-row--first {
+  margin-top: 1.25rem;
+}
+.trainer-result-separator {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
 .trainer-row-label {
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -1479,7 +1529,7 @@ p:last-child { margin-bottom: 0; }
 }
 .tile-img--back {
   background-image: none;
-  background-color: #2a6b3c;
+  background-color: var(--color-tile-back);
 }
 /* Rotated (sideways) tile for open calls.
    We want the tile to appear 53w × 40h while the element is 40w × 53h.
@@ -1710,5 +1760,96 @@ a:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  /* Hide navigation and footer */
+  .site-header,
+  .site-footer,
+  .nav-toggle,
+  .main-nav {
+    display: none !important;
+  }
+
+  /* Hide interactive elements */
+  .btn,
+  button,
+  .lightbox-close,
+  #lightbox {
+    display: none !important;
+  }
+
+  /* Remove backgrounds, optimize for ink */
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+  .hero,
+  .features-band,
+  .features,
+  .feature-card,
+  .page-content,
+  .gallery,
+  .photo-grid,
+  .event-row {
+    background: transparent !important;
+  }
+
+  /* Simplify spacing for paper */
+  .page-content {
+    padding: 0;
+    margin: 0;
+  }
+  hr {
+    margin: 1.5rem 0;
+    border: 1px solid #cccccc;
+    border-top: none;
+  }
+
+  /* Improve readability */
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+    page-break-inside: avoid;
+  }
+
+  /* Content sections should stay together when possible */
+  .content-section {
+    page-break-inside: avoid;
+  }
+
+  /* Show URLs for links */
+  a[href]:not([href^="#"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555555;
+    word-break: break-all;
+  }
+
+  /* Hide gallery and photo grids */
+  .gallery,
+  .photo-grid,
+  .lightbox {
+    display: none !important;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr {
+    page-break-inside: avoid;
   }
 }

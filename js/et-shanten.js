@@ -221,72 +221,11 @@
     return best;
   }
 
-  // ---- Self-test (call from browser console) -------------------------------
-  //   EfficiencyTrainer.selfTest()
-
-  function selfTest() {
-    var ST = window.ScoreTrainer;
-    var pass = 0, fail = 0;
-
-    function check(notation, expected, label) {
-      var tiles = ST.parseNotation(notation);
-      var got = calculateShanten(tiles);
-      if (got === expected) {
-        pass++;
-        console.log('OK   ' + label + ': ' + notation +
-          ' (' + tiles.length + ' tiles) = ' + got);
-      } else {
-        console.error('FAIL ' + label + ': ' + notation +
-          ' (' + tiles.length + ' tiles) expected=' + expected + ' got=' + got);
-        fail++;
-      }
-    }
-
-    // ---- Complete hands (14 tiles, shanten = -1) ----
-    //   123m=m1m2m3, 456p=p4p5p6, 234789s=s2s3s4s7s8s9, 11z=z1z1 → 3+3+6+2=14
-    check('123m456p234789s11z',  -1, 'complete standard (4 mentsu + pair)');
-    //   7 distinct honor pairs → 14
-    check('11223344556677z',     -1, 'complete chiitoitsu');
-    //   13 unique TH + z7 pair → 14
-    check('19m19p19s12345677z',  -1, 'complete kokushi');
-
-    // ---- Tenpai (13 tiles, shanten = 0) ----
-    //   m123+p456+s789 = 3 mentsu, s23 taatsu, z11 jantai → 3+3+5+2=13
-    check('123m456p23789s11z',    0, 'tenpai standard (ryanmen s1/s4)');
-    //   6 pairs + z7 single → 13
-    check('1122334455667z',       0, 'tenpai chiitoitsu');
-    //   13 unique TH, no dup → 13
-    check('19m19p19s1234567z',    0, 'tenpai kokushi 13-sided');
-    //   m123+m456+m789 = 3 mentsu, p12 taatsu, s55 jantai → 9+2+2=13
-    check('123456789m12p55s',     0, 'tenpai penchan');
-
-    // ---- Iishanten (13 tiles, shanten = 1) ----
-    //   3 mentsu + z33 jantai + z1,z2 isolated → 3+3+3+4=13
-    check('123m456p789s1233z',    1, 'iishanten standard');
-    //   m1m9m9 + p1p9 + s1s9 + z1-z5 → 3+2+2+5=12 ... no
-    //   m1m1m9m9 + p1p9 + s1s9 + z1-z5 → 4+2+2+5=13, kokushi missing z6,z7
-    check('1199m19p19s12345z',    1, 'iishanten kokushi (11 TH + dup)');
-
-    // ---- Shanten = 2 (13 tiles) ----
-    //   m123+p456 = 2 mentsu, s34 taatsu, z55 jantai, m7+p1+s9 isolated → 4+4+3+2=13
-    check('1237m1456p349s55z',    2, 'shanten 2');
-
-    // ---- 14-tile hands ----
-    //   3 mentsu + z22 taatsu + z11 jantai + z3 skipped → 3+3+3+5=14
-    check('123m456p789s11223z',   0, '14-tile tenpai');
-    //   3 mentsu + z222 mentsu + z11 pair → 3+3+3+5=14
-    check('123m456p789s11222z',  -1, '14-tile complete');
-
-    console.log('Shanten self-test: ' + pass + ' passed, ' + fail + ' failed');
-    return fail === 0;
-  }
-
   // ---- Exports ------------------------------------------------------------
 
   ET.KEYS = KEYS;
   ET.tilesToCounts = tilesToCounts;
   ET.calculateShanten = calculateShanten;
   ET.calculateShantenFromCounts = calculateShantenFromCounts;
-  ET.selfTest = selfTest;
 
 })(window.EfficiencyTrainer || (window.EfficiencyTrainer = {}));

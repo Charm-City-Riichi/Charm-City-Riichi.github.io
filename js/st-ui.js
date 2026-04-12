@@ -28,7 +28,17 @@
   // Detect dark mode once and update on change
   var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
   var isDark = darkQuery.matches;
-  darkQuery.addEventListener('change', function (e) { isDark = e.matches; });
+  darkQuery.addEventListener('change', function (e) {
+    isDark = e.matches;
+    console.log('[ScoreTrainer] Theme switched to ' + (isDark ? 'dark' : 'light') + ' mode');
+    // Re-render tiles when theme changes
+    if (currentSituation) {
+      var answerWasVisible = !$('trainer-answer').classList.contains('ccr-hidden');
+      renderHand(currentSituation);
+      if (answerWasVisible) renderAnswer(currentSituation);
+      console.log('[ScoreTrainer] Re-rendered tiles for theme change');
+    }
+  });
 
   function tileFolder() { return isDark ? 'Black/' : 'Regular/'; }
 
