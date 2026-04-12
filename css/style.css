@@ -37,6 +37,12 @@
   --color-shadow-dropdown: rgba(0, 0, 0, 0.4);
   --color-focus-ring: rgba(189, 89, 12, 0.18);
   --color-hover-subtle: rgba(189, 89, 12, 0.05);
+  --color-tag-free-bg: rgba(106, 168, 79, 0.15);
+  --color-tag-free: #4a7a2e;
+  --color-tag-paid-bg: rgba(189, 89, 12, 0.12);
+  --color-tag-platform-bg: rgba(26, 26, 26, 0.07);
+  --color-tag-oss-bg: rgba(59, 130, 246, 0.12);
+  --color-tag-oss: #2563b0;
   --color-han-1: #38803a;
   --color-han-2: #2b6cb0;
   --color-han-3: #6b4f96;
@@ -75,6 +81,12 @@
     --color-shadow-dropdown: rgba(0, 0, 0, 0.6);
     --color-focus-ring: rgba(232, 135, 46, 0.2);
     --color-hover-subtle: rgba(232, 135, 46, 0.08);
+    --color-tag-free-bg: rgba(106, 168, 79, 0.2);
+    --color-tag-free: #6cc070;
+    --color-tag-paid-bg: rgba(232, 135, 46, 0.15);
+    --color-tag-platform-bg: rgba(255, 255, 255, 0.08);
+    --color-tag-oss-bg: rgba(96, 165, 250, 0.15);
+    --color-tag-oss: #60a5fa;
     --color-han-1: #48a84b;
     --color-han-2: #4488cc;
     --color-han-3: #8068b0;
@@ -325,6 +337,10 @@ hr {
   margin: 0 auto 1.8rem;
   color: var(--color-text);
   line-height: 1.8;
+}
+
+.hero-text h1 {
+  margin-bottom: 1.2rem;
 }
 
 .btn {
@@ -629,7 +645,7 @@ hr {
 /* ===== 404 PAGE ===== */
 .page-content--centered { text-align: center; padding-top: 4rem; padding-bottom: 4rem; }
 .page-content--centered .next-steps-grid { text-align: left; margin-top: 2.5rem; }
-.error- { margin-top: 1.5rem; }
+.error-cta { margin-top: 1.5rem; }
 
 /* ===== UTILITIES ===== */
 .mt-sm { margin-top: 0.4rem; }
@@ -1320,23 +1336,23 @@ p:last-child { margin-bottom: 0; }
 }
 
 .tag-free {
-  background: rgba(106, 168, 79, 0.15);
-  color: #4a7a2e;
+  background: var(--color-tag-free-bg);
+  color: var(--color-tag-free);
 }
 
 .tag-paid {
-  background: rgba(189, 89, 12, 0.12);
+  background: var(--color-tag-paid-bg);
   color: var(--color-accent);
 }
 
 .tag-platform {
-  background: rgba(26, 26, 26, 0.07);
+  background: var(--color-tag-platform-bg);
   color: var(--color-text-muted);
 }
 
 .tag-open-source {
-  background: rgba(59, 130, 246, 0.12);
-  color: #2563b0;
+  background: var(--color-tag-oss-bg);
+  color: var(--color-tag-oss);
 }
 
 .platform-note {
