@@ -180,6 +180,8 @@
   function renderLogEntry(entry) {
     var logEl = byId('et-log');
     logEl.classList.remove('ccr-hidden');
+    var legendEl = byId('et-log-legend');
+    if (legendEl) legendEl.classList.remove('ccr-hidden');
 
     var row = document.createElement('div');
     row.className = 'et-log-entry et-log-entry--' + entry.color;
@@ -324,6 +326,8 @@
     // Reset UI
     byId('et-log').textContent = '';
     byId('et-log').classList.add('ccr-hidden');
+    var legendEl = byId('et-log-legend');
+    if (legendEl) legendEl.classList.add('ccr-hidden');
     byId('et-result').textContent = '';
     byId('et-result').classList.add('ccr-hidden');
     byId('et-new-btn').classList.add('ccr-hidden');
