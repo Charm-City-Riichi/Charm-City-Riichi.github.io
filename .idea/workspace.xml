@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="minor updates">
-      <change afterPath="$PROJECT_DIR$/events/baltimore-oriole-iisou.html" afterDir="false" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="testing announcement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/efficiency.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/efficiency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,31 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="47170000" />
-    </task>
-    <task id="LOCAL-00074" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775767643345</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1775767643345</updated>
-    </task>
-    <task id="LOCAL-00075" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775771072705</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1775771072705</updated>
-    </task>
-    <task id="LOCAL-00076" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775772582692</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1775772582692</updated>
+      <workItem from="1775507658686" duration="48378000" />
     </task>
     <task id="LOCAL-00077" summary="updated play online">
       <option name="closed" value="true" />
@@ -475,7 +448,31 @@
       <option name="project" value="LOCAL" />
       <updated>1776007343589</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="minor updates">
+      <option name="closed" value="true" />
+      <created>1776118185177</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1776118185177</updated>
+    </task>
+    <task id="LOCAL-00124" summary="testing announcement">
+      <option name="closed" value="true" />
+      <created>1776118204669</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1776118204672</updated>
+    </task>
+    <task id="LOCAL-00125" summary="testing announcement">
+      <option name="closed" value="true" />
+      <created>1776118458044</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1776118458044</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated scoring" />
     <MESSAGE value="updated how to play and css" />
     <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated homepage" />
@@ -518,6 +514,7 @@
     <MESSAGE value="update navigation" />
     <MESSAGE value="comment out debug info" />
     <MESSAGE value="minor updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor updates" />
+    <MESSAGE value="testing announcement" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing announcement" />
   </component>
 </project>
