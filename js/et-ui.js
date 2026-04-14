@@ -155,10 +155,10 @@
   var POND_PLACE = [
     // Index 0 = toimen (180°): 6-col × 3-row, reversed
     function (i) { return { row: 3 - Math.floor(i / 6), col: 6 - (i % 6) }; },
-    // Index 1 = kamicha (90° CW): 3-col × 6-row, columns bottom-to-top, left-to-right
-    function (i) { return { row: 6 - (i % 6), col: Math.floor(i / 6) + 1 }; },
-    // Index 2 = shimocha (90° CCW): 3-col × 6-row, columns top-to-bottom, right-to-left
-    function (i) { return { row: (i % 6) + 1, col: 3 - Math.floor(i / 6) }; }
+    // Index 1 = kamicha (90° CW): 3-col × 6-row, columns top-to-bottom, right-to-left
+    function (i) { return { row: (i % 6) + 1, col: 3 - Math.floor(i / 6) }; },
+    // Index 2 = shimocha (90° CCW): 3-col × 6-row, columns bottom-to-top, left-to-right
+    function (i) { return { row: 6 - (i % 6), col: Math.floor(i / 6) + 1 }; }
   ];
 
   function renderOpponentDiscard(opIndex, tile) {
