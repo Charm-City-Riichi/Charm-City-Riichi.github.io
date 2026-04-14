@@ -42,6 +42,16 @@
       </div>
     </div>
 
+    <!-- Options bar -->
+    <div class="et-options">
+      <label class="et-toggle"><input type="checkbox" id="et-opt-log" checked><span>Show Log</span></label>
+      <label class="et-toggle"><input type="checkbox" id="et-opt-pond"><span>Show Pond</span></label>
+      <label class="et-toggle"><input type="checkbox" id="et-opt-shanten"><span>Show Shanten</span></label>
+    </div>
+
+    <!-- Pond (discarded tiles, above the hand like IRL) -->
+    <div id="et-pond" class="et-pond ccr-hidden"></div>
+
     <!-- Hand display: 13 sorted + 1 drawn -->
     <div class="trainer-row trainer-row--first">
       <span class="trainer-row-label">Hand</span>
@@ -51,6 +61,9 @@
         <span id="et-draw" class="et-draw-group"></span>
       </span>
     </div>
+
+    <!-- Shanten display -->
+    <div id="et-shanten" class="et-shanten ccr-hidden"></div>
 
     <!-- Debug info (for verification against external calculators)
     <div id="et-debug" class="et-debug"></div> -->

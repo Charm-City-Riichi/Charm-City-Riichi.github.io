@@ -33,6 +33,12 @@
     return out;
   }
 
+  // ---- Toggle state (persists across hands) -------------------------------
+
+  var showLog = true;
+  var showPond = false;
+  var showShanten = false;
+
   // ---- Game state ---------------------------------------------------------
 
   var state = null; // { hand, drawnTile, bank, remainingDeck, log, turnCount, drawCount, optimalCount, totalUkeireLoss, currentEval }
@@ -71,6 +77,9 @@
 
     // Debug display: hand notation + shanten for external verification
     renderDebug();
+
+    // Update shanten display
+    renderShanten();
   }
 
   function renderDebug() {
@@ -86,6 +95,46 @@
 
     debugEl.textContent = '14 tiles: ' + notation14 + ' (shanten ' + shanten14 + ')' +
       '  |  13 tiles: ' + notation13 + ' (shanten ' + shanten13 + ')';
+  }
+
+  // ---- Shanten display ----------------------------------------------------
+
+  function renderShanten() {
+    var shantenEl = byId('et-shanten');
+    if (!shantenEl || !state) return;
+
+    if (!showShanten) {
+      shantenEl.classList.add('ccr-hidden');
+      return;
+    }
+
+    var all14 = state.hand.concat(state.drawnTile ? [state.drawnTile] : []);
+    var shanten = ET.calculateShanten(all14);
+    shantenEl.textContent = 'Shanten: ' + shanten;
+    shantenEl.classList.remove('ccr-hidden');
+  }
+
+  // ---- Pond rendering -----------------------------------------------------
+
+  function renderPondTile(tile) {
+    var pondEl = byId('et-pond');
+    if (!pondEl) return;
+    pondEl.appendChild(ST.makeTileEl(tile));
+  }
+
+  function clearPond() {
+    var pondEl = byId('et-pond');
+    if (pondEl) pondEl.textContent = '';
+  }
+
+  function syncPondVisibility() {
+    var pondEl = byId('et-pond');
+    if (!pondEl) return;
+    if (showPond) {
+      pondEl.classList.remove('ccr-hidden');
+    } else {
+      pondEl.classList.add('ccr-hidden');
+    }
   }
 
   // ---- Discard handling ---------------------------------------------------
@@ -117,19 +166,6 @@
     var chosenInfo = evaluation.lookup[key];
     var resultingShanten = chosenInfo.shanten;
 
-    // Add log entry
-    state.log.push({
-      turn: state.turnCount,
-      tile: discardedTile,
-      ukeire: classification.chosenUkeire,
-      color: classification.color,
-      bestTile: classification.bestTile,
-      bestUkeire: classification.bestUkeire,
-      tiedTiles: classification.tiedTiles,
-      shanten: resultingShanten
-    });
-    renderLogEntry(state.log[state.log.length - 1]);
-
     // Remove discarded tile from the combined 14
     var all14 = state.hand.concat([state.drawnTile]);
     var newHand = [];
@@ -141,10 +177,28 @@
       }
       newHand.push(all14[i]);
     }
+    var sortedNewHand = newHand.sort(ST.compareTiles);
+
+    // Add log entry (includes hand snapshot for "show hand" feature)
+    state.log.push({
+      turn: state.turnCount,
+      tile: discardedTile,
+      ukeire: classification.chosenUkeire,
+      color: classification.color,
+      bestTile: classification.bestTile,
+      bestUkeire: classification.bestUkeire,
+      tiedTiles: classification.tiedTiles,
+      shanten: resultingShanten,
+      handAfter: sortedNewHand.slice()
+    });
+    renderLogEntry(state.log[state.log.length - 1]);
+
+    // Add tile to pond
+    renderPondTile(discardedTile);
 
     // Check tenpai
     if (resultingShanten <= 0) {
-      state.hand = newHand.sort(ST.compareTiles);
+      state.hand = sortedNewHand;
       state.drawnTile = null;
       state.currentEval = null;
       endGame(true);
@@ -152,8 +206,8 @@
     }
 
     // Check wall exhaustion
-    if (state.drawCount >= 30) {
-      state.hand = newHand.sort(ST.compareTiles);
+    if (state.drawCount >= 18) {
+      state.hand = sortedNewHand;
       state.drawnTile = null;
       state.currentEval = null;
       endGame(false);
@@ -166,7 +220,7 @@
     state.bank[bankKey] = (state.bank[bankKey] || 0) - 1;
     state.drawCount++;
 
-    state.hand = newHand.sort(ST.compareTiles);
+    state.hand = sortedNewHand;
     state.drawnTile = nextTile;
 
     // Pre-compute evaluation for next turn
@@ -179,9 +233,13 @@
 
   function renderLogEntry(entry) {
     var logEl = byId('et-log');
-    logEl.classList.remove('ccr-hidden');
     var legendEl = byId('et-log-legend');
-    if (legendEl) legendEl.classList.remove('ccr-hidden');
+
+    // Only show log/legend if toggle is on
+    if (showLog) {
+      logEl.classList.remove('ccr-hidden');
+      if (legendEl) legendEl.classList.remove('ccr-hidden');
+    }
 
     var row = document.createElement('div');
     row.className = 'et-log-entry et-log-entry--' + entry.color;
@@ -225,7 +283,51 @@
       row.appendChild(bestUkeire);
     }
 
+    // "Show hand" button
+    var showHandBtn = document.createElement('button');
+    showHandBtn.className = 'et-log-show-hand';
+    showHandBtn.textContent = 'Show hand';
+    showHandBtn.addEventListener('click', function () {
+      var handRow = row.querySelector('.et-log-hand');
+      if (handRow) {
+        // Toggle: remove if already visible
+        row.removeChild(handRow);
+        showHandBtn.textContent = 'Show hand';
+        return;
+      }
+      // Build hand snapshot row
+      handRow = document.createElement('div');
+      handRow.className = 'et-log-hand';
+      for (var h = 0; h < entry.handAfter.length; h++) {
+        handRow.appendChild(ST.makeTileEl(entry.handAfter[h]));
+      }
+      row.appendChild(handRow);
+      showHandBtn.textContent = 'Hide hand';
+    });
+    row.appendChild(showHandBtn);
+
     logEl.insertBefore(row, logEl.firstChild);
+  }
+
+  /** Re-render all log entries (used when toggling log back on mid-game) */
+  function rebuildLog() {
+    var logEl = byId('et-log');
+    logEl.textContent = '';
+    for (var i = 0; i < state.log.length; i++) {
+      renderLogEntry(state.log[i]);
+    }
+  }
+
+  function syncLogVisibility() {
+    var logEl = byId('et-log');
+    var legendEl = byId('et-log-legend');
+    if (showLog && state && state.log.length > 0) {
+      logEl.classList.remove('ccr-hidden');
+      if (legendEl) legendEl.classList.remove('ccr-hidden');
+    } else {
+      logEl.classList.add('ccr-hidden');
+      if (legendEl) legendEl.classList.add('ccr-hidden');
+    }
   }
 
   // ---- End game -----------------------------------------------------------
@@ -242,6 +344,18 @@
       for (var i = 0; i < sorted.length; i++) {
         handEl.appendChild(ST.makeTileEl(sorted[i]));
       }
+    }
+
+    // Hide shanten on game end
+    var shantenEl = byId('et-shanten');
+    if (shantenEl) shantenEl.classList.add('ccr-hidden');
+
+    // Always show log on game end so user can review
+    var logEl = byId('et-log');
+    var legendEl = byId('et-log-legend');
+    if (state.log.length > 0) {
+      logEl.classList.remove('ccr-hidden');
+      if (legendEl) legendEl.classList.remove('ccr-hidden');
     }
 
     var resultEl = byId('et-result');
@@ -332,7 +446,47 @@
     byId('et-result').classList.add('ccr-hidden');
     byId('et-new-btn').classList.add('ccr-hidden');
 
+    // Clear and sync pond
+    clearPond();
+    syncPondVisibility();
+
     renderHand();
+  }
+
+  // ---- Toggle wiring ------------------------------------------------------
+
+  function wireToggles() {
+    var logCheckbox = byId('et-opt-log');
+    var pondCheckbox = byId('et-opt-pond');
+    var shantenCheckbox = byId('et-opt-shanten');
+
+    if (logCheckbox) {
+      logCheckbox.checked = showLog;
+      logCheckbox.addEventListener('change', function () {
+        showLog = logCheckbox.checked;
+        if (showLog && state && state.log.length > 0) {
+          // Rebuild log in case entries were added while hidden
+          rebuildLog();
+        }
+        syncLogVisibility();
+      });
+    }
+
+    if (pondCheckbox) {
+      pondCheckbox.checked = showPond;
+      pondCheckbox.addEventListener('change', function () {
+        showPond = pondCheckbox.checked;
+        syncPondVisibility();
+      });
+    }
+
+    if (shantenCheckbox) {
+      shantenCheckbox.checked = showShanten;
+      shantenCheckbox.addEventListener('change', function () {
+        showShanten = shantenCheckbox.checked;
+        renderShanten();
+      });
+    }
   }
 
   // ---- Event wiring -------------------------------------------------------
@@ -340,6 +494,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     var newBtn = byId('et-new-btn');
     if (newBtn) newBtn.addEventListener('click', newHand);
+    wireToggles();
     newHand();
   });
 

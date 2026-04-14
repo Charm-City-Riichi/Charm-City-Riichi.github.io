@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="testing announcement">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update CCRO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/efficiency.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/efficiency.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,23 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="48378000" />
-    </task>
-    <task id="LOCAL-00077" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775778745363</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1775778745363</updated>
-    </task>
-    <task id="LOCAL-00078" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775794031523</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1775794031523</updated>
+      <workItem from="1775507658686" duration="49392000" />
     </task>
     <task id="LOCAL-00079" summary="updated play online">
       <option name="closed" value="true" />
@@ -472,7 +458,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776118458044</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="update CCRO">
+      <option name="closed" value="true" />
+      <created>1776124839913</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1776124839913</updated>
+    </task>
+    <task id="LOCAL-00127" summary="update CCRO">
+      <option name="closed" value="true" />
+      <created>1776125050933</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1776125050933</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated how to play and css" />
     <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated homepage" />
     <MESSAGE value="updated css" />
@@ -515,6 +516,7 @@
     <MESSAGE value="comment out debug info" />
     <MESSAGE value="minor updates" />
     <MESSAGE value="testing announcement" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing announcement" />
+    <MESSAGE value="update CCRO" />
+    <option name="LAST_COMMIT_MESSAGE" value="update CCRO" />
   </component>
 </project>
