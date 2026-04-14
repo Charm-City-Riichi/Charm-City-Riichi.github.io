@@ -1743,6 +1743,149 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
+/* Ponds area — default: no special layout */
+.et-ponds-area {
+  margin-bottom: 1rem;
+}
+
+/* Row layout for 4 ponds: [Left] [Center] [Right] above [User] */
+.et-ponds-cross {
+  display: grid;
+  grid-template-areas:
+    "left center right"
+    ".    self   .";
+  grid-template-columns: auto auto auto;
+  gap: 0.5rem 0.75rem;
+  justify-content: center;
+  justify-items: center;
+  align-items: end;
+}
+.et-ponds-cross .et-pond-wrap--kamicha  { grid-area: left; }
+.et-ponds-cross .et-pond-wrap--toimen   { grid-area: center; }
+.et-ponds-cross .et-pond-wrap--shimocha { grid-area: right; }
+.et-ponds-cross .et-pond-wrap--self     { grid-area: self; }
+
+.et-pond-wrap {
+  text-align: center;
+}
+.et-pond-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* Opponent ponds — base (center/toimen: upside-down tiles, normal grid) */
+.et-pond-other {
+  display: grid;
+  grid-template-columns: repeat(6, 30px);
+  grid-template-rows: repeat(3, 40px);
+  gap: 1px;
+  justify-content: center;
+  padding: 0.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg-alt);
+  width: fit-content;
+}
+.et-pond-other .tile-img {
+  width: 30px;
+  height: 40px;
+  border-width: 1px;
+}
+
+/* Center player (toimen) — tiles upside down */
+.et-pond-toimen .tile-img {
+  transform: rotate(180deg);
+}
+
+/* Left player (kamicha) — tiles rotated 90° CW (tops tilt right) */
+/* 30×40 tile rotated → visual 40×30, so grid cells swap to 40×30 */
+.et-pond-kamicha {
+  grid-template-columns: repeat(6, 40px);
+  grid-template-rows: repeat(3, 30px);
+}
+.et-pond-kamicha .tile-img {
+  transform: rotate(90deg);
+  margin: -5px 5px;
+}
+
+/* Right player (shimocha) — tiles rotated 90° CCW (tops tilt left) */
+.et-pond-shimocha {
+  grid-template-columns: repeat(6, 40px);
+  grid-template-rows: repeat(3, 30px);
+}
+.et-pond-shimocha .tile-img {
+  transform: rotate(-90deg);
+  margin: -5px 5px;
+}
+
+@media (max-width: 600px) {
+  .et-pond-other {
+    grid-template-columns: repeat(6, 24px);
+    grid-template-rows: repeat(3, 32px);
+  }
+  .et-pond-other .tile-img {
+    width: 24px;
+    height: 32px;
+  }
+  /* 24×32 rotated → visual 32×24; margin = (32-24)/2 = 4 */
+  .et-pond-kamicha,
+  .et-pond-shimocha {
+    grid-template-columns: repeat(6, 32px);
+    grid-template-rows: repeat(3, 24px);
+  }
+  .et-pond-kamicha .tile-img,
+  .et-pond-shimocha .tile-img {
+    margin: -4px 4px;
+  }
+}
+
+/* Big tiles mode — opponent ponds */
+.et-big-tiles .et-pond-other {
+  grid-template-columns: repeat(6, 40px);
+  grid-template-rows: repeat(3, 53px);
+}
+.et-big-tiles .et-pond-other .tile-img {
+  width: 40px;
+  height: 53px;
+  border-width: 2px;
+}
+/* 40×53 rotated → visual 53×40; margin = (53-40)/2 = 6.5 */
+.et-big-tiles .et-pond-kamicha,
+.et-big-tiles .et-pond-shimocha {
+  grid-template-columns: repeat(6, 53px);
+  grid-template-rows: repeat(3, 40px);
+}
+.et-big-tiles .et-pond-kamicha .tile-img,
+.et-big-tiles .et-pond-shimocha .tile-img {
+  margin: -6.5px 6.5px;
+}
+@media (max-width: 600px) {
+  .et-big-tiles .et-pond-other {
+    grid-template-columns: repeat(6, 30px);
+    grid-template-rows: repeat(3, 40px);
+  }
+  .et-big-tiles .et-pond-other .tile-img {
+    width: 30px;
+    height: 40px;
+    border-width: 1px;
+  }
+  /* 30×40 rotated → visual 40×30; margin = 5 */
+  .et-big-tiles .et-pond-kamicha,
+  .et-big-tiles .et-pond-shimocha {
+    grid-template-columns: repeat(6, 40px);
+    grid-template-rows: repeat(3, 30px);
+  }
+  .et-big-tiles .et-pond-kamicha .tile-img,
+  .et-big-tiles .et-pond-shimocha .tile-img {
+    margin: -5px 5px;
+  }
+}
+
 /* Big tiles mode */
 .et-big-tiles .et-hand-area .tile-img {
   width: 56px;

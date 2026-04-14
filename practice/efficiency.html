@@ -48,13 +48,30 @@
       <label class="et-toggle"><input type="checkbox" id="et-opt-pond"><span>Show Pond</span></label>
       <label class="et-toggle"><input type="checkbox" id="et-opt-shanten"><span>Show Shanten</span></label>
       <label class="et-toggle"><input type="checkbox" id="et-opt-big"><span>Big Tiles</span></label>
+      <label class="et-toggle"><input type="checkbox" id="et-opt-others"><span>Show Other Discards</span></label>
     </div>
 
     <!-- Shanten display -->
     <div id="et-shanten" class="et-shanten ccr-hidden"></div>
 
-    <!-- Pond (discarded tiles, above the hand like IRL) -->
-    <div id="et-pond" class="et-pond ccr-hidden"></div>
+    <!-- Ponds area (cross layout when "Show Other Discards" is on) -->
+    <div id="et-ponds-area" class="et-ponds-area">
+      <div id="et-wrap-kamicha" class="et-pond-wrap et-pond-wrap--kamicha ccr-hidden">
+        <span class="et-pond-label">Left</span>
+        <div id="et-pond-kamicha" class="et-pond-other et-pond-kamicha"></div>
+      </div>
+      <div id="et-wrap-toimen" class="et-pond-wrap et-pond-wrap--toimen ccr-hidden">
+        <span class="et-pond-label">Across</span>
+        <div id="et-pond-toimen" class="et-pond-other et-pond-toimen"></div>
+      </div>
+      <div id="et-wrap-shimocha" class="et-pond-wrap et-pond-wrap--shimocha ccr-hidden">
+        <span class="et-pond-label">Right</span>
+        <div id="et-pond-shimocha" class="et-pond-other et-pond-shimocha"></div>
+      </div>
+      <div id="et-wrap-self" class="et-pond-wrap et-pond-wrap--self">
+        <div id="et-pond" class="et-pond ccr-hidden"></div>
+      </div>
+    </div>
 
     <!-- Hand display: 13 sorted + 1 drawn -->
     <div class="trainer-row trainer-row--first">

@@ -34,22 +34,37 @@
    * generateHand()
    * Returns { hand: tile[13], drawnTile: tile, bank: {}, remainingDeck: tile[] }
    * Guarantees the 14-tile hand is NOT complete (shanten != -1).
+   *
+   * Simulates a realistic 4-player game (user is always dealer/East):
+   *   136 tiles → 14 to dealer (user), 13 each to 3 opponents, 14 to dead wall.
+   *   The live wall (~69 tiles) is what remains for drawing.
+   *   Bank (for ukeire) includes ALL 122 non-user tiles, since the player
+   *   cannot see opponents' hands or the dead wall.
    */
   function generateHand() {
     for (var attempt = 0; attempt < 200; attempt++) {
       var deck = buildShuffledDeck();
       var hand14 = deck.slice(0, 14);
-      var remaining = deck.slice(14);
+      var allRemaining = deck.slice(14);
 
       // Check not a complete hand
       if (ET.calculateShanten(hand14) <= -1) continue;
 
-      // Build bank from remaining deck (tracks counts for ukeire)
+      // Bank counts ALL non-user tiles (opponents + dead wall + live wall)
+      // because the player can't see any of them
       var bank = {};
-      for (var i = 0; i < remaining.length; i++) {
-        var k = remaining[i].suit + remaining[i].value;
+      for (var i = 0; i < allRemaining.length; i++) {
+        var k = allRemaining[i].suit + allRemaining[i].value;
         bank[k] = (bank[k] || 0) + 1;
       }
+
+      // Deal 13 tiles each to 3 opponents, then 14 for dead wall
+      var opponentHands = [
+        allRemaining.slice(0, 13),
+        allRemaining.slice(13, 26),
+        allRemaining.slice(26, 39)
+      ];
+      var liveWall = allRemaining.slice(39 + 14);
 
       // Split into sorted 13-tile hand + drawn tile
       var sorted = hand14.slice(0, 13).sort(ST.compareTiles);
@@ -59,7 +74,8 @@
         hand: sorted,
         drawnTile: drawn,
         bank: bank,
-        remainingDeck: remaining
+        remainingDeck: liveWall,
+        opponentHands: opponentHands
       };
     }
     throw new Error('generateHand: could not produce a non-complete hand after 200 attempts');

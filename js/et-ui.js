@@ -39,10 +39,37 @@
   var showPond = false;
   var showShanten = false;
   var bigTiles = false;
+  var showOtherDiscards = false;
 
   // ---- Game state ---------------------------------------------------------
 
-  var state = null; // { hand, drawnTile, bank, remainingDeck, log, turnCount, drawCount, optimalCount, totalUkeireLoss, currentEval }
+  var state = null;
+
+  // ---- Effective bank (accounts for visible opponent discards) -------------
+
+  /** Return bank adjusted for opponent discards when that mode is active. */
+  function getEffectiveBank() {
+    if (!state) return {};
+    if (!showOtherDiscards) return state.bank;
+
+    var bank = {};
+    for (var key in state.bank) {
+      bank[key] = state.bank[key];
+    }
+    for (var op = 0; op < 3; op++) {
+      for (var d = 0; d < state.opponentDiscards[op].length; d++) {
+        var dk = state.opponentDiscards[op][d].suit + state.opponentDiscards[op][d].value;
+        bank[dk] = (bank[dk] || 0) - 1;
+      }
+    }
+    return bank;
+  }
+
+  /** Recompute currentEval with the effective bank. */
+  function recomputeEval() {
+    if (!state || !state.drawnTile) return;
+    state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, getEffectiveBank());
+  }
 
   // ---- Hand rendering -----------------------------------------------------
 
@@ -76,10 +103,7 @@
     drawWrap.addEventListener('click', onTileClick);
     drawEl.appendChild(drawWrap);
 
-    // Debug display: hand notation + shanten for external verification
     renderDebug();
-
-    // Update shanten display
     renderShanten();
   }
 
@@ -123,18 +147,129 @@
     pondEl.appendChild(ST.makeTileEl(tile));
   }
 
-  function clearPond() {
+  function renderOpponentDiscard(opIndex, tile) {
+    var ids = ['et-pond-toimen', 'et-pond-kamicha', 'et-pond-shimocha'];
+    var el = byId(ids[opIndex]);
+    if (!el) return;
+    el.appendChild(ST.makeTileEl(tile));
+  }
+
+  function clearAllPonds() {
     var pondEl = byId('et-pond');
     if (pondEl) pondEl.textContent = '';
+    var ids = ['et-pond-toimen', 'et-pond-kamicha', 'et-pond-shimocha'];
+    for (var i = 0; i < ids.length; i++) {
+      var el = byId(ids[i]);
+      if (el) el.textContent = '';
+    }
   }
 
   function syncPondVisibility() {
     var pondEl = byId('et-pond');
     if (!pondEl) return;
-    if (showPond) {
+
+    if (showOtherDiscards || showPond) {
       pondEl.classList.remove('ccr-hidden');
     } else {
       pondEl.classList.add('ccr-hidden');
+    }
+  }
+
+  function syncPondsLayout() {
+    var area = byId('et-ponds-area');
+    var wrapToimen = byId('et-wrap-toimen');
+    var wrapKamicha = byId('et-wrap-kamicha');
+    var wrapShimocha = byId('et-wrap-shimocha');
+    var pondEl = byId('et-pond');
+
+    if (showOtherDiscards) {
+      area.classList.add('et-ponds-cross');
+      wrapToimen.classList.remove('ccr-hidden');
+      wrapKamicha.classList.remove('ccr-hidden');
+      wrapShimocha.classList.remove('ccr-hidden');
+      // User's pond always visible in cross layout
+      pondEl.classList.remove('ccr-hidden');
+    } else {
+      area.classList.remove('et-ponds-cross');
+      wrapToimen.classList.add('ccr-hidden');
+      wrapKamicha.classList.add('ccr-hidden');
+      wrapShimocha.classList.add('ccr-hidden');
+      syncPondVisibility();
+    }
+  }
+
+  // ---- Opponent discard logic (near-optimal AI) ----------------------------
+
+  /**
+   * Choose a discard for an opponent using shanten-only evaluation.
+   * 85% of the time picks among the best (lowest shanten) discards;
+   * 15% picks from the top 3 tiers, introducing slight suboptimality.
+   * Returns the index into hand14 of the tile to discard.
+   */
+  function opponentChooseDiscard(hand14) {
+    var options = [];
+    var seen = {};
+
+    for (var i = 0; i < hand14.length; i++) {
+      var key = hand14[i].suit + hand14[i].value;
+      if (seen[key]) continue;
+      seen[key] = true;
+
+      // Build 13-tile hand without this tile
+      var remaining = [];
+      var removed = false;
+      for (var j = 0; j < hand14.length; j++) {
+        if (!removed && hand14[j].suit === hand14[i].suit && hand14[j].value === hand14[i].value) {
+          removed = true;
+          continue;
+        }
+        remaining.push(hand14[j]);
+      }
+
+      options.push({ key: key, shanten: ET.calculateShanten(remaining) });
+    }
+
+    options.sort(function (a, b) { return a.shanten - b.shanten; });
+
+    var chosen;
+    var bestShanten = options[0].shanten;
+
+    if (Math.random() < 0.85 || options.length <= 1) {
+      // Pick randomly among best (lowest shanten) options
+      var best = [];
+      for (var b = 0; b < options.length; b++) {
+        if (options[b].shanten === bestShanten) best.push(options[b]);
+      }
+      chosen = best[Math.floor(Math.random() * best.length)];
+    } else {
+      // Pick from top 3 tiers (slight suboptimality)
+      var top = options.slice(0, Math.min(3, options.length));
+      chosen = top[Math.floor(Math.random() * top.length)];
+    }
+
+    // Find first matching tile in hand14
+    for (var fi = 0; fi < hand14.length; fi++) {
+      if (hand14[fi].suit + hand14[fi].value === chosen.key) return fi;
+    }
+    return 0;
+  }
+
+  /** Each opponent draws a tile, then discards near-optimally. */
+  function processOpponentTurns() {
+    for (var op = 0; op < 3; op++) {
+      if (state.remainingDeck.length === 0) break;
+
+      // Opponent draws from wall
+      var drawn = state.remainingDeck.shift();
+      state.opponentHands[op].push(drawn);
+
+      // Opponent chooses discard (near-optimal by shanten)
+      var idx = opponentChooseDiscard(state.opponentHands[op]);
+      var discarded = state.opponentHands[op].splice(idx, 1)[0];
+      state.opponentDiscards[op].push(discarded);
+
+      // Render to their pond
+      renderOpponentDiscard(op, discarded);
     }
   }
 
@@ -194,7 +329,7 @@
     });
     renderLogEntry(state.log[state.log.length - 1]);
 
-    // Add tile to pond
+    // Add tile to user's pond
     renderPondTile(discardedTile);
 
     // Check tenpai
@@ -215,7 +350,19 @@
       return;
     }
 
-    // Draw next tile
+    // Other 3 players each draw and discard
+    processOpponentTurns();
+
+    // Check wall exhaustion after opponents draw
+    if (state.remainingDeck.length === 0) {
+      state.hand = sortedNewHand;
+      state.drawnTile = null;
+      state.currentEval = null;
+      endGame(false);
+      return;
+    }
+
+    // Draw next tile for user
     var nextTile = state.remainingDeck.shift();
     var bankKey = nextTile.suit + nextTile.value;
     state.bank[bankKey] = (state.bank[bankKey] || 0) - 1;
@@ -224,8 +371,8 @@
     state.hand = sortedNewHand;
     state.drawnTile = nextTile;
 
-    // Pre-compute evaluation for next turn
-    state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, state.bank);
+    // Pre-compute evaluation for next turn (using effective bank)
+    state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, getEffectiveBank());
 
     renderHand();
   }
@@ -291,12 +438,10 @@
     showHandBtn.addEventListener('click', function () {
       var handRow = row.querySelector('.et-log-hand');
       if (handRow) {
-        // Toggle: remove if already visible
         row.removeChild(handRow);
         showHandBtn.textContent = 'Show hand';
         return;
       }
-      // Build hand snapshot row
       handRow = document.createElement('div');
       handRow.className = 'et-log-hand';
       for (var h = 0; h < entry.handAfter.length; h++) {
@@ -334,11 +479,9 @@
   // ---- End game -----------------------------------------------------------
 
   function endGame(reachedTenpai) {
-    // Hide hand interaction
     byId('et-hand').textContent = '';
     byId('et-draw').textContent = '';
 
-    // Show remaining sorted hand if tenpai
     if (reachedTenpai && state.hand.length > 0) {
       var handEl = byId('et-hand');
       var sorted = state.hand.slice().sort(ST.compareTiles);
@@ -347,11 +490,9 @@
       }
     }
 
-    // Hide shanten on game end
     var shantenEl = byId('et-shanten');
     if (shantenEl) shantenEl.classList.add('ccr-hidden');
 
-    // Always show log on game end so user can review
     var logEl = byId('et-log');
     var legendEl = byId('et-log-legend');
     if (state.log.length > 0) {
@@ -363,7 +504,6 @@
     resultEl.textContent = '';
     resultEl.classList.remove('ccr-hidden');
 
-    // Title
     var title = document.createElement('div');
     title.className = 'et-result-title';
     if (reachedTenpai) {
@@ -373,7 +513,6 @@
     }
     resultEl.appendChild(title);
 
-    // Stats
     var statsWrap = document.createElement('div');
     statsWrap.className = 'et-result-stats';
 
@@ -394,7 +533,6 @@
       lossLine.textContent = 'Total ukeire lost: ' + state.totalUkeireLoss;
       statsWrap.appendChild(lossLine);
 
-      // Rating
       var rating = document.createElement('div');
       rating.className = 'et-stat et-stat--rating';
       if (state.turnCount === 1 && reachedTenpai) {
@@ -412,8 +550,6 @@
     }
 
     resultEl.appendChild(statsWrap);
-
-    // Show new hand button
     byId('et-new-btn').classList.remove('ccr-hidden');
   }
 
@@ -427,6 +563,8 @@
       drawnTile: gen.drawnTile,
       bank: gen.bank,
       remainingDeck: gen.remainingDeck,
+      opponentHands: gen.opponentHands,
+      opponentDiscards: [[], [], []],
       log: [],
       turnCount: 0,
       drawCount: 1,
@@ -435,8 +573,8 @@
       currentEval: null
     };
 
-    // Pre-compute evaluation
-    state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, state.bank);
+    // Pre-compute evaluation (using effective bank)
+    state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, getEffectiveBank());
 
     // Reset UI
     byId('et-log').textContent = '';
@@ -447,9 +585,9 @@
     byId('et-result').classList.add('ccr-hidden');
     byId('et-new-btn').classList.add('ccr-hidden');
 
-    // Clear and sync pond
-    clearPond();
-    syncPondVisibility();
+    // Clear and sync all ponds
+    clearAllPonds();
+    syncPondsLayout();
 
     renderHand();
   }
@@ -466,7 +604,6 @@
       logCheckbox.addEventListener('change', function () {
         showLog = logCheckbox.checked;
         if (showLog && state && state.log.length > 0) {
-          // Rebuild log in case entries were added while hidden
           rebuildLog();
         }
         syncLogVisibility();
@@ -496,6 +633,17 @@
         bigTiles = bigCheckbox.checked;
         var card = document.querySelector('.trainer-card');
         if (card) card.classList.toggle('et-big-tiles', bigTiles);
+      });
+    }
+
+    var othersCheckbox = byId('et-opt-others');
+    if (othersCheckbox) {
+      othersCheckbox.checked = showOtherDiscards;
+      othersCheckbox.addEventListener('change', function () {
+        showOtherDiscards = othersCheckbox.checked;
+        syncPondsLayout();
+        // Recompute evaluation since effective bank changed
+        recomputeEval();
       });
     }
   }
