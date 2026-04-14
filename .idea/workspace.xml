@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update efficiency trainer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/et-core.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="add opponent ponds to efficiency trainer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,15 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="52129000" />
-    </task>
-    <task id="LOCAL-00082" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775840687577</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1775840687577</updated>
+      <workItem from="1775507658686" duration="52753000" />
     </task>
     <task id="LOCAL-00083" summary="updated trainer">
       <option name="closed" value="true" />
@@ -473,7 +461,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776138884425</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="add opponent ponds to efficiency trainer">
+      <option name="closed" value="true" />
+      <created>1776140338600</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1776140338601</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated scoring and css" />
     <MESSAGE value="updated homepage" />
     <MESSAGE value="updated css" />
     <MESSAGE value="updated play online" />
@@ -516,6 +511,7 @@
     <MESSAGE value="testing announcement" />
     <MESSAGE value="update CCRO" />
     <MESSAGE value="update efficiency trainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="update efficiency trainer" />
+    <MESSAGE value="add opponent ponds to efficiency trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add opponent ponds to efficiency trainer" />
   </component>
 </project>

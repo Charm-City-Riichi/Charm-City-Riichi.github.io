@@ -147,11 +147,31 @@
     pondEl.appendChild(ST.makeTileEl(tile));
   }
 
+  /**
+   * Map a discard sequence index to (row, col) for each opponent's rotated pond.
+   * Each opponent fills their pond left-to-right, 6 across, 3 rows from THEIR
+   * perspective; we rotate that fill order to match their seating position.
+   */
+  var POND_PLACE = [
+    // Index 0 = toimen (180°): 6-col × 3-row, reversed
+    function (i) { return { row: 3 - Math.floor(i / 6), col: 6 - (i % 6) }; },
+    // Index 1 = kamicha (90° CW): 3-col × 6-row, columns bottom-to-top, left-to-right
+    function (i) { return { row: 6 - (i % 6), col: Math.floor(i / 6) + 1 }; },
+    // Index 2 = shimocha (90° CCW): 3-col × 6-row, columns top-to-bottom, right-to-left
+    function (i) { return { row: (i % 6) + 1, col: 3 - Math.floor(i / 6) }; }
+  ];
+
   function renderOpponentDiscard(opIndex, tile) {
     var ids = ['et-pond-toimen', 'et-pond-kamicha', 'et-pond-shimocha'];
     var el = byId(ids[opIndex]);
     if (!el) return;
-    el.appendChild(ST.makeTileEl(tile));
+
+    var tileEl = ST.makeTileEl(tile);
+    var seq = state.opponentDiscards[opIndex].length - 1;
+    var pos = POND_PLACE[opIndex](seq);
+    tileEl.style.gridRow = pos.row;
+    tileEl.style.gridColumn = pos.col;
+    el.appendChild(tileEl);
   }
 
   function clearAllPonds() {
