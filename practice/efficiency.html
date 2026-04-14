@@ -44,10 +44,14 @@
 
     <!-- Options bar -->
     <div class="et-options">
-      <label class="et-toggle"><input type="checkbox" id="et-opt-log" checked><span>Show Log</span></label>
+      <label class="et-toggle"><input type="checkbox" id="et-opt-log" checked><span>Show Log During Hand</span></label>
       <label class="et-toggle"><input type="checkbox" id="et-opt-pond"><span>Show Pond</span></label>
       <label class="et-toggle"><input type="checkbox" id="et-opt-shanten"><span>Show Shanten</span></label>
+      <label class="et-toggle"><input type="checkbox" id="et-opt-big"><span>Big Tiles</span></label>
     </div>
+
+    <!-- Shanten display -->
+    <div id="et-shanten" class="et-shanten ccr-hidden"></div>
 
     <!-- Pond (discarded tiles, above the hand like IRL) -->
     <div id="et-pond" class="et-pond ccr-hidden"></div>
@@ -61,9 +65,6 @@
         <span id="et-draw" class="et-draw-group"></span>
       </span>
     </div>
-
-    <!-- Shanten display -->
-    <div id="et-shanten" class="et-shanten ccr-hidden"></div>
 
     <!-- Debug info (for verification against external calculators)
     <div id="et-debug" class="et-debug"></div> -->

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update CCRO">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update efficiency trainer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
@@ -80,15 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="49392000" />
-    </task>
-    <task id="LOCAL-00079" summary="updated play online">
-      <option name="closed" value="true" />
-      <created>1775798028589</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1775798028589</updated>
+      <workItem from="1775507658686" duration="50786000" />
     </task>
     <task id="LOCAL-00080" summary="updated trainer">
       <option name="closed" value="true" />
@@ -474,7 +466,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776125050933</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="update efficiency trainer">
+      <option name="closed" value="true" />
+      <created>1776136675959</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1776136675959</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +509,6 @@
     <MESSAGE value="move chinitsu waits trainer" />
     <MESSAGE value="update flush waits trainer" />
     <MESSAGE value="add efficiency trainer" />
-    <MESSAGE value="update efficiency trainer" />
     <MESSAGE value="add redirect link for CCRO" />
     <MESSAGE value="update ET" />
     <MESSAGE value="update navigation" />
@@ -517,6 +516,7 @@
     <MESSAGE value="minor updates" />
     <MESSAGE value="testing announcement" />
     <MESSAGE value="update CCRO" />
-    <option name="LAST_COMMIT_MESSAGE" value="update CCRO" />
+    <MESSAGE value="update efficiency trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="update efficiency trainer" />
   </component>
 </project>

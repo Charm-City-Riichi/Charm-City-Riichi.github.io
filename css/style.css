@@ -1705,6 +1705,9 @@ p:last-child { margin-bottom: 0; }
   margin: 0;
   width: 15px;
   height: 15px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
   cursor: pointer;
 }
 .et-toggle input[type="checkbox"]:checked + span {
@@ -1715,10 +1718,15 @@ p:last-child { margin-bottom: 0; }
 .et-pond {
   display: grid;
   grid-template-columns: repeat(6, 40px);
+  grid-template-rows: repeat(3, 53px);
   gap: 2px;
   justify-content: center;
-  margin-bottom: 1rem;
-  min-height: 0;
+  margin: 0 auto 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg-alt);
+  width: fit-content;
 }
 .et-pond .tile-img {
   width: 40px;
@@ -1727,6 +1735,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 600px) {
   .et-pond {
     grid-template-columns: repeat(6, 32px);
+    grid-template-rows: repeat(3, 43px);
   }
   .et-pond .tile-img {
     width: 32px;
@@ -1734,12 +1743,40 @@ p:last-child { margin-bottom: 0; }
   }
 }
 
+/* Big tiles mode */
+.et-big-tiles .et-hand-area .tile-img {
+  width: 56px;
+  height: 74px;
+}
+.et-big-tiles .et-pond {
+  grid-template-columns: repeat(6, 56px);
+  grid-template-rows: repeat(3, 74px);
+}
+.et-big-tiles .et-pond .tile-img {
+  width: 56px;
+  height: 74px;
+}
+@media (max-width: 600px) {
+  .et-big-tiles .et-hand-area .tile-img {
+    width: 44px;
+    height: 58px;
+  }
+  .et-big-tiles .et-pond {
+    grid-template-columns: repeat(6, 44px);
+    grid-template-rows: repeat(3, 58px);
+  }
+  .et-big-tiles .et-pond .tile-img {
+    width: 44px;
+    height: 58px;
+  }
+}
+
 /* Shanten display */
 .et-shanten {
   font-size: 0.9rem;
   color: var(--color-text-muted);
-  margin-top: 0.5rem;
-  padding-left: 0.25rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 /* Log entry hand snapshot */
@@ -1758,7 +1795,7 @@ p:last-child { margin-bottom: 0; }
 }
 .et-log-show-hand {
   font-size: 0.75rem;
-  color: var(--color-link);
+  color: var(--color-text);
   cursor: pointer;
   text-decoration: underline;
   margin-left: auto;
@@ -1767,9 +1804,10 @@ p:last-child { margin-bottom: 0; }
   border: none;
   padding: 0;
   font-family: inherit;
+  opacity: 0.7;
 }
 .et-log-show-hand:hover {
-  color: var(--color-link-hover);
+  opacity: 1;
 }
 
 /* Discard log */

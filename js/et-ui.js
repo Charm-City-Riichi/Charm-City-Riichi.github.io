@@ -38,6 +38,7 @@
   var showLog = true;
   var showPond = false;
   var showShanten = false;
+  var bigTiles = false;
 
   // ---- Game state ---------------------------------------------------------
 
@@ -485,6 +486,16 @@
       shantenCheckbox.addEventListener('change', function () {
         showShanten = shantenCheckbox.checked;
         renderShanten();
+      });
+    }
+
+    var bigCheckbox = byId('et-opt-big');
+    if (bigCheckbox) {
+      bigCheckbox.checked = bigTiles;
+      bigCheckbox.addEventListener('change', function () {
+        bigTiles = bigCheckbox.checked;
+        var card = document.querySelector('.trainer-card');
+        if (card) card.classList.toggle('et-big-tiles', bigTiles);
       });
     }
   }
