@@ -274,29 +274,58 @@
     return 0;
   }
 
-  /** Each opponent draws a tile, then discards near-optimally. */
-  function processOpponentTurns() {
-    for (var op = 0; op < 3; op++) {
-      if (state.remainingDeck.length === 0) break;
+  // ---- Turn sequencing (delayed opponent discards) -------------------------
 
-      // Opponent draws from wall
-      var drawn = state.remainingDeck.shift();
-      state.opponentHands[op].push(drawn);
+  /** Delay between each opponent's discard in ms (quick but perceptible). */
+  var TURN_DELAY = 300;
 
-      // Opponent chooses discard (near-optimal by shanten)
-      var idx = opponentChooseDiscard(state.opponentHands[op]);
-      var discarded = state.opponentHands[op].splice(idx, 1)[0];
-      state.opponentDiscards[op].push(discarded);
+  /** Whether we are currently waiting for the opponent turn sequence. */
+  var awaitingOpponents = false;
 
-      // Render to their pond
-      renderOpponentDiscard(op, discarded);
+  /** Process a single opponent's draw-and-discard. Returns true if it happened. */
+  function processOneOpponent(op) {
+    if (state.remainingDeck.length === 0) return false;
+
+    var drawn = state.remainingDeck.shift();
+    state.opponentHands[op].push(drawn);
+
+    var idx = opponentChooseDiscard(state.opponentHands[op]);
+    var discarded = state.opponentHands[op].splice(idx, 1)[0];
+    state.opponentDiscards[op].push(discarded);
+
+    renderOpponentDiscard(op, discarded);
+    return true;
+  }
+
+  /**
+   * Run opponent turns sequentially with delays, then draw the user's tile.
+   * Counter-clockwise order: shimocha (right, op 2), toimen (across, op 0),
+   * kamicha (left, op 1).
+   * Calls `callback` when the full sequence is done.
+   */
+  function processOpponentTurnsDelayed(callback) {
+    var order = [2, 0, 1]; // shimocha, toimen, kamicha
+    var step = 0;
+
+    function nextStep() {
+      if (step < order.length) {
+        var op = order[step];
+        step++;
+        processOneOpponent(op);
+        setTimeout(nextStep, TURN_DELAY);
+      } else {
+        callback();
+      }
     }
+
+    // First opponent acts after a short delay following the user's discard
+    setTimeout(nextStep, TURN_DELAY);
   }
 
   // ---- Discard handling ---------------------------------------------------
 
   function onTileClick(e) {
-    if (!state || !state.currentEval) return;
+    if (!state || !state.currentEval || awaitingOpponents) return;
 
     var wrap = e.currentTarget;
     var suit = wrap.dataset.suit;
@@ -370,31 +399,63 @@
       return;
     }
 
-    // Other 3 players each draw and discard
-    processOpponentTurns();
+    // Process opponent turns and draw user's next tile
+    state.hand = sortedNewHand;
 
-    // Check wall exhaustion after opponents draw
-    if (state.remainingDeck.length === 0) {
-      state.hand = sortedNewHand;
-      state.drawnTile = null;
-      state.currentEval = null;
-      endGame(false);
-      return;
+    function afterOpponents() {
+      // Check wall exhaustion after opponents draw
+      if (state.remainingDeck.length === 0) {
+        state.drawnTile = null;
+        state.currentEval = null;
+        endGame(false);
+        return;
+      }
+
+      // Draw next tile for user
+      var nextTile = state.remainingDeck.shift();
+      var bankKey = nextTile.suit + nextTile.value;
+      state.bank[bankKey] = (state.bank[bankKey] || 0) - 1;
+      state.drawCount++;
+
+      state.drawnTile = nextTile;
+
+      // Pre-compute evaluation for next turn (using effective bank)
+      state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, getEffectiveBank());
+
+      renderHand();
     }
 
-    // Draw next tile for user
-    var nextTile = state.remainingDeck.shift();
-    var bankKey = nextTile.suit + nextTile.value;
-    state.bank[bankKey] = (state.bank[bankKey] || 0) - 1;
-    state.drawCount++;
+    if (showOtherDiscards) {
+      // Delayed sequence: disable interaction, show hand dimmed while opponents act
+      state.drawnTile = null;
+      state.currentEval = null;
+      awaitingOpponents = true;
+      byId('et-hand').textContent = '';
+      byId('et-draw').textContent = '';
 
-    state.hand = sortedNewHand;
-    state.drawnTile = nextTile;
+      var handArea = document.querySelector('.et-hand-area');
+      if (handArea) handArea.classList.add('et-hand-waiting');
+      (function () {
+        var handEl = byId('et-hand');
+        var sorted = sortedNewHand.slice().sort(ST.compareTiles);
+        for (var i = 0; i < sorted.length; i++) {
+          handEl.appendChild(ST.makeTileEl(sorted[i]));
+        }
+      })();
 
-    // Pre-compute evaluation for next turn (using effective bank)
-    state.currentEval = ET.evaluateDiscards(state.hand, state.drawnTile, getEffectiveBank());
-
-    renderHand();
+      processOpponentTurnsDelayed(function () {
+        awaitingOpponents = false;
+        var ha = document.querySelector('.et-hand-area');
+        if (ha) ha.classList.remove('et-hand-waiting');
+        afterOpponents();
+      });
+    } else {
+      // Instant: process all opponent turns synchronously (no visible ponds)
+      for (var op = 0; op < 3; op++) {
+        processOneOpponent(op);
+      }
+      afterOpponents();
+    }
   }
 
   // ---- Discard log --------------------------------------------------------
@@ -576,6 +637,7 @@
   // ---- New hand -----------------------------------------------------------
 
   function newHand() {
+    awaitingOpponents = false;
     var gen = ET.generateHand();
 
     state = {
