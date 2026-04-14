@@ -362,6 +362,13 @@ hr {
   transform: translateY(-1px);
 }
 
+/* ===== HOME: CCRO ANNOUNCEMENT ===== */
+.ccro-announce-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+}
+
 /* ===== HOME: FEATURES BAND ===== */
 .features-band {
   background: var(--color-green-bg);
