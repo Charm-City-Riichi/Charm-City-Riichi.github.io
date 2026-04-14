@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update opponent ponds on efficiency trainer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/efficiency.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/efficiency.html" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update efficiency trainer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,31 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="54671000" />
-    </task>
-    <task id="LOCAL-00086" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775843610503</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1775843610503</updated>
-    </task>
-    <task id="LOCAL-00087" summary="updated whole site">
-      <option name="closed" value="true" />
-      <created>1775844379101</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1775844379101</updated>
-    </task>
-    <task id="LOCAL-00088" summary="updated whole site">
-      <option name="closed" value="true" />
-      <created>1775844396871</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1775844396872</updated>
+      <workItem from="1775507658686" duration="55370000" />
     </task>
     <task id="LOCAL-00089" summary="updated trainer">
       <option name="closed" value="true" />
@@ -473,7 +445,31 @@
       <option name="project" value="LOCAL" />
       <updated>1776185933022</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="update ponds on efficiency trainer">
+      <option name="closed" value="true" />
+      <created>1776186757542</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1776186757542</updated>
+    </task>
+    <task id="LOCAL-00136" summary="update efficiency trainer">
+      <option name="closed" value="true" />
+      <created>1776187261993</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1776187261994</updated>
+    </task>
+    <task id="LOCAL-00137" summary="update efficiency trainer">
+      <option name="closed" value="true" />
+      <created>1776187271983</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1776187271983</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated css" />
     <MESSAGE value="updated play online" />
     <MESSAGE value="updated whole site" />
     <MESSAGE value="updated mobile menu" />
@@ -513,9 +508,10 @@
     <MESSAGE value="minor updates" />
     <MESSAGE value="testing announcement" />
     <MESSAGE value="update CCRO" />
-    <MESSAGE value="update efficiency trainer" />
     <MESSAGE value="add opponent ponds to efficiency trainer" />
     <MESSAGE value="update opponent ponds on efficiency trainer" />
-    <option name="LAST_COMMIT_MESSAGE" value="update opponent ponds on efficiency trainer" />
+    <MESSAGE value="update ponds on efficiency trainer" />
+    <MESSAGE value="update efficiency trainer" />
+    <option name="LAST_COMMIT_MESSAGE" value="update efficiency trainer" />
   </component>
 </project>

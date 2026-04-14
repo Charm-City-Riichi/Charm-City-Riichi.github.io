@@ -18,6 +18,9 @@
   var currentHand = null;   // { suit, tiles[13], waits[] }
   var checked = false;
 
+  // Toggle state (persists across hands)
+  var bigTiles = false;
+
   // ----- Hand rendering ----------------------------------------------------
 
   function renderHand(hand) {
@@ -147,6 +150,20 @@
     byId('wt-new-btn').classList.add('ccr-hidden');
   }
 
+  // ----- Toggle wiring -------------------------------------------------------
+
+  function wireToggles() {
+    var bigCheckbox = byId('wt-opt-big');
+    if (bigCheckbox) {
+      bigCheckbox.checked = bigTiles;
+      bigCheckbox.addEventListener('change', function () {
+        bigTiles = bigCheckbox.checked;
+        var card = document.querySelector('.trainer-card');
+        if (card) card.classList.toggle('wt-big-tiles', bigTiles);
+      });
+    }
+  }
+
   // ----- Event wiring ------------------------------------------------------
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -154,6 +171,7 @@
     var newBtn   = byId('wt-new-btn');
     if (checkBtn) checkBtn.addEventListener('click', checkAnswer);
     if (newBtn)   newBtn.addEventListener('click', newHand);
+    wireToggles();
     newHand();
   });
 

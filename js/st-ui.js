@@ -310,6 +310,10 @@
     elAnswer.classList.remove('ccr-hidden');
   }
 
+  // ----- Toggle state -------------------------------------------------------
+
+  var bigTiles = false;
+
   // ----- Event wiring --------------------------------------------------------
 
   var currentSituation = null;
@@ -326,11 +330,24 @@
     $('trainer-new-btn').classList.remove('ccr-hidden');
   }
 
+  function wireToggles() {
+    var bigCheckbox = $('st-opt-big');
+    if (bigCheckbox) {
+      bigCheckbox.checked = bigTiles;
+      bigCheckbox.addEventListener('change', function () {
+        bigTiles = bigCheckbox.checked;
+        var card = document.querySelector('.trainer-card');
+        if (card) card.classList.toggle('st-big-tiles', bigTiles);
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var showBtn = $('trainer-show-btn');
     var newBtn = $('trainer-new-btn');
     if (showBtn) showBtn.addEventListener('click', showAnswer);
     if (newBtn) newBtn.addEventListener('click', newHand);
+    wireToggles();
     newHand();
   });
 
