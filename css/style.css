@@ -1756,6 +1756,11 @@ p:last-child { margin-bottom: 0; }
   width: 56px;
   height: 74px;
 }
+.et-big-tiles .et-log-hand .tile-img {
+  width: 40px;
+  height: 53px;
+  border-width: 2px;
+}
 @media (max-width: 600px) {
   .et-big-tiles .et-hand-area .tile-img {
     width: 44px;
@@ -1768,6 +1773,10 @@ p:last-child { margin-bottom: 0; }
   .et-big-tiles .et-pond .tile-img {
     width: 44px;
     height: 58px;
+  }
+  .et-big-tiles .et-log-hand .tile-img {
+    width: 32px;
+    height: 43px;
   }
 }
 
