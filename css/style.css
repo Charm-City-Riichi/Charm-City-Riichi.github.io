@@ -1704,6 +1704,9 @@ p:last-child { margin-bottom: 0; }
   cursor: pointer;
   user-select: none;
 }
+.et-toggle span {
+  font-weight: 600;
+}
 .et-toggle input[type="checkbox"] {
   accent-color: var(--color-accent, #e8872e);
   margin: 0;
@@ -1716,6 +1719,7 @@ p:last-child { margin-bottom: 0; }
 }
 .et-toggle input[type="checkbox"]:checked + span {
   color: var(--color-text);
+  font-weight: 700;
 }
 
 /* Pond (discarded tiles above the hand) */

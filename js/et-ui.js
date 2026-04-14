@@ -723,6 +723,11 @@
       othersCheckbox.checked = showOtherDiscards;
       othersCheckbox.addEventListener('change', function () {
         showOtherDiscards = othersCheckbox.checked;
+        // When showing others, automatically show my pond too
+        if (showOtherDiscards) {
+          showPond = true;
+          if (pondCheckbox) pondCheckbox.checked = true;
+        }
         syncPondsLayout();
         // Recompute evaluation since effective bank changed
         recomputeEval();
