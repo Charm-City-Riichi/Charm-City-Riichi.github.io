@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="remove test page for CCRO">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="sitemap">
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/st-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/st-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/wt-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/wt-ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/efficiency.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/efficiency.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/scoring.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practice/waits.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/waits.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,31 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="59470000" />
-    </task>
-    <task id="LOCAL-00092" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775852170231</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1775852170231</updated>
-    </task>
-    <task id="LOCAL-00093" summary="updated mobile menu">
-      <option name="closed" value="true" />
-      <created>1775852179241</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1775852179241</updated>
-    </task>
-    <task id="LOCAL-00094" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775853823367</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1775853823367</updated>
+      <workItem from="1775507658686" duration="59800000" />
     </task>
     <task id="LOCAL-00095" summary="updated trainer">
       <option name="closed" value="true" />
@@ -482,7 +447,31 @@
       <option name="project" value="LOCAL" />
       <updated>1776210542576</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="update trainers">
+      <option name="closed" value="true" />
+      <created>1776282160454</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1776282160454</updated>
+    </task>
+    <task id="LOCAL-00142" summary="update homepage">
+      <option name="closed" value="true" />
+      <created>1776282174055</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1776282174055</updated>
+    </task>
+    <task id="LOCAL-00143" summary="sitemap">
+      <option name="closed" value="true" />
+      <created>1776282188635</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1776282188636</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,8 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated trainer" />
-    <MESSAGE value="added plausible analytics script" />
     <MESSAGE value="edit strategy" />
     <MESSAGE value="edit 3-player" />
     <MESSAGE value="edit 3-player &amp; CSS for trainer" />
@@ -522,9 +509,11 @@
     <MESSAGE value="update opponent ponds on efficiency trainer" />
     <MESSAGE value="update ponds on efficiency trainer" />
     <MESSAGE value="update efficiency trainer" />
-    <MESSAGE value="update trainers" />
     <MESSAGE value="update index" />
     <MESSAGE value="remove test page for CCRO" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove test page for CCRO" />
+    <MESSAGE value="update trainers" />
+    <MESSAGE value="update homepage" />
+    <MESSAGE value="sitemap" />
+    <option name="LAST_COMMIT_MESSAGE" value="sitemap" />
   </component>
 </project>
