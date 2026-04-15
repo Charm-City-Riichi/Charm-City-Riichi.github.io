@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="sitemap">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="swap CTA image">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,23 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="59800000" />
-    </task>
-    <task id="LOCAL-00095" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775854246765</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1775854246766</updated>
-    </task>
-    <task id="LOCAL-00096" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775854626349</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1775854626349</updated>
+      <workItem from="1775507658686" duration="60881000" />
     </task>
     <task id="LOCAL-00097" summary="updated trainer">
       <option name="closed" value="true" />
@@ -471,7 +457,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776282188636</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="swap CTA image">
+      <option name="closed" value="true" />
+      <created>1776282433028</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1776282433028</updated>
+    </task>
+    <task id="LOCAL-00145" summary="swap CTA image">
+      <option name="closed" value="true" />
+      <created>1776282885106</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1776282885106</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit strategy" />
     <MESSAGE value="edit 3-player" />
     <MESSAGE value="edit 3-player &amp; CSS for trainer" />
     <MESSAGE value="edit css" />
@@ -514,6 +515,7 @@
     <MESSAGE value="update trainers" />
     <MESSAGE value="update homepage" />
     <MESSAGE value="sitemap" />
-    <option name="LAST_COMMIT_MESSAGE" value="sitemap" />
+    <MESSAGE value="swap CTA image" />
+    <option name="LAST_COMMIT_MESSAGE" value="swap CTA image" />
   </component>
 </project>
