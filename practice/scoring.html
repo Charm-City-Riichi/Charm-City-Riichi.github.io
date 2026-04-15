@@ -8,6 +8,33 @@
   <meta name="description" content="Practice scoring riichi mahjong hands. Generates winning hands with full context — winds, dora, riichi, calls, and winning tile — for you to score by hand.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://charm-city-riichi.github.io/practice/scoring.html">
+  <meta property="og:title" content="Score Trainer – Charm City Riichi">
+  <meta property="og:description" content="Practice scoring riichi mahjong hands. Generates winning hands with full context — winds, dora, riichi, calls, and winning tile — for you to score by hand.">
+  <meta property="og:image" content="https://charm-city-riichi.github.io/mahjong%20images/branding/ccr-logo.webp">
+  <meta property="og:url" content="https://charm-city-riichi.github.io/practice/scoring.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Charm City Riichi">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Score Trainer – Charm City Riichi">
+  <meta name="twitter:description" content="Practice scoring riichi mahjong hands. Generates winning hands with full context — winds, dora, riichi, calls, and winning tile — for you to score by hand.">
+  <meta name="twitter:image" content="https://charm-city-riichi.github.io/mahjong%20images/branding/ccr-logo.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Score Trainer",
+    "description": "Practice scoring riichi mahjong hands. Generates winning hands with full context — winds, dora, riichi, calls, and winning tile — for you to score by hand.",
+    "url": "https://charm-city-riichi.github.io/practice/scoring.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "name": "Practice",
+      "url": "https://charm-city-riichi.github.io/practice/"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,11 +58,6 @@
   <h1 class="page-title">Score Trainer</h1>
 
       <div class="ccr-card trainer-card">
-
-        <!-- Options bar -->
-        <div class="st-options">
-          <label class="st-toggle"><input type="checkbox" id="st-opt-big"><span>Big Tiles</span></label>
-        </div>
 
         <!-- Top: hand state + buttons -->
         <div class="trainer-top">
@@ -62,9 +84,14 @@
             </div>
           </div>
           <div class="trainer-actions">
-            <button class="ccr-button" id="trainer-show-btn">Show Answer</button>
+            <button class="ccr-button" id="trainer-show-btn">Check My Score</button>
             <button class="ccr-button ccr-hidden" id="trainer-new-btn">New Hand</button>
           </div>
+        </div>
+
+        <!-- Options bar -->
+        <div class="st-options">
+          <label class="st-toggle"><input type="checkbox" id="st-opt-big"><span>Big Tiles</span></label>
         </div>
 
         <!-- Bottom: hand tiles (left) + answer (right) -->
@@ -97,7 +124,8 @@
           </div>
 
           <div class="trainer-answer ccr-hidden" id="trainer-answer">
-            <h3 class="trainer-answer-heading">Scoring</h3>
+            <h3 class="trainer-answer-heading" tabindex="-1">Scoring</h3>
+            <span class="sr-only" id="trainer-answer-announce" aria-live="polite" aria-atomic="true"></span>
             <div class="trainer-row" id="trainer-yaku-row">
               <span class="trainer-row-label">Yaku</span>
               <span class="trainer-row-value" id="trainer-yaku"></span>

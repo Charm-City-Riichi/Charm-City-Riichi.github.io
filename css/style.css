@@ -353,6 +353,7 @@ hr {
   font-family: var(--font-body), sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
+  border: 2px solid transparent;
   border-radius: 6px;
   transition: background 0.2s, transform 0.15s;
 }
@@ -454,14 +455,214 @@ hr {
 /* Primary emphasis: images 1 and 4 */
 .gallery img:nth-child(1)  { grid-column: span 2; grid-row: span 2; }
 .gallery img:nth-child(4)  { grid-column: span 2; grid-row: span 2; }
-/* Secondary emphasis: images 6 and 8 */
-.gallery img:nth-child(6) { grid-column: span 2; }
-.gallery img:nth-child(8) { grid-column: span 2; }
 
 @media (max-width: 768px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 160px;
+  }
+}
+
+/* ===== HOME: HERO WITH BACKGROUND IMAGE ===== */
+.hero--home {
+  position: relative;
+  padding: 5rem 1.5rem 4rem;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)),
+    url('../mahjong images/nlb/nlb10.webp') center/cover no-repeat;
+  color: #fff;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: none;
+}
+.hero--home .hero-text {
+  color: #fff;
+  max-width: 700px;
+}
+.hero--home .hero-text h1 {
+  color: #fff;
+}
+.hero--home .hero-text p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.15rem;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero--home {
+    padding: 3.5rem 1.5rem 3rem;
+    min-height: 300px;
+  }
+}
+
+/* ===== HOME: COMMUNITY PHOTO STRIP ===== */
+.community-strip {
+  max-width: var(--max-width);
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+}
+.community-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.community-strip-inner img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.community-strip-inner img:hover {
+  transform: scale(1.03);
+  border-color: var(--color-accent);
+}
+@media (max-width: 768px) {
+  .community-strip-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .community-strip-inner img:nth-child(3) {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .community-strip-inner {
+    grid-template-columns: 1fr;
+  }
+  .community-strip-inner img {
+    height: 180px;
+  }
+  .community-strip-inner img:nth-child(2),
+  .community-strip-inner img:nth-child(3) {
+    display: none;
+  }
+}
+
+/* ===== HOME: SCHEDULE AT-A-GLANCE ===== */
+.schedule-glance {
+  max-width: var(--max-width);
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.schedule-glance h2 {
+  margin-bottom: 1.5rem;
+}
+.schedule-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.schedule-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+.schedule-card:hover {
+  border-color: var(--color-accent);
+}
+.schedule-card-day {
+  font-family: var(--font-heading), serif;
+  font-size: 1.2rem;
+  color: var(--color-heading);
+  font-weight: 700;
+}
+.schedule-card-time {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.schedule-card-venue {
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+.schedule-card-note {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+.schedule-glance-link {
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+}
+@media (max-width: 768px) {
+  .schedule-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* ===== HOME: FAQ AT-A-GLANCE ===== */
+.faq-glance {
+  max-width: var(--max-width);
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.faq-glance h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.faq-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.faq-item {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.faq-item dt {
+  font-family: var(--font-heading), serif;
+  font-size: 1.05rem;
+  color: var(--color-heading);
+  margin-bottom: 0.5rem;
+}
+.faq-item dd {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+.faq-glance-link {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+}
+@media (max-width: 768px) {
+  .faq-list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1684,6 +1885,16 @@ p:last-child { margin-bottom: 0; }
 .wt-verdict--perfect { color: var(--color-han-1); }
 .wt-verdict--partial  { color: var(--color-han-5); }
 .wt-verdict--wrong    { color: var(--color-yakuman); }
+.wt-phantom-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.wt-answer-tile:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
 
 /* Options bar */
 .wt-options {
@@ -2127,7 +2338,22 @@ p:last-child { margin-bottom: 0; }
 .et-result-title {
   font-family: 'DM Serif Display', serif;
   font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+.et-result-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0;
   margin-bottom: 0.75rem;
+}
+.et-tenpai-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
 }
 .et-result-stats {
   font-size: 0.95rem;
@@ -2296,11 +2522,24 @@ a:focus-visible {
     word-break: break-all;
   }
 
-  /* Hide gallery and photo grids */
+  /* Hide gallery, photo grids, and image strips */
   .gallery,
   .photo-grid,
-  .lightbox {
+  .lightbox,
+  .community-strip {
     display: none !important;
+  }
+
+  /* Hero background image: make text readable on paper */
+  .hero--home {
+    background: transparent !important;
+    color: #000 !important;
+    min-height: 0 !important;
+  }
+  .hero--home .hero-text,
+  .hero--home .hero-text h1,
+  .hero--home .hero-text p {
+    color: #000 !important;
   }
 
   /* Tables */

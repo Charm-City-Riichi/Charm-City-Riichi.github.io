@@ -35,11 +35,12 @@
 
   // ---- Toggle state (persists across hands) -------------------------------
 
-  var showLog = true;
-  var showPond = false;
-  var showShanten = false;
-  var bigTiles = false;
-  var showOtherDiscards = false;
+  var showLog = localStorage.getItem('ccr.et.showLog') !== null
+    ? localStorage.getItem('ccr.et.showLog') === 'true' : true;
+  var showPond = localStorage.getItem('ccr.et.showPond') === 'true';
+  var showShanten = localStorage.getItem('ccr.et.showShanten') === 'true';
+  var bigTiles = localStorage.getItem('ccr.et.bigTiles') === 'true';
+  var showOtherDiscards = localStorage.getItem('ccr.et.showOthers') === 'true';
 
   // ---- Game state ---------------------------------------------------------
 
@@ -585,14 +586,39 @@
     resultEl.textContent = '';
     resultEl.classList.remove('ccr-hidden');
 
+    var pct = state.turnCount > 0 ? Math.round((state.optimalCount / state.turnCount) * 100) : 100;
+
     var title = document.createElement('div');
     title.className = 'et-result-title';
     if (reachedTenpai) {
-      title.textContent = state.turnCount === 1 ? 'Incredible!' : 'Tenpai!';
+      if (state.turnCount === 1)   title.textContent = 'First-cut tenpai';
+      else if (pct === 100)        title.textContent = 'Perfect line';
+      else if (pct >= 90)          title.textContent = 'Strong play';
+      else if (pct >= 70)          title.textContent = 'Decent line';
+      else                         title.textContent = 'Tenpai reached';
     } else {
-      title.textContent = 'Try again!';
+      title.textContent = 'Wall ran out';
     }
     resultEl.appendChild(title);
+
+    var subtitle = document.createElement('div');
+    subtitle.className = 'et-result-subtitle';
+    if (reachedTenpai && pct === 100) {
+      subtitle.textContent = 'Every discard was optimal.';
+    } else if (reachedTenpai) {
+      var bad = state.turnCount - state.optimalCount;
+      subtitle.textContent = 'You lost ' + state.totalUkeireLoss + ' ukeire over ' + bad + ' suboptimal discard' + (bad === 1 ? '' : 's') + '. Check the log below.';
+    } else {
+      subtitle.textContent = 'The wall ran dry before tenpai. Review the log for the key mistakes.';
+    }
+    resultEl.appendChild(subtitle);
+
+    if (reachedTenpai && state.hand.length > 0) {
+      var tenpaiLabel = document.createElement('div');
+      tenpaiLabel.className = 'et-tenpai-label';
+      tenpaiLabel.textContent = 'Your tenpai hand';
+      resultEl.appendChild(tenpaiLabel);
+    }
 
     var statsWrap = document.createElement('div');
     statsWrap.className = 'et-result-stats';
@@ -603,7 +629,6 @@
     statsWrap.appendChild(stepsLine);
 
     if (state.turnCount > 0) {
-      var pct = Math.round((state.optimalCount / state.turnCount) * 100);
       var optLine = document.createElement('div');
       optLine.className = 'et-stat';
       optLine.textContent = 'Optimal discards: ' + state.optimalCount + '/' + state.turnCount + ' (' + pct + '%)';
@@ -613,25 +638,11 @@
       lossLine.className = 'et-stat';
       lossLine.textContent = 'Total ukeire lost: ' + state.totalUkeireLoss;
       statsWrap.appendChild(lossLine);
-
-      var rating = document.createElement('div');
-      rating.className = 'et-stat et-stat--rating';
-      if (state.turnCount === 1 && reachedTenpai) {
-        rating.textContent = 'Dealt tenpai on first cut!';
-      } else if (pct >= 90) {
-        rating.textContent = 'Excellent!';
-      } else if (pct >= 70) {
-        rating.textContent = 'Good!';
-      } else if (pct >= 50) {
-        rating.textContent = 'Decent';
-      } else {
-        rating.textContent = 'Keep practicing!';
-      }
-      statsWrap.appendChild(rating);
     }
 
     resultEl.appendChild(statsWrap);
     byId('et-new-btn').classList.remove('ccr-hidden');
+    byId('et-result').focus();
   }
 
   // ---- New hand -----------------------------------------------------------
@@ -677,6 +688,14 @@
   // ---- Toggle wiring ------------------------------------------------------
 
   function wireToggles() {
+    // Apply initial DOM state from localStorage-loaded vars
+    var card = document.querySelector('.trainer-card');
+    if (card && bigTiles) card.classList.add('et-big-tiles');
+    syncLogVisibility();
+    syncPondVisibility();
+    syncPondsLayout();
+    renderShanten();
+
     var logCheckbox = byId('et-opt-log');
     var pondCheckbox = byId('et-opt-pond');
     var shantenCheckbox = byId('et-opt-shanten');
@@ -689,6 +708,7 @@
           rebuildLog();
         }
         syncLogVisibility();
+        try { localStorage.setItem('ccr.et.showLog', showLog); } catch (e) {}
       });
     }
 
@@ -697,6 +717,7 @@
       pondCheckbox.addEventListener('change', function () {
         showPond = pondCheckbox.checked;
         syncPondVisibility();
+        try { localStorage.setItem('ccr.et.showPond', showPond); } catch (e) {}
       });
     }
 
@@ -705,6 +726,7 @@
       shantenCheckbox.addEventListener('change', function () {
         showShanten = shantenCheckbox.checked;
         renderShanten();
+        try { localStorage.setItem('ccr.et.showShanten', showShanten); } catch (e) {}
       });
     }
 
@@ -713,14 +735,20 @@
       bigCheckbox.checked = bigTiles;
       bigCheckbox.addEventListener('change', function () {
         bigTiles = bigCheckbox.checked;
-        var card = document.querySelector('.trainer-card');
         if (card) card.classList.toggle('et-big-tiles', bigTiles);
+        try { localStorage.setItem('ccr.et.bigTiles', bigTiles); } catch (e) {}
       });
     }
 
     var othersCheckbox = byId('et-opt-others');
     if (othersCheckbox) {
       othersCheckbox.checked = showOtherDiscards;
+      // Lock pond checkbox if others is on (restore disabled state)
+      if (showOtherDiscards && pondCheckbox) {
+        showPond = true;
+        pondCheckbox.checked = true;
+        pondCheckbox.disabled = true;
+      }
       othersCheckbox.addEventListener('change', function () {
         showOtherDiscards = othersCheckbox.checked;
         // When showing others, automatically show my pond too and lock the toggle
@@ -736,6 +764,7 @@
         syncPondsLayout();
         // Recompute evaluation since effective bank changed
         recomputeEval();
+        try { localStorage.setItem('ccr.et.showOthers', showOtherDiscards); } catch (e) {}
       });
     }
   }

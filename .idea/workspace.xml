@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="update trainers">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="remove test page for CCRO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/baltimore-oriole-iisou.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/et-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/et-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/st-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/st-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/wt-ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/wt-ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/efficiency.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/efficiency.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/scoring.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/scoring.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice/waits.html" beforeDir="false" afterPath="$PROJECT_DIR$/practice/waits.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,23 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="57362000" />
-    </task>
-    <task id="LOCAL-00090" summary="updated trainer">
-      <option name="closed" value="true" />
-      <created>1775848362798</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1775848362799</updated>
-    </task>
-    <task id="LOCAL-00091" summary="updated whole site">
-      <option name="closed" value="true" />
-      <created>1775850888258</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1775850888258</updated>
+      <workItem from="1775507658686" duration="59470000" />
     </task>
     <task id="LOCAL-00092" summary="updated trainer">
       <option name="closed" value="true" />
@@ -474,7 +466,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776187730466</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="update index">
+      <option name="closed" value="true" />
+      <created>1776210528129</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1776210528129</updated>
+    </task>
+    <task id="LOCAL-00140" summary="remove test page for CCRO">
+      <option name="closed" value="true" />
+      <created>1776210542576</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1776210542576</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,8 +500,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated whole site" />
-    <MESSAGE value="updated mobile menu" />
     <MESSAGE value="updated trainer" />
     <MESSAGE value="added plausible analytics script" />
     <MESSAGE value="edit strategy" />
@@ -517,6 +523,8 @@
     <MESSAGE value="update ponds on efficiency trainer" />
     <MESSAGE value="update efficiency trainer" />
     <MESSAGE value="update trainers" />
-    <option name="LAST_COMMIT_MESSAGE" value="update trainers" />
+    <MESSAGE value="update index" />
+    <MESSAGE value="remove test page for CCRO" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove test page for CCRO" />
   </component>
 </project>

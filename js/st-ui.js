@@ -308,11 +308,15 @@
     elPayment.textContent = payStr;
 
     elAnswer.classList.remove('ccr-hidden');
+    var heading = elAnswer.querySelector('.trainer-answer-heading');
+    if (heading) heading.focus();
+    var ann = document.getElementById('trainer-answer-announce');
+    if (ann) ann.textContent = sc.han + ' han ' + sc.fu + ' fu \u2014 ' + (sc.level || '') + '.';
   }
 
   // ----- Toggle state -------------------------------------------------------
 
-  var bigTiles = false;
+  var bigTiles = localStorage.getItem('ccr.st.bigTiles') === 'true';
 
   // ----- Event wiring --------------------------------------------------------
 
@@ -331,13 +335,16 @@
   }
 
   function wireToggles() {
+    var card = document.querySelector('.trainer-card');
+    if (card && bigTiles) card.classList.add('st-big-tiles');
+
     var bigCheckbox = $('st-opt-big');
     if (bigCheckbox) {
       bigCheckbox.checked = bigTiles;
       bigCheckbox.addEventListener('change', function () {
         bigTiles = bigCheckbox.checked;
-        var card = document.querySelector('.trainer-card');
         if (card) card.classList.toggle('st-big-tiles', bigTiles);
+        try { localStorage.setItem('ccr.st.bigTiles', bigTiles); } catch (e) {}
       });
     }
   }
@@ -349,6 +356,17 @@
     if (newBtn) newBtn.addEventListener('click', newHand);
     wireToggles();
     newHand();
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        var active = document.activeElement;
+        if (active && (active.tagName === 'BUTTON' || active.tagName === 'INPUT')) return;
+        var sb = $('trainer-show-btn');
+        var nb = $('trainer-new-btn');
+        if (sb && !sb.classList.contains('ccr-hidden')) sb.click();
+        else if (nb && !nb.classList.contains('ccr-hidden')) nb.click();
+      }
+    });
   });
 
   ST.makeTileEl = makeTileEl;

@@ -19,7 +19,7 @@
   var checked = false;
 
   // Toggle state (persists across hands)
-  var bigTiles = false;
+  var bigTiles = localStorage.getItem('ccr.wt.bigTiles') === 'true';
 
   // ----- Hand rendering ----------------------------------------------------
 
@@ -51,7 +51,14 @@
       label.textContent = String(v);
       wrapper.appendChild(label);
 
+      wrapper.setAttribute('tabindex', '0');
+      wrapper.setAttribute('role', 'checkbox');
+      wrapper.setAttribute('aria-checked', 'false');
+      wrapper.setAttribute('aria-label', 'Tile ' + v);
       wrapper.addEventListener('click', onTileClick);
+      wrapper.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.click(); }
+      });
       selector.appendChild(wrapper);
     }
   }
@@ -64,6 +71,7 @@
     } else {
       wrapper.classList.add('wt-answer-tile--selected');
     }
+    wrapper.setAttribute('aria-checked', wrapper.classList.contains('wt-answer-tile--selected') ? 'true' : 'false');
   }
 
   // ----- Check answer ------------------------------------------------------
@@ -80,6 +88,10 @@
 
     var selector = byId('wt-tile-selector');
     selector.classList.add('wt-checked');
+    var allTiles = selector.querySelectorAll('.wt-answer-tile');
+    for (var ai = 0; ai < allTiles.length; ai++) {
+      allTiles[ai].setAttribute('aria-disabled', 'true');
+    }
 
     var tiles = selector.querySelectorAll('.wt-answer-tile');
     var wrong = 0, missed = 0;
@@ -122,7 +134,18 @@
       verdict.classList.add(wrong > 0 ? 'wt-verdict--wrong' : 'wt-verdict--partial');
     }
 
+    // Phantom wait explanation note
+    var hasPhantoms = false;
+    for (var pk in phantomSet) { if (phantomSet[pk]) { hasPhantoms = true; break; } }
+    if (hasPhantoms) {
+      var note = document.createElement('p');
+      note.className = 'wt-phantom-note';
+      note.textContent = 'Dashed tiles are phantom waits \u2014 mathematically valid, but all 4 copies are already in the hand.';
+      byId('wt-result').appendChild(note);
+    }
+
     byId('wt-result').classList.remove('ccr-hidden');
+    byId('wt-verdict').focus();
     byId('wt-check-btn').classList.add('ccr-hidden');
     byId('wt-new-btn').classList.remove('ccr-hidden');
   }
@@ -144,6 +167,8 @@
     byId('wt-result').classList.add('ccr-hidden');
     byId('wt-verdict').textContent = '';
     byId('wt-verdict').className = 'wt-verdict';
+    var oldNote = byId('wt-result').querySelector('.wt-phantom-note');
+    if (oldNote) oldNote.remove();
 
     // Reset buttons
     byId('wt-check-btn').classList.remove('ccr-hidden');
@@ -153,13 +178,16 @@
   // ----- Toggle wiring -------------------------------------------------------
 
   function wireToggles() {
+    var card = document.querySelector('.trainer-card');
+    if (card && bigTiles) card.classList.add('wt-big-tiles');
+
     var bigCheckbox = byId('wt-opt-big');
     if (bigCheckbox) {
       bigCheckbox.checked = bigTiles;
       bigCheckbox.addEventListener('change', function () {
         bigTiles = bigCheckbox.checked;
-        var card = document.querySelector('.trainer-card');
         if (card) card.classList.toggle('wt-big-tiles', bigTiles);
+        try { localStorage.setItem('ccr.wt.bigTiles', bigTiles); } catch (e) {}
       });
     }
   }
@@ -173,6 +201,20 @@
     if (newBtn)   newBtn.addEventListener('click', newHand);
     wireToggles();
     newHand();
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key >= '1' && e.key <= '9' && !checked) {
+        var tile = document.querySelector('.wt-answer-tile[data-value="' + e.key + '"]');
+        if (tile) tile.click();
+        return;
+      }
+      if (e.key === 'Enter') {
+        var active = document.activeElement;
+        if (active && (active.tagName === 'BUTTON' || active.tagName === 'INPUT')) return;
+        if (!checked) byId('wt-check-btn').click();
+        else byId('wt-new-btn').click();
+      }
+    });
   });
 
 })(window.WaitTrainer || (window.WaitTrainer = {}));
