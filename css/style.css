@@ -380,16 +380,23 @@ hr {
 /* ===== HOME: FEATURES GRID ===== */
 .features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
 }
 
-/* First two cards span 2 columns each → wider "primary" row */
+/* Top row: 2 wide cards */
 .feature-card:nth-child(1),
 .feature-card:nth-child(2) {
+  grid-column: span 3;
+}
+
+/* Bottom row: 3 equal cards */
+.feature-card:nth-child(3),
+.feature-card:nth-child(4),
+.feature-card:nth-child(5) {
   grid-column: span 2;
 }
 
@@ -418,13 +425,16 @@ hr {
   line-height: 1.6;
 }
 
-/* Tablet: 2 columns, drop primary-card spans */
+/* Tablet: 2 columns, drop all spans */
 @media (max-width: 1024px) {
   .features {
     grid-template-columns: repeat(2, 1fr);
   }
   .feature-card:nth-child(1),
-  .feature-card:nth-child(2) {
+  .feature-card:nth-child(2),
+  .feature-card:nth-child(3),
+  .feature-card:nth-child(4),
+  .feature-card:nth-child(5) {
     grid-column: span 1;
   }
 }
