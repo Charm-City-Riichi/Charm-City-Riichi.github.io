@@ -644,10 +644,7 @@ hr {
   text-align: center;
   margin-bottom: 1.5rem;
 }
-.faq-list {
-  max-width: 620px;
-  margin: 0 auto;
-}
+.faq-list {}
 .faq-item {
   padding: 1.1rem 0;
   border-bottom: 1px solid var(--color-border);
