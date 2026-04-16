@@ -577,7 +577,7 @@ hr {
 .schedule-glance {
   max-width: var(--max-width);
   margin: 0 auto 3rem;
-  padding: 0 1.5rem;
+  padding: 3rem 1.5rem 0;
   text-align: center;
 }
 .schedule-glance h2 {
