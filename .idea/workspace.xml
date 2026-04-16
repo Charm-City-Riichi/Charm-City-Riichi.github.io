@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index (trainers)" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,23 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="62482000" />
-    </task>
-    <task id="LOCAL-00103" summary="edit trainer">
-      <option name="closed" value="true" />
-      <created>1775859122824</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1775859122824</updated>
-    </task>
-    <task id="LOCAL-00104" summary="edit trainer">
-      <option name="closed" value="true" />
-      <created>1775861041817</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1775861041818</updated>
+      <workItem from="1775507658686" duration="62829000" />
     </task>
     <task id="LOCAL-00105" summary="added chinitsu waits trainer">
       <option name="closed" value="true" />
@@ -469,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776303518879</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="index update">
+      <option name="closed" value="true" />
+      <created>1776303779471</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303779471</updated>
+    </task>
+    <task id="LOCAL-00153" summary="index update">
+      <option name="closed" value="true" />
+      <created>1776303867361</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303867361</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit css" />
     <MESSAGE value="edit trainer" />
     <MESSAGE value="added chinitsu waits trainer" />
     <MESSAGE value="move chinitsu waits trainer" />
@@ -512,6 +511,7 @@
     <MESSAGE value="swap CTA image" />
     <MESSAGE value="index" />
     <MESSAGE value="index (trainers)" />
-    <option name="LAST_COMMIT_MESSAGE" value="index (trainers)" />
+    <MESSAGE value="index update" />
+    <option name="LAST_COMMIT_MESSAGE" value="index update" />
   </component>
 </project>
