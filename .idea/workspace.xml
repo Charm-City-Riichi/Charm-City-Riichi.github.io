@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index update" />
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index update">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,23 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="63388000" />
-    </task>
-    <task id="LOCAL-00107" summary="update flush waits trainer">
-      <option name="closed" value="true" />
-      <created>1775864865678</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1775864865678</updated>
-    </task>
-    <task id="LOCAL-00108" summary="add efficiency trainer">
-      <option name="closed" value="true" />
-      <created>1775879023357</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1775879023359</updated>
+      <workItem from="1775507658686" duration="63798000" />
     </task>
     <task id="LOCAL-00109" summary="update efficiency trainer">
       <option name="closed" value="true" />
@@ -469,7 +455,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776304426130</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="index update">
+      <option name="closed" value="true" />
+      <created>1776304518999</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1776304518999</updated>
+    </task>
+    <task id="LOCAL-00157" summary="index update">
+      <option name="closed" value="true" />
+      <created>1776304630362</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1776304630362</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
