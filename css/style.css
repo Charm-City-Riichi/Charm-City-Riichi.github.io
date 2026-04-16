@@ -469,7 +469,7 @@ hr {
   padding: 5rem 1.5rem 4rem;
   background:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.60)),
-    url('../mahjong images/cool hands/open baiman.webp') center/cover no-repeat;
+    url('../mahjong images/cool hands/open baiman.webp') center 70%/cover no-repeat;
   color: #fff;
   min-height: 380px;
   display: flex;
