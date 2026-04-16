@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index (trainers)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,47 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="62095000" />
-    </task>
-    <task id="LOCAL-00098" summary="added plausible analytics script">
-      <option name="closed" value="true" />
-      <created>1775855534064</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1775855534064</updated>
-    </task>
-    <task id="LOCAL-00099" summary="edit strategy">
-      <option name="closed" value="true" />
-      <created>1775855888983</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1775855888983</updated>
-    </task>
-    <task id="LOCAL-00100" summary="edit strategy">
-      <option name="closed" value="true" />
-      <created>1775856057816</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1775856057816</updated>
-    </task>
-    <task id="LOCAL-00101" summary="edit 3-player &amp; CSS for trainer">
-      <option name="closed" value="true" />
-      <created>1775858822130</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1775858822130</updated>
-    </task>
-    <task id="LOCAL-00102" summary="edit css">
-      <option name="closed" value="true" />
-      <created>1775858956568</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1775858956572</updated>
+      <workItem from="1775507658686" duration="62482000" />
     </task>
     <task id="LOCAL-00103" summary="edit trainer">
       <option name="closed" value="true" />
@@ -472,7 +429,47 @@
       <option name="project" value="LOCAL" />
       <updated>1776289805017</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="index">
+      <option name="closed" value="true" />
+      <created>1776303226562</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303226563</updated>
+    </task>
+    <task id="LOCAL-00148" summary="index">
+      <option name="closed" value="true" />
+      <created>1776303231212</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303231213</updated>
+    </task>
+    <task id="LOCAL-00149" summary="index">
+      <option name="closed" value="true" />
+      <created>1776303366896</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303366896</updated>
+    </task>
+    <task id="LOCAL-00150" summary="index">
+      <option name="closed" value="true" />
+      <created>1776303504132</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303504132</updated>
+    </task>
+    <task id="LOCAL-00151" summary="index (trainers)">
+      <option name="closed" value="true" />
+      <created>1776303518879</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303518879</updated>
+    </task>
+    <option name="localTasksCounter" value="152" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit 3-player &amp; CSS for trainer" />
     <MESSAGE value="edit css" />
     <MESSAGE value="edit trainer" />
     <MESSAGE value="added chinitsu waits trainer" />
@@ -515,6 +511,7 @@
     <MESSAGE value="sitemap" />
     <MESSAGE value="swap CTA image" />
     <MESSAGE value="index" />
-    <option name="LAST_COMMIT_MESSAGE" value="index" />
+    <MESSAGE value="index (trainers)" />
+    <option name="LAST_COMMIT_MESSAGE" value="index (trainers)" />
   </component>
 </project>
