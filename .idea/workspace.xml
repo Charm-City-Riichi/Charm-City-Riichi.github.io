@@ -75,23 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="62829000" />
-    </task>
-    <task id="LOCAL-00105" summary="added chinitsu waits trainer">
-      <option name="closed" value="true" />
-      <created>1775863622713</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1775863622714</updated>
-    </task>
-    <task id="LOCAL-00106" summary="move chinitsu waits trainer">
-      <option name="closed" value="true" />
-      <created>1775864175802</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1775864175802</updated>
+      <workItem from="1775507658686" duration="63388000" />
     </task>
     <task id="LOCAL-00107" summary="update flush waits trainer">
       <option name="closed" value="true" />
@@ -469,7 +453,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776303867361</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="index update">
+      <option name="closed" value="true" />
+      <created>1776303923361</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1776303923361</updated>
+    </task>
+    <task id="LOCAL-00155" summary="index update">
+      <option name="closed" value="true" />
+      <created>1776304426130</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1776304426130</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
