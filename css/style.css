@@ -532,15 +532,30 @@ hr {
 }
 
 .btn--large {
-  padding: 1.1rem 2.75rem;
-  font-size: 1.15rem;
-  border-radius: 8px;
+  padding: 1.4rem 3.5rem;
+  font-size: 1.35rem;
+  border-radius: 10px;
 }
 
 .register-cta {
   display: flex;
   justify-content: center;
   margin: 0 0 2rem;
+}
+
+.ccro-logo-heading {
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+.ccro-logo {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto;
+}
+@media (max-width: 480px) {
+  .ccro-logo { max-width: 220px; }
 }
 
 @media (max-width: 768px) {
