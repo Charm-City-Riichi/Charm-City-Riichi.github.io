@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="index update">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="ccro update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,23 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="65737000" />
-    </task>
-    <task id="LOCAL-00111" summary="add redirect link for CCRO">
-      <option name="closed" value="true" />
-      <created>1775882998725</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1775882998725</updated>
-    </task>
-    <task id="LOCAL-00112" summary="add redirect link for CCRO">
-      <option name="closed" value="true" />
-      <created>1775883579223</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1775883579223</updated>
+      <workItem from="1775507658686" duration="68089000" />
     </task>
     <task id="LOCAL-00113" summary="update ET">
       <option name="closed" value="true" />
@@ -471,7 +457,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776370272250</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="ccro update">
+      <option name="closed" value="true" />
+      <created>1777067659463</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1777067659464</updated>
+    </task>
+    <task id="LOCAL-00161" summary="ccro update">
+      <option name="closed" value="true" />
+      <created>1777067821063</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1777067821063</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit trainer" />
     <MESSAGE value="added chinitsu waits trainer" />
     <MESSAGE value="move chinitsu waits trainer" />
     <MESSAGE value="update flush waits trainer" />
@@ -514,6 +515,7 @@
     <MESSAGE value="index" />
     <MESSAGE value="index (trainers)" />
     <MESSAGE value="index update" />
-    <option name="LAST_COMMIT_MESSAGE" value="index update" />
+    <MESSAGE value="ccro update" />
+    <option name="LAST_COMMIT_MESSAGE" value="ccro update" />
   </component>
 </project>

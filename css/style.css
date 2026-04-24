@@ -544,8 +544,12 @@ hr {
 }
 
 .ccro-logo-heading {
+  display: block;
   text-align: center;
   margin: 0 0 1.5rem;
+}
+.ccro-logo-heading::after {
+  display: none;
 }
 .ccro-logo {
   display: block;
