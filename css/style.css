@@ -543,6 +543,16 @@ hr {
   margin: 0 0 2rem;
 }
 
+.sold-out-banner {
+  text-align: center;
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+}
+.sold-out-banner strong {
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
 .ccro-logo-heading {
   display: block;
   text-align: center;
