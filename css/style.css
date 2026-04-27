@@ -933,11 +933,29 @@ hr {
 
 .players-table-wrapper {
   max-height: 22rem;
-  overflow-y: auto;
+  overflow-y: scroll;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   margin: 1rem 0 1.5rem;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-surface);
+}
+.players-table-wrapper::-webkit-scrollbar {
+  width: 10px;
+  -webkit-appearance: none;
+}
+.players-table-wrapper::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+}
+.players-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 5px;
+  border: 2px solid var(--color-surface);
+}
+.players-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--color-heading);
 }
 .players-table-wrapper .schedule-table {
   margin: 0;

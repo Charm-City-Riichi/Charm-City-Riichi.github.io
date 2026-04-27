@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="ccro update">
+    <list default="true" id="2f282f85-39f1-4784-a787-6306b2b8a2a3" name="Changes" comment="add registered players">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events/ccro.html" beforeDir="false" afterPath="$PROJECT_DIR$/events/ccro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,23 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774661895139</updated>
       <workItem from="1774661896273" duration="34887000" />
-      <workItem from="1775507658686" duration="69298000" />
-    </task>
-    <task id="LOCAL-00114" summary="update ET">
-      <option name="closed" value="true" />
-      <created>1775885551315</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1775885551315</updated>
-    </task>
-    <task id="LOCAL-00115" summary="update ET">
-      <option name="closed" value="true" />
-      <created>1775886060377</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1775886060377</updated>
+      <workItem from="1775507658686" duration="70312000" />
     </task>
     <task id="LOCAL-00116" summary="update ET">
       <option name="closed" value="true" />
@@ -474,7 +455,23 @@
       <option name="project" value="LOCAL" />
       <updated>1777071795928</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="waitlist update">
+      <option name="closed" value="true" />
+      <created>1777091274287</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1777091274287</updated>
+    </task>
+    <task id="LOCAL-00164" summary="add registered players">
+      <option name="closed" value="true" />
+      <created>1777331082630</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1777331082630</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,8 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added chinitsu waits trainer" />
-    <MESSAGE value="move chinitsu waits trainer" />
     <MESSAGE value="update flush waits trainer" />
     <MESSAGE value="add efficiency trainer" />
     <MESSAGE value="add redirect link for CCRO" />
@@ -517,6 +512,8 @@
     <MESSAGE value="index (trainers)" />
     <MESSAGE value="index update" />
     <MESSAGE value="ccro update" />
-    <option name="LAST_COMMIT_MESSAGE" value="ccro update" />
+    <MESSAGE value="waitlist update" />
+    <MESSAGE value="add registered players" />
+    <option name="LAST_COMMIT_MESSAGE" value="add registered players" />
   </component>
 </project>
