@@ -931,6 +931,23 @@ hr {
   background: var(--color-highlight-subtle);
 }
 
+.players-table-wrapper {
+  max-height: 22rem;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin: 1rem 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+.players-table-wrapper .schedule-table {
+  margin: 0;
+}
+.players-table-wrapper .schedule-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   text-align: center;
