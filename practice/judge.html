@@ -1,0 +1,691 @@
+<!-- Judge Drill — Riichi tournament ruling trainer -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Judge Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Spline+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --felt:        #214b3c;
+    --felt-deep:   #143025;
+    --felt-line:   #0e231b;
+    --tile:        #f1ead8;
+    --tile-edge:   #d6cbac;
+    --tile-shadow: rgba(8, 22, 16, 0.45);
+    --ink:         #24231c;
+    --ink-soft:    #5d5a4b;
+    --ink-faint:   #908b76;
+
+    --warn:    #a9751a;
+    --dead:    #2c2c27;
+    --chonbo:  #bf3328;
+    --dq:      #7a1410;
+    --ok:      #2c7a53;
+    --consult: #41607d;
+    --info:    #6f5f3b;
+
+    --riichi:  #bf3328;
+
+    --display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --body:    "Spline Sans", system-ui, sans-serif;
+    --mono:    "Spline Sans Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; }
+
+  body {
+    min-height: 100vh;
+    font-family: var(--body);
+    color: var(--ink);
+    background:
+      radial-gradient(120% 90% at 50% -10%, #2c5c49 0%, var(--felt) 42%, var(--felt-deep) 100%);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    justify-content: center;
+    padding: 22px 16px 40px;
+  }
+
+  /* table-edge frame */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 9px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: inset 0 0 0 1px var(--felt-line), inset 0 0 60px rgba(0,0,0,0.35);
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* ---- header ---- */
+  .masthead { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .brand h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #f6f1e3;
+    margin: 0;
+  }
+  .brand p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(241,234,216,0.55);
+    font-family: var(--mono);
+  }
+  .scoreboard {
+    text-align: right;
+    font-family: var(--mono);
+    color: rgba(241,234,216,0.8);
+    flex-shrink: 0;
+  }
+  .scoreboard .num {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 26px;
+    color: #f6f1e3;
+    line-height: 1;
+  }
+  .scoreboard .lbl {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(241,234,216,0.5);
+    margin-top: 3px;
+  }
+
+  /* mastery bar */
+  .progress {
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.28);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #d8b24a, #e8cf86);
+    transition: width 0.5s ease;
+  }
+
+  /* ---- tile card ---- */
+  .tile {
+    background:
+      linear-gradient(180deg, #f7f2e4 0%, var(--tile) 14%, var(--tile) 86%, #e7dec4 100%);
+    border-radius: 14px;
+    padding: 22px 22px 24px;
+    box-shadow:
+      0 1px 0 #fffaf0 inset,
+      0 -6px 0 var(--tile-edge) inset,
+      0 18px 34px -14px var(--tile-shadow),
+      0 3px 0 #b7ab8a;
+    position: relative;
+    overflow: hidden;
+    animation: dealIn 0.42s cubic-bezier(0.2, 0.9, 0.25, 1);
+  }
+  @keyframes dealIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.985); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.3;
+  }
+  .kind {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    flex-shrink: 0;
+  }
+  .kind.scenario { color: var(--consult); }
+  .kind.rule { color: var(--info); }
+
+  .prompt {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(19px, 4.6vw, 23px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* riichi-stick mastery meter */
+  .sticks { display: flex; gap: 6px; margin-top: 20px; align-items: center; }
+  .sticks .cap {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+  .stick {
+    width: 30px; height: 9px;
+    border-radius: 5px;
+    background: #e2d9bf;
+    box-shadow: inset 0 0 0 1px #cdbf9c;
+    position: relative;
+  }
+  .stick.lit {
+    background: #f6f1e3;
+    box-shadow: inset 0 0 0 1px #c9bb96, 0 1px 2px rgba(0,0,0,0.12);
+  }
+  .stick.lit::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--riichi);
+    transform: translate(-50%, -50%);
+  }
+
+  /* answer region */
+  .answer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease, opacity 0.35s ease, margin 0.4s ease;
+    margin-top: 0;
+  }
+  .answer.open {
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 20px;
+  }
+  .rule-divider {
+    border: none;
+    border-top: 1px dashed #cfc4a4;
+    margin: 0 0 16px;
+  }
+  .stamp {
+    display: inline-block;
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tone, var(--ink));
+    border: 2px solid var(--tone, var(--ink));
+    border-radius: 7px;
+    padding: 7px 13px;
+    transform: rotate(-2.4deg);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--tone, var(--ink)) 9%, transparent);
+    animation: stamped 0.32s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  }
+  @keyframes stamped {
+    0%   { opacity: 0; transform: rotate(-2.4deg) scale(1.45); }
+    60%  { opacity: 1; }
+    100% { opacity: 1; transform: rotate(-2.4deg) scale(1); }
+  }
+  .ruling {
+    margin: 16px 0 0;
+    font-size: 15.5px;
+    line-height: 1.58;
+    color: #34322a;
+  }
+
+  /* ---- buttons ---- */
+  .actions { display: flex; gap: 10px; }
+  button {
+    font-family: var(--body);
+    cursor: pointer;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 16px;
+    transition: transform 0.08s ease, filter 0.15s ease, background 0.15s ease;
+  }
+  button:active { transform: translateY(1px) scale(0.995); }
+  button:focus-visible { outline: 3px solid #f0d56b; outline-offset: 2px; }
+
+  .btn-reveal {
+    flex: 1;
+    background: #2b2b27;
+    color: #f4efe2;
+    letter-spacing: 0.01em;
+  }
+  .btn-reveal:hover { filter: brightness(1.18); }
+
+  .grade { flex: 1; color: #fff; }
+  .btn-miss { background: var(--chonbo); }
+  .btn-miss:hover { filter: brightness(1.08); }
+  .btn-got  { background: var(--ok); }
+  .btn-got:hover { filter: brightness(1.08); }
+  .actions.hidden { display: none; }
+
+  /* footer */
+  .footbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(241,234,216,0.5);
+    letter-spacing: 0.04em;
+  }
+  .footbar kbd {
+    font-family: var(--mono);
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 1px 5px;
+    color: rgba(241,234,216,0.75);
+  }
+  .reset {
+    background: none;
+    color: rgba(241,234,216,0.55);
+    border: 1px solid rgba(241,234,216,0.2);
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+  .reset:hover { color: #f1ead8; border-color: rgba(241,234,216,0.45); }
+
+  .loading {
+    color: rgba(241,234,216,0.7);
+    font-family: var(--mono);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+
+<div class="wrap" id="wrap">
+  <div class="masthead">
+    <div class="brand">
+      <h1>Judge Drill</h1>
+      <p>Reduced-penalty ruling trainer</p>
+    </div>
+    <div class="scoreboard">
+      <div class="num" id="masteredNum">0</div>
+      <div class="lbl">mastered / <span id="totalNum">0</span></div>
+    </div>
+  </div>
+  <div class="progress"><span id="progressBar"></span></div>
+
+  <div id="stage">
+    <div class="loading">Setting up the deck…</div>
+  </div>
+
+  <div class="footbar">
+    <span><kbd>space</kbd> reveal · <kbd>1</kbd> missed · <kbd>2</kbd> got it</span>
+    <button class="reset" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<script>
+// ---------------- deck ----------------
+const DECK = [
+  // Judging attitude
+  {id:"ja1", cat:"Judging Attitude", kind:"rule", tone:"info",
+   q:"What is the Head Judge's privilege regarding rulings?", verdict:"Head Judge",
+   a:"The Head Judge may give the final ruling on any situation — even one that deviates from the rulebook — but only in good faith, to keep the integrity and goodwill of the tournament intact."},
+  {id:"ja2", cat:"Judging Attitude", kind:"scenario", tone:"consult",
+   q:"You watch a player deliberately and maliciously exploit a rule to gain an illegal advantage. Do you step in?", verdict:"Step In",
+   a:"Yes. Malicious, deliberate rule-exploitation is the case where a judge proactively intervenes to protect tournament integrity — even without being called."},
+  {id:"ja3", cat:"Judging Attitude", kind:"scenario", tone:"ok",
+   q:"A player makes an honest, accidental error in good faith. No one at the table has called you over. What do you do?", verdict:"Don't Intervene",
+   a:"Nothing. Catching a good-faith error is the table's responsibility. Stay laissez-faire — don't step in or affect the table in any way unless you're called."},
+  {id:"ja4", cat:"Judging Attitude", kind:"scenario", tone:"consult",
+   q:"You are 100% uncertain how to rule on a situation. What's the move?", verdict:"Consult Head Judge",
+   a:"Consult the Head Judge. For all other calls where the Head Judge should be looped in, whether the table keeps playing is left to your discretion."},
+  {id:"ja5", cat:"Judging Attitude", kind:"scenario", tone:"consult",
+   q:"A player taps away a smartwatch notification out of habit — not to peek at hidden info. How do you handle it?", verdict:"Consult HJ · Keep Playing",
+   a:"For a minor or unprovable offense, consult the Head Judge but let the table continue playing. The same applies when you suspect cheating you can't actually catch."},
+  {id:"ja6", cat:"Judging Attitude", kind:"scenario", tone:"consult",
+   q:"A player is, beyond reasonable doubt, actively cheating — or the situation hinges on the exact current gamestate. What do you do at the table?", verdict:"Freeze Table",
+   a:"Instruct players to keep their hands off the table and pause. Call the Head Judge for consultation and stay tableside to monitor — at minimum keep a clear line of sight with the table."},
+  {id:"ja7", cat:"Judging Attitude", kind:"rule", tone:"info",
+   q:"What must a judge avoid giving away, even unintentionally?", verdict:"No Info Leaks",
+   a:"Any information not required for a ruling — including facial expressions while looking at hands or tables. If you can't keep a neutral face, avoid looking at hands and do so only when necessary."},
+  {id:"ja8", cat:"Judging Attitude", kind:"rule", tone:"info",
+   q:"Once a tile has been discarded, what is no longer allowed?", verdict:"Locked In",
+   a:"No more changing or canceling declarations. The discard locks everything in."},
+  {id:"ja9", cat:"Judging Attitude", kind:"rule", tone:"info",
+   q:"When may you award a table extra time?", verdict:"Rarely",
+   a:"Only for an extenuating circumstance, or when your decision delays the table through no fault of their own. Any extra time must be consulted and communicated with the Head Judge."},
+
+  // Penalty meanings
+  {id:"pm1", cat:"Penalty Types", kind:"rule", tone:"warn",
+   q:"What does a Warning entail?", verdict:"Warning",
+   a:"A verbal warning. The player's number is recorded, and they are given a strike."},
+  {id:"pm2", cat:"Penalty Types", kind:"rule", tone:"dead",
+   q:"Under a Dead Hand, what can and can't a player do?", verdict:"Dead Hand",
+   a:"No calls at all — chi, pon, kan, riichi, ron, or tsumo. They may choose discards to defend, unless they're in riichi, where forced tsumogiri (discarding the drawn tile) applies. They are counted as noten at ryuukyoku."},
+  {id:"pm3", cat:"Penalty Types", kind:"rule", tone:"chonbo",
+   q:"What are the score and gamestate consequences of a Chonbo?", verdict:"Chonbo −20",
+   a:"−20 tournament score (no effect on the current hanchan). The hand fully resets: riichi sticks return to their declarers, honba does not increase, the wind does not rotate, and the hand is immediately reshuffled and re-dealt."},
+  {id:"pm4", cat:"Penalty Types", kind:"rule", tone:"info",
+   q:"How much extra time accompanies a Chonbo?", verdict:"+ Time",
+   a:"+2 minutes to the table, plus 1 minute per completed row (6 discards), capped at +5 minutes per hanchan."},
+  {id:"pm5", cat:"Penalty Types", kind:"rule", tone:"consult",
+   q:"How do you handle a potential disqualification?", verdict:"Consult Head Judge",
+   a:"Consult the Head Judge. Do NOT suggest disqualification as a possibility to the offending player."},
+
+  // Strikes
+  {id:"st1", cat:"Strike System", kind:"rule", tone:"info",
+   q:"What happens when a player reaches 3 strikes?", verdict:"Escalate",
+   a:"Each warning is a strike. At 3 strikes, the player becomes eligible for an Obstruction Chombo / point penalty (at or below that level), plus another warning — at the Head Judge's discretion."},
+
+  // Shuffle errors
+  {id:"sh1", cat:"Shuffle Errors", kind:"scenario", tone:"ok",
+   q:"During the deal, before the dealer's first discard, the wall gets messed up. What's the ruling?", verdict:"Re-deal · No Penalty",
+   a:"No penalty — re-deal. If you were called over, record the affecting player's number and add a strike. If players ask to continue, the question is 'Can the hand continue as normal?' Rinshan / second-indicator issues → no; others case by case; reshuffle if unsure."},
+  {id:"sh2", cat:"Shuffle Errors", kind:"scenario", tone:"dead",
+   q:"At any point, a player is found to have too many or too few tiles. Ruling?", verdict:"Dead Hand",
+   a:"Dead Hand — at any moment this is discovered."},
+  {id:"sh3", cat:"Shuffle Errors", kind:"scenario", tone:"warn",
+   q:"A player draws from the wrong spot or out of turn order, but the tile is still clearly identifiable and not yet in their hand. Ruling?", verdict:"Warning",
+   a:"Warning and a strike; the player puts the tile back. But if the tile was merged into their hand so it's not 100% certain which it was, or it was discarded → Dead Hand."},
+  {id:"sh4", cat:"Shuffle Errors", kind:"scenario", tone:"warn",
+   q:"A player knocks over 2 of their own tiles, revealing them. Ruling?", verdict:"Warning",
+   a:"Knocking over 1–2 tiles → warning and a strike."},
+  {id:"sh5", cat:"Shuffle Errors", kind:"scenario", tone:"dead",
+   q:"A player knocks over 4 of their own tiles. Ruling?", verdict:"Dead Hand",
+   a:"Knocking over 3–6 tiles → Dead Hand."},
+  {id:"sh6", cat:"Shuffle Errors", kind:"scenario", tone:"dead",
+   q:"A player knocks over 8 of their own tiles. Ruling?", verdict:"Dead Hand · Consult HJ",
+   a:"7+ tiles → Dead Hand, and consult the Head Judge. If you perceive the hand can't conclude or proceed normally, the hand is redone and the offender receives a Chonbo (−20) — consult the Head Judge."},
+
+  // Call / declaration errors
+  {id:"cd1", cat:"Call / Declaration Errors", kind:"rule", tone:"consult",
+   q:"How do you handle a 'called too fast / too late' situation?", verdict:"Consult Head Judge",
+   a:"Consult the Head Judge — there are lots of weird edge scenarios here."},
+  {id:"cd2", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player calls pon on a tile they can't actually pon. No win is involved. Ruling?", verdict:"Warning",
+   a:"An empty call for a group — a call you're unable to make — is a warning."},
+  {id:"cd3", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player declares an ankan (concealed quad) they can't actually make. Ruling?", verdict:"Warning",
+   a:"An empty concealed-kan declaration is a warning."},
+  {id:"cd4", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player declares riichi, then wants to take it back. The next player hasn't drawn yet and no stick has been wagered. Ruling?", verdict:"Warning",
+   a:"An empty riichi declaration is a warning — but only if the next player hasn't drawn AND the offender hasn't wagered a stick in the middle of the board."},
+  {id:"cd5", cat:"Call / Declaration Errors", kind:"scenario", tone:"dead",
+   q:"A player calls a win but reveals no tiles to back it. Ruling?", verdict:"Dead Hand",
+   a:"An empty call for a win — no tiles revealed — is a Dead Hand."},
+  {id:"cd6", cat:"Call / Declaration Errors", kind:"scenario", tone:"chonbo",
+   q:"A player calls a win and reveals their hand, but they're noten (or furiten). Ruling?", verdict:"Chonbo −20",
+   a:"An illegal win call → Chonbo, −20 tournament score. If ryuukyoku was declared early, the dealer is given the chonbo — consult the Head Judge for the specifics of the call."},
+  {id:"cd7", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player who has already declared riichi tries to make a call. Ruling?", verdict:"Warning · Voided",
+   a:"Warning, and the call is voided. This applies whether or not tiles were revealed."},
+  {id:"cd8", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player whose hand is dead — but NOT yet officially declared dead by a judge — makes a call. Ruling?", verdict:"Warning",
+   a:"Warning, and now officially declare the dead hand. But if it was a winning call → Chonbo."},
+  {id:"cd9", cat:"Call / Declaration Errors", kind:"scenario", tone:"chonbo",
+   q:"A player whose hand was ALREADY officially declared dead by a judge makes a call. Ruling?", verdict:"Chonbo −20",
+   a:"Chonbo, −20 tournament score."},
+  {id:"cd10", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player's call is slurred, inaudible, or uses a weird term. Ruling?", verdict:"Warning",
+   a:"Warning. Go by whatever tiles were dropped relative to what call was declared."},
+  {id:"cd11", cat:"Call / Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player makes one call, then tries to change it to a different call. Ruling?", verdict:"Warning",
+   a:"Warning — they can only make the first call. If the first call is impossible, give a Dead Hand for making an illegal call."},
+
+  // Meld errors
+  {id:"me1", cat:"Meld Errors", kind:"scenario", tone:"warn",
+   q:"A player reveals an invalid pon during the hand, caught BEFORE they discard. Ruling?", verdict:"Warning",
+   a:"Caught before the discard → warning, and the player can change it. (Caught after the discard → Dead Hand.)"},
+  {id:"me2", cat:"Meld Errors", kind:"scenario", tone:"dead",
+   q:"A player reveals an invalid chi, but it's only caught AFTER they've discarded. Ruling?", verdict:"Dead Hand",
+   a:"Caught after the discard → Dead Hand."},
+  {id:"me3", cat:"Meld Errors", kind:"scenario", tone:"dead",
+   q:"After a call, a player discards a tile they could have made the exact same call on (kuikae / swap calling). Ruling?", verdict:"Dead Hand",
+   a:"Kuikae → Dead Hand. It cannot be changed from the discard."},
+  {id:"me4", cat:"Meld Errors", kind:"scenario", tone:"info",
+   q:"A player pons from across the table (toimen), but turns the called tile sideways as if it came from their right (shimocha). Ruling?", verdict:"Correct It",
+   a:"Must be corrected immediately, with no penalty or warning. If it isn't corrected within a reasonable time, the tile counts as furiten for the player it's presumed to be from, and any resulting penalties are handled as normal."},
+  {id:"me5", cat:"Meld Errors", kind:"scenario", tone:"warn",
+   q:"A player calls chi on 1s, but it's the 2s that's turned sideways on the felt. Ruling?", verdict:"Correct It · Warning",
+   a:"Same as misplaced-tile rules — correct immediately, otherwise furiten is handled as normal — BUT the player who chi'd also gets a warning for an illegal call."},
+
+  // Riichi declaration errors
+  {id:"ri1", cat:"Riichi Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player declares riichi but forgets to rotate their discarded tile. Ruling?", verdict:"Warning",
+   a:"Warning. If it's unknown which tile was the riichi discard, the earliest supposed tile is treated as the riichi tile and turned sideways; furiten is judged from that tile's perspective. Consult the Head Judge on what counts as post-riichi in each pond."},
+  {id:"ri2", cat:"Riichi Declaration Errors", kind:"scenario", tone:"chonbo",
+   q:"At ryuukyoku, a player who declared riichi turns out to have been noten the whole time. Ruling?", verdict:"Chonbo −20",
+   a:"Noten riichi → Chonbo, −20 tournament score."},
+  {id:"ri3", cat:"Riichi Declaration Errors", kind:"scenario", tone:"consult",
+   q:"A player's hand goes dead AFTER they declared riichi, then it reaches ryuukyoku. Are they chonbo'd for noten riichi?", verdict:"Depends",
+   a:"Not automatically. A dead hand after riichi is treated as noten but is NOT a chonbo by itself. To avoid the chonbo, the player must show their hand was tenpai at ryuukyoku; they pay the other tenpai players as a normal noten player."},
+  {id:"ri4", cat:"Riichi Declaration Errors", kind:"scenario", tone:"warn",
+   q:"A player declares riichi, but their hand is already open from a prior chi, pon, or open kan. Ruling?", verdict:"Warning",
+   a:"Open riichi → warning, and the riichi deposit is not paid."},
+  {id:"ri5", cat:"Riichi Declaration Errors", kind:"scenario", tone:"dead",
+   q:"A player in riichi discards a tile from their hand instead of tsumogiri (post-riichi tedashi). Ruling?", verdict:"Dead Hand",
+   a:"Dead Hand. The riichi stick stays and the player remains in riichi. If the hand reaches ryuukyoku, it's treated as noten and a Chonbo is given."},
+  {id:"ri6", cat:"Riichi Declaration Errors", kind:"scenario", tone:"chonbo",
+   q:"A player in riichi declares an ankan that wasn't actually valid (it changed their wait). Ruling?", verdict:"Chonbo −20",
+   a:"Post-riichi invalid ankan → Chonbo, −20 tournament score."},
+  {id:"ri7", cat:"Riichi Declaration Errors", kind:"scenario", tone:"warn",
+   q:"The live wall is exhausted, but a player draws and plays on anyway. The drawn tile is still identifiable. Ruling?", verdict:"Warning",
+   a:"Place the tile back and give a warning. If there was a call on the last tile, void the call and give a warning / strike."},
+
+  // Obstruction & cheating
+  {id:"ob1", cat:"Obstruction & Cheating", kind:"rule", tone:"consult",
+   q:"How do you handle obstruction, a foreign object, or passing information?", verdict:"Consult Head Judge",
+   a:"All three are judge's discretion — consult the Head Judge."},
+  {id:"ob2", cat:"Obstruction & Cheating", kind:"scenario", tone:"dq",
+   q:"A player intentionally commits a foul, or tricks an opponent into committing one. What is this, and the ruling?", verdict:"Disqualification",
+   a:"That's cheating — intentionally committing a foul, or tricking another player into committing one. Ruling: disqualification, consult the Head Judge."},
+
+  // Score reporting
+  {id:"sc1", cat:"Incorrect Score Reporting", kind:"scenario", tone:"warn",
+   q:"The all-last sheet is inconsistent because one player was clearly and overly negligent. Ruling?", verdict:"Warning",
+   a:"A warning — but only if one player is clearly and overly negligent in a way that caused the inconsistency."},
+  {id:"sc2", cat:"Incorrect Score Reporting", kind:"scenario", tone:"warn",
+   q:"A report sheet comes back inconsistent. What do you do?", verdict:"Warning · Reconcile",
+   a:"Warning, and actively try to reconcile the inconsistency. If point sticks were incorrectly counted on the all-last sheet, go by the all-last sheet to prevent fraudulent score reporting."},
+
+  // Absence
+  {id:"ab1", cat:"Absence in Hanchan", kind:"rule", tone:"consult",
+   q:"A player is late to a hanchan. Ruling?", verdict:"Consult Head Judge",
+   a:"Judge's discretion — consult the Head Judge."},
+  {id:"ab2", cat:"Absence in Hanchan", kind:"rule", tone:"chonbo",
+   q:"A player forfeits a hanchan. Ruling?", verdict:"Chombo −30",
+   a:"Chombo, −30 tournament score, and immediate replacement."},
+];
+
+const TONE = { warn:"var(--warn)", dead:"var(--dead)", chonbo:"var(--chonbo)",
+               dq:"var(--dq)", ok:"var(--ok)", consult:"var(--consult)", info:"var(--info)" };
+
+// ---------------- storage ----------------
+const KEY = "judgedrill-srs-v1";
+// box -> due delay (ms). box 1 = due immediately.
+const INTERVALS = [0, 0, 5*60e3, 25*60e3, 2*3600e3, 12*3600e3];
+let mem = null; // last-resort in-memory store
+// Prefer Claude's artifact storage when present; otherwise fall back to the
+// browser's localStorage so progress persists on a normal web host too.
+const hasStore = typeof window !== "undefined" && window.storage && typeof window.storage.get === "function";
+function hasLocal() {
+  try { return typeof localStorage !== "undefined"; } catch (e) { return false; }
+}
+
+async function loadState() {
+  if (hasStore) {
+    try {
+      const r = await window.storage.get(KEY);
+      if (r && r.value) return JSON.parse(r.value);
+    } catch (e) { /* key not set yet */ }
+    return {};
+  }
+  if (hasLocal()) {
+    try {
+      const v = localStorage.getItem(KEY);
+      if (v) return JSON.parse(v);
+    } catch (e) { /* unreadable */ }
+    return {};
+  }
+  return mem || {};
+}
+async function saveState(state) {
+  if (hasStore) {
+    try { await window.storage.set(KEY, JSON.stringify(state)); } catch (e) { console.warn("save failed", e); }
+  } else if (hasLocal()) {
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { console.warn("save failed", e); }
+  } else {
+    mem = state;
+  }
+}
+
+// ---------------- app ----------------
+let state = {};
+let current = null;
+let lastId = null;
+let revealed = false;
+
+function cardState(id) {
+  if (!state[id]) state[id] = { box: 1, due: 0, seen: 0, last: 0 };
+  return state[id];
+}
+
+function pickNext() {
+  const now = Date.now();
+  let pool = DECK.filter(c => c.id !== lastId);
+  if (pool.length === 0) pool = DECK.slice();
+  const due = pool.filter(c => cardState(c.id).due <= now);
+  const source = due.length ? due : pool;
+  source.sort((a, b) => {
+    const A = cardState(a.id), B = cardState(b.id);
+    return A.box - B.box || A.due - B.due || A.last - B.last;
+  });
+  // light randomization among the most-due few, so a session doesn't feel scripted
+  const span = Math.min(3, source.length);
+  return source[Math.floor(Math.random() * span)];
+}
+
+function refreshScore() {
+  const mastered = DECK.filter(c => cardState(c.id).box >= 4).length;
+  document.getElementById("masteredNum").textContent = mastered;
+  document.getElementById("totalNum").textContent = DECK.length;
+  document.getElementById("progressBar").style.width = (mastered / DECK.length * 100) + "%";
+}
+
+function render() {
+  const c = current;
+  const cs = cardState(c.id);
+  const sticks = Array.from({length:5}, (_,i)=>
+    `<div class="stick ${i < cs.box ? "lit":""}"></div>`).join("");
+
+  document.getElementById("stage").innerHTML = `
+    <div class="tile">
+      <div class="meta">
+        <div class="eyebrow">${c.cat}</div>
+        <div class="kind ${c.kind}">${c.kind}</div>
+      </div>
+      <p class="prompt">${c.q}</p>
+      <div class="sticks"><span class="cap">recall</span>${sticks}</div>
+      <div class="answer" id="answer">
+        <hr class="rule-divider" />
+        <span class="stamp" style="--tone:${TONE[c.tone]}">${c.verdict}</span>
+        <p class="ruling">${c.a}</p>
+      </div>
+      <div style="margin-top:20px">
+        <div class="actions" id="revealRow">
+          <button class="btn-reveal" id="revealBtn">Reveal ruling</button>
+        </div>
+        <div class="actions hidden" id="gradeRow">
+          <button class="grade btn-miss" id="missBtn">Missed it</button>
+          <button class="grade btn-got" id="gotBtn">Got it</button>
+        </div>
+      </div>
+    </div>`;
+
+  revealed = false;
+  document.getElementById("revealBtn").onclick = doReveal;
+  document.getElementById("missBtn").onclick = () => grade(false);
+  document.getElementById("gotBtn").onclick = () => grade(true);
+}
+
+function doReveal() {
+  if (revealed) return;
+  revealed = true;
+  document.getElementById("answer").classList.add("open");
+  document.getElementById("revealRow").classList.add("hidden");
+  document.getElementById("gradeRow").classList.remove("hidden");
+}
+
+async function grade(correct) {
+  if (!revealed) return;
+  const cs = cardState(current.id);
+  cs.box = correct ? Math.min(cs.box + 1, 5) : 1;
+  cs.due = Date.now() + INTERVALS[cs.box];
+  cs.seen += 1;
+  cs.last = Date.now();
+  lastId = current.id;
+  await saveState(state);
+  refreshScore();
+  next();
+}
+
+function next() {
+  current = pickNext();
+  render();
+}
+
+async function init() {
+  state = await loadState();
+  refreshScore();
+  next();
+}
+
+// keyboard
+document.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "INPUT") return;
+  if ((e.key === " " || e.key === "Enter") && !revealed) { e.preventDefault(); doReveal(); }
+  else if (revealed && (e.key === "1")) { e.preventDefault(); grade(false); }
+  else if (revealed && (e.key === "2")) { e.preventDefault(); grade(true); }
+});
+
+document.getElementById("resetBtn").onclick = async () => {
+  if (!confirm("Reset all recall progress? This clears every card's box and history.")) return;
+  state = {};
+  await saveState(state);
+  lastId = null;
+  refreshScore();
+  next();
+};
+
+init();
+</script>
